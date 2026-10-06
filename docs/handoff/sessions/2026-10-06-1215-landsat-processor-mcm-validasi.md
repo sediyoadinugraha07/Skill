@@ -59,6 +59,28 @@ Batasan tetap dari pengguna: jangan mengarang rumus, angka, atau sumber; jangan 
 - Ketergantungan akurasi pada data Landsat 8/9 spesifik.
 - Jumlah sampel regresi (n) bukan angka baku literatur; murni parameter pengguna.
 
+## Verifikasi di Claude Code (2026-10-06, dari zip v34 yang diunggah)
+
+Zip diekstrak ke direktori bersih, dependensi dipasang (numpy 2.5.3, rasterio, openpyxl 3.1.5, PySide6, dll).
+
+Terkonfirmasi:
+- Seluruh `main.py`, `core/*.py`, `gui/*.py` lolos kompilasi. Tidak ada SyntaxError di `core/validation.py`.
+- Berkas baru ada: `core/validation.py`, `core/validation_report.py`, `gui/validation_page.py`. Kategori "Validasi" terdaftar di `gui/main_window.py` setelah Landsat Level 2.
+- `core/six_s_correction.py` dan `bin/*` memang tidak ikut zip.
+- Jumlah definisi tes 198 (80 di `test_lst.py`, 20 di `test_validation.py`), cocok dengan entri.
+- Kode chart: `axPos` sumbu X "b", skala min/max X dan Y identik, marker berwarna eksplisit, nama sheet "Diagram Validasi 1 banding 1". Cocok dengan keputusan di atas.
+- Statistik MBE ada di kode dan docstring-nya mencatat tebakan "MEE" sebagai [Confidence rendah].
+
+Koreksi atas entri:
+- **"198 tes lulus" tidak reproduksibel di luar workspace asal.** Hasil rerun: 197 lulus, 1 gagal (`tests/test_region_masking.py::test_apply_with_target_crs_reprojection`). Penyebabnya path hardcoded `/home/claude/qa_pixel_check/...` dan `/home/claude/shp_check/...` di lima berkas tes yang membaca data nyata (QA_PIXEL dan shapefile Karangasem tidak ada di zip). Itu masalah ketergantungan data, bukan bug logika, tetapi belum dibuktikan karena data aslinya tidak tersedia di sini.
+- Tes lain yang memakai data nyata (`test_cloud_mask_real_data.py`, `test_region_masking_real_shapefile.py`, `test_cloud_masking_output_into_region_masking.py`, `test_full_pipeline.py`) terkumpul nol fungsi `test_` di tingkat modul. Mereka tampaknya berupa skrip, bukan tes pytest, sehingga tidak ikut hitungan 198. Perlu dicek.
+
+Belum diverifikasi di sesi ini:
+- Render chart di Excel asli (di sini juga tidak ada Excel atau LibreOffice yang saya jalankan).
+- Kebenaran rumus Mao dan sumber paper (Nugraha et al. 2024, Correndo et al. 2021). Saya tidak memeriksa sumbernya. This needs verification.
+- Smoke test GUI headless Mao dan Validasi belum saya ulang.
+- Kode aplikasi masih hanya ada di zip unggahan, belum di repo manapun.
+
 ## Langkah berikutnya
 
 1. Kode aplikasi belum ada di repo manapun. Taruh `landsat_processor_v34.zip` ke repo (misalnya repo terpisah `landsat-processor`) supaya Claude Code bisa melanjutkan; dokumen ini tidak membawa kodenya.
