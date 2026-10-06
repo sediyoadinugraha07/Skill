@@ -182,6 +182,14 @@ Dibaca: Qin dkk. (2001b), JGR 106(D19):22655-22670, hlm. 1-8 (Eq. 1-39, Tabel 3-
 
 **Usulan perbaikan (belum dilakukan, menunggu persetujuan):** (a) `mcm_qin`: A0 = E1*a10 - E2*a11 dan koefisien L_i (Kelvin) dengan pilihan rentang suhu; (b) `mcm_mao`: implementasi Eq. 25 Mao dengan fungsi linear generik; (c) tes pytest berbasis round trip; (d) tinjau ulang apakah tanda plus di Rozenstein/Nugraha adalah salah ketik di paper tersebut (periksa notifikasi koreksi Rozenstein 2014).
 
+## Perbaikan diterapkan di repo App_RS (commit 5ae505c, 2026-10-06)
+
+- `mcm_qin`: A0 = E1*a10 - E2*a11. Koefisien a_i,b_i kini L_i (Kelvin): `LSTJob.compute_mcm_qin(..., li_source="image")` meregresi L_i vs BT dari sampel citra (`sample_and_regress_bt_li`, Excel tetap dibuat), atau `li_source` = "0-60"/"0-30"/"0-40"/"10-40"/"10-50" memakai `ROZENSTEIN_LI_COEFFICIENTS` (Tabel 1 dan teks Rozenstein 2014, tanpa sampling dan tanpa Excel). Raster radiance tidak dipakai lagi untuk Qin (boleh None).
+- `mcm_mao`: solusi eksak Mao 2005 Eq. 22-25; regresi radiance tetap. Deteksi piksel degenerate memakai faktor bebas-b karena `denom == 0` tidak andal di float32.
+- Tes: `tests/test_mcm_roundtrip.py` baru (Qin dan Mao memulihkan Ts dalam 0,3-0,6 K; kontrol negatif tanda plus gagal di bawah -2,5 K) plus pembaruan dan penambahan tes di `tests/test_lst.py`. Hasil: 205 lulus, 1 gagal (tes yang bergantung data nyata `/home/claude/...`, sama seperti sebelumnya).
+- GUI tab Qin: pilihan sumber koefisien L_i; validasi tidak lagi mewajibkan radiance. **Hanya `py_compile` yang dijalankan; GUI belum dijalankan** karena PySide6 tidak bisa dimuat di lingkungan ini (libEGL.so.1 tidak ada).
+- Hasil Qin dan Mao yang dibuat sebelum perbaikan harus dihitung ulang.
+
 ## Langkah berikutnya
 
 1. Kode aplikasi belum ada di repo manapun. Taruh `landsat_processor_v34.zip` ke repo (misalnya repo terpisah `landsat-processor`) supaya Claude Code bisa melanjutkan; dokumen ini tidak membawa kodenya.
