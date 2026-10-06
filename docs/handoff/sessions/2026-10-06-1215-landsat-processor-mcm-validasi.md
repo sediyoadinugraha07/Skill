@@ -209,3 +209,10 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Dengan koefisien L yang sama, Qin dan Mao kini identik secara numerik (selisih 0.000 pada data nyata). "Mao meniru Qin" kini terbukti, bukan hanya asumsi.
 - Hasil: `landsat_processor_v35.zip`, 205 tes lulus. Detail di bagian README "Koreksi MCM Qin dan Mao terhadap sumber asli (v35)".
 - Belum dilakukan: pemeriksaan terhadap artikel acuan lain yang akan diunggah pengguna; mono-window Qin 2001 (Karnieli) belum ada di aplikasi.
+
+## Koreksi lanjutan 2 (rilis v36 dan v37)
+
+- v36: Excel MCM Qin/Mao punya sheet "Diagram Parameter Li" (chart native ala Gambar 1b Qin, dua band, garis regresi Li = a + bT, tanpa pembagian rentang suhu).
+- v37: Mao dipisah dua rumus. (1) Mao 2005 asli Pers. 25, koefisien radiance vs BT (Gambar 2 Mao), tanpa K2, bawaan. (2) Nugraha/Sekertekin Pers. 33-41, parameter L Kelvin, butuh K2, identik dengan Qin.
+- Dasar: Sekertekin & Bonafoni 2020 Tabel 2 (L10 = 0.4464*T - 66.61) berdimensi Kelvin; `planck_L_parameter` mereproduksinya. Klaim pengguna bahwa L di rumus B1/B0 adalah regresi radiance tidak didukung makalah itu.
+- Data nyata: Mao asli minus Qin = -0.05 C (sd 0.02). 208 tes lulus.
