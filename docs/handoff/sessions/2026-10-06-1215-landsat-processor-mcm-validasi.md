@@ -146,6 +146,26 @@ Sumber: Sensors 14(4):5768-5780, PDF diunggah pengguna, halaman 1-8 dibaca (Eq. 
 
 **Belum:** notifikasi koreksi Rozenstein 2014 (Sensors) tidak ada di PDF ini dan belum dibaca; Persamaan SCM (11-15) belum dicocokkan; Qin et al. (2001b) asli belum dibaca.
 
+## Pencocokan persamaan SCM terhadap paper (2026-10-06)
+
+Sumber: Nugraha dkk. (2024), Geomatics, Natural Hazards and Risk 15(1):2324975, hlm. 8-10 (Eq. 11-17), dibandingkan dengan `scm_jimenez_munoz_sobrino` dan `scm_artis_carnahan` di `core/lst.py`.
+
+**Cocok:**
+- **JM&S, Eq. 11-14:** Ts = gamma[(1/eps)(psi1 Lsen + psi2) + psi3] + delta; psi1 = 1/tau, psi2 = -Ld - Lu/tau, psi3 = Ld; gamma = Tsen^2/(b_gamma Lsen); delta = Tsen - Tsen^2/b_gamma; b_gamma 1320 K (B10) dan 1199 K (B11). Semuanya sama dengan kode. Konsistensi internal: c2/b_gamma = 14387,7/1320 = 10,90 um dan 14387,7/1199 = 12,00 um, wajar untuk pusat Band 10 dan 11.
+- **Artis & Carnahan, Eq. 15:** Ts = Tb / [1 + (lambda Tb / rho) ln eps], rho = 1,438e-2 m.K. Sama dengan kode. Dari h*c/sigma yang ditulis paper didapat 1,4395e-2 (selisih 0,1% dari 1,438e-2; pembulatan paper, kode memakai angka literal paper).
+- **Eq. 16 (Tb)** sama dengan kode.
+- **Hitung ulang manual:** nilai JM&S dan AC dari fungsi kode sama dengan hitungan tangan (291,4467 K dan 301,7364 K untuk Tb 300 K, eps 0,975, tau 0,8634, Ld 1,5, Lu 2,5, Lsen 9,6). Sanity: inversi langsung persamaan transfer radiasi memberi sekitar 291,3 K (memakai K1/K2 B10 dari ingatan saya, [Confidence sedang]; hanya pemeriksaan kewajaran, bukan bukti).
+
+**Temuan:**
+1. **Paper salah ketik di Eq. 17:** tertulis L = ML*Qcal*AL; seharusnya ML*Qcal + AL. Kode memakai `mult*dn + add` (benar, sesuai rumus USGS). Bukan masalah di kode.
+2. **Nilai lambda efektif tidak tertulis di halaman yang saya baca.** Kode memakai titik tengah rentang spektral resmi (10,895 dan 12,005 um); paper tidak menyebut angka di bagian itu. Tidak bisa dibuktikan cocok atau tidak. This needs verification.
+3. **Penyimpangan yang disengaja dari paper:** Ld dan Lu di paper berasal dari ACPC; aplikasi memakai rata-rata raster ST_DRAD dan ST_URAD (atas instruksi pengguna). Satu skalar untuk seluruh scene dan untuk kedua band.
+4. **Risiko tanpa penjaga:** `raster_mean` tidak memeriksa kewajaran nilai. Menu L2 menerapkan faktor skala 0,001, jadi jika pengguna memasukkan raster ST_DRAD/ST_URAD mentah (belum diskalakan), Ld dan Lu menjadi 1000 kali lipat dan keluaran menjadi tidak masuk akal tanpa peringatan (uji: Ld=1500, Lu=2500 menghasilkan -21052 K, lolos tanpa error). Usul: tolak atau beri peringatan bila rata-rata Ld/Lu di luar rentang fisik yang wajar (rentang itu perlu sumber yang bisa diverifikasi).
+5. **Docstring usang di `core/lst.py`:** docstring modul menyebut fungsi `raster_mean_from_l2_product` yang tidak ada (nama sebenarnya `raster_mean`); docstring `scm_jimenez_munoz_sobrino` masih mengatakan tidak ada konversi otomatis tau dari uap air, padahal `LSTJob` sudah mengkonversinya lewat `rozenstein_tau_from_water_vapor`. Hanya dokumentasi, belum diperbaiki.
+6. **b_gamma:** paper memberi 1320 K untuk B10. Saya mengingat angka lain (1324 K) dari literatur Jimenez-Munoz 2014, tetapi tidak punya sumber di sesi ini, [Low confidence]; tidak dipakai untuk menyimpulkan apa pun. This needs verification terhadap sumber aslinya bila presisi penting.
+
+Tiga persamaan MCM, Rozenstein, dan kedua SCM kini semuanya cocok dengan sumbernya, kecuali butir terbuka di atas dan di bagian Rozenstein (definisi a_i, b_i untuk Qin).
+
 ## Langkah berikutnya
 
 1. Kode aplikasi belum ada di repo manapun. Taruh `landsat_processor_v34.zip` ke repo (misalnya repo terpisah `landsat-processor`) supaya Claude Code bisa melanjutkan; dokumen ini tidak membawa kodenya.
