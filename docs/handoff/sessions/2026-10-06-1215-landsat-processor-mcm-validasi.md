@@ -233,3 +233,11 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Bug Windows TIDAK direproduksi di sandbox (1,5 detik). Dugaan: exception di slot Qt hilang di .exe tanpa konsol; PROJ_LIB bentrok (QGIS/PostgreSQL). Mitigasi di `main.py`: excepthook ke error_log.txt dan pin PROJ/GDAL data bawaan rasterio. Belum diuji di Windows.
 - Catatan data: scene USGS selatan berlabel UTM 50N (northing negatif) itu sah; menu menandai dan bisa mengubah ke 50S.
 - Tes: 216 lulus (tests/test_reprojection.py baru). Artefak: landsat_processor_v39.zip.
+
+## Addendum lanjutan 5 (v40): Mao tanpa K2 dan menu Thermal Index
+
+- Mao: opsi formulasi Nugraha dan isian K2 dihapus dari GUI (Mao = radiance vs BT, Pers. 25 asli). `mcm_mao` bentuk Nugraha tetap di core hanya untuk uji identitas dengan Qin. Alasan: pengguna ingin Mao berbeda tampilan dari Qin; sesuai diskusi sebelumnya bahwa Mao asli memakai radiance, bukan parameter L.
+- Menu baru Thermal Index (core/thermal_index.py, gui/thermal_index_page.py): TVI, CWSI (Idso, Twet/Tdry manual, Twet/Tdry dari citra), TCI (multi-tahun atau persentil spasial), VHI, UTFVI. TVDI sengaja ditunda ke analisis lanjutan.
+- Sumber yang benar-benar dibaca: NOAA VIIRS VHP (TCI, VHI, a=0.5), makalah UTFVI (kelas, penyebut Tmean), studi CWSI Idso (baris dasar VPD), dua dokumen Indonesia untuk TVI. Temuan: arah TVI tidak seragam (EVI/LST vs LST/EVI), jadi dibuat pilihan; kelas TVI 0-55-70-85-99 tidak diadopsi. CWSI mode citra adalah pendekatan sendiri, ditandai perlu verifikasi.
+- Masukan indeks adalah raster olahan; perbedaan Landsat 7 vs 8/9 hanya di hulu (band termal, band NDVI, SLC-off).
+- Belum divalidasi dengan data lapangan atau citra nyata; tes memakai raster sintetis.
