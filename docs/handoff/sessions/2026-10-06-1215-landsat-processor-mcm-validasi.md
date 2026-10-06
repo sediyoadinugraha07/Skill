@@ -198,3 +198,14 @@ Dibaca: Qin dkk. (2001b), JGR 106(D19):22655-22670, hlm. 1-8 (Eq. 1-39, Tabel 3-
 4. Uji Validasi dengan data lapangan nyata dan raster Level 2 USGS.
 5. Pertimbangkan konversi koordinat ke lon/lat bila pyproj tersedia dan bisa diverifikasi.
 6. Sebelum tiap rilis: bersihkan cache dan scratch, zip tanpa `core/six_s_correction.py` dan `bin/*`, ekstrak ke direktori bersih, jalankan penuh pytest dan smoke test GUI headless.
+
+## Koreksi lanjutan (2026-10-06, sesi sama, rilis v35)
+
+Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai. Setelah PDF asli Qin 2001b dan Mao 2005 dibaca, keputusan di atas dikoreksi:
+
+- Keputusan "a/b diregresi sebagai radiance vs BT" SALAH untuk Qin dan Mao. Qin 2001b Pers. 15 dan 20 memakai L = B/(dB/dT) dalam Kelvin. Sekarang y = L dari BT dan K2 (isian K2 baru di GUI).
+- Nugraha Pers. 30 (A0 plus) berbeda dari Qin 2001b Pers. 36a (minus). Kode memakai minus.
+- Uji model maju Planck: Qin lama meleset 5 sampai 8 K, baru dalam 0.5 K. Mao lama meleset 2 sampai 3 K, baru dalam 0.5 K.
+- Dengan koefisien L yang sama, Qin dan Mao kini identik secara numerik (selisih 0.000 pada data nyata). "Mao meniru Qin" kini terbukti, bukan hanya asumsi.
+- Hasil: `landsat_processor_v35.zip`, 205 tes lulus. Detail di bagian README "Koreksi MCM Qin dan Mao terhadap sumber asli (v35)".
+- Belum dilakukan: pemeriksaan terhadap artikel acuan lain yang akan diunggah pengguna; mono-window Qin 2001 (Karnieli) belum ada di aplikasi.
