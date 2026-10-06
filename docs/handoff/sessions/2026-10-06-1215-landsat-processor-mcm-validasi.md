@@ -103,6 +103,17 @@ Catatan: Correndo et al. 2021 (dasar konvensi sumbu plot) tidak termasuk berkas 
 - Regresi direproduksi persis: B10 a=-33,7437 b=0,14448 R2=0,99959 RMSE=0,00923; B11 a=-27,1248 b=0,12021 R2=0,99982 RMSE=0,00354.
 - Berkas ini memakai **gambar PNG matplotlib**, bukan chart native. Jadi dihasilkan versi lama (sebelum v33). Kode v34 sudah memakai ScatterChart native, jadi contoh ini perlu dibuat ulang dengan v34 sebelum dipakai sebagai acuan tampilan.
 
+**Publikasi ke-4:** Nugraha, Kamal, Murti, Widyatmanti (2026), "Comparison of Land Surface Temperature Retrieval using Remote Sensing Imagery: Classification-Based versus Normalized Difference Vegetation Index-Based Emissivity Methods", Remote Sensing in Earth Systems Sciences 9:18, doi 10.1007/s41976-025-00268-7 (25 halaman, saya baca hlm 1-16).
+- Data **MODIS Terra** (MOD021KM band 31/32, MOD11A2 sebagai pembanding, MOD05_L2 uap air, MCD12Q1 tutupan lahan), Jawa Timur, Agustus-November 2023. Bukan Landsat.
+- Membandingkan SCM Artis & Carnahan dan enam MCM (Sobrino, Qin, Mao, Becker & Li, Wan & Dozier, Coll) dengan emisivitas CBEM dan NBEM (GO, VC, THM/Sob/Tang).
+- Hasil kunci menurut abstrak: MCM-Qin menghasilkan LST terlalu rendah (galat sekitar 14 K), MCM Wan & Dozier paling dekat ke MOD11A2 (galat sekitar 2 K), SCM-AC galat rata-rata di atas 7 K. Ini hasil MODIS, tidak otomatis berlaku untuk Landsat.
+- Persamaan MCM ada di Eq. 13 (Sobrino), 16-25 (Qin), 26-36 (Mao, dengan konstanta khusus MODIS 0,13787 dan 31,65677 untuk band 31), 37 (Becker & Li, Tabel 5), 38 (Wan & Dozier, Tabel 6), 39-41 (Coll, Tabel 7). Piksel validasi memakai plot 1 banding 1 terhadap MOD11A2, mirip menu Validasi aplikasi.
+- Metode uap air: rasio radiance band 17-19, W = f17 W17 + f18 W18 + f19 W19 (Eq. 6-10). Itu khusus MODIS; Landsat tidak punya band uap air setara, jadi aplikasi harus mengambil w dari sumber lain.
+
+**Perlu dicek terhadap `core/lst.py`:** teks paper pada Eq. 17-18 (Qin) tampak ditulis C = epsilon / tau, sedangkan kode memakai C = epsilon * tau (bentuk Qin et al. 2001). Pembacaan saya atas gambar halaman bisa keliru, atau itu salah ketik di paper. This needs verification terhadap PDF sumber dan Qin et al. 2001 sebelum kode diubah. Kode tidak saya ubah.
+
+Belum ada metode MCM Sobrino (Eq. 13), Becker & Li, Wan & Dozier, dan Coll di aplikasi, hanya Skokovic, Qin, Mao. Ketiga yang lain adalah kandidat perluasan, tetapi koefisiennya di paper dikhususkan untuk MODIS, sehingga untuk Landsat 8/9 perlu sumber koefisien TIRS yang bisa diverifikasi.
+
 ## Langkah berikutnya
 
 1. Kode aplikasi belum ada di repo manapun. Taruh `landsat_processor_v34.zip` ke repo (misalnya repo terpisah `landsat-processor`) supaya Claude Code bisa melanjutkan; dokumen ini tidak membawa kodenya.
