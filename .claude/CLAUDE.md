@@ -78,3 +78,11 @@ An observation file comes into being only through
 which prints the path to write into. Never by copying another file's
 header or counting a listing — including on the turn after a
 compaction, when the skill body is out of context.
+
+## Jurnal serah-terima lintas sesi
+
+Aturan ini berlaku untuk semua sesi di repo ini (detail di `docs/handoff/README.md`).
+
+- Di awal sesi, baca `docs/handoff/INDEX.md` dan buka entri terbaru yang relevan sebelum mulai bekerja.
+- Di akhir sesi, atau setelah keputusan penting, tulis entri baru di `docs/handoff/sessions/` memakai `docs/handoff/TEMPLATE.md` (source: claude-code), tambahkan satu baris di bagian atas tabel `INDEX.md`, lalu commit dan push ke branch kerja.
+- Catat alasan keputusan dan hal yang ditolak. Jangan simpan rahasia atau data pribadi.
