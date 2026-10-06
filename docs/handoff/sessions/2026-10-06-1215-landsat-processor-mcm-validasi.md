@@ -114,6 +114,22 @@ Catatan: Correndo et al. 2021 (dasar konvensi sumbu plot) tidak termasuk berkas 
 
 Belum ada metode MCM Sobrino (Eq. 13), Becker & Li, Wan & Dozier, dan Coll di aplikasi, hanya Skokovic, Qin, Mao. Ketiga yang lain adalah kandidat perluasan, tetapi koefisiennya di paper dikhususkan untuk MODIS, sehingga untuk Landsat 8/9 perlu sumber koefisien TIRS yang bisa diverifikasi.
 
+## Pencocokan rumus kode terhadap paper (2026-10-06)
+
+Sumber: Nugraha dkk. (2024), Geomatics, Natural Hazards and Risk 15(1):2324975, halaman 8-12 (Eq. 11-41), dibandingkan baris demi baris dengan `core/lst.py` v34 dan komentar nomor persamaan di kodenya. Penomoran persamaan di kode terbukti mengikuti paper ini, jadi "Nugraha et al. (2024)" di README adalah paper ini.
+
+**Cocok (tanpa selisih):**
+- **MCM Mao, Eq. 33-41:** Ts = Tb10 + B1(Tb10-Tb11) + B0 (33); C10, C11 = (1-tau)(1+(1-eps)tau) (34, 35); A10, A11 = eps*tau (36, 37); B1 = C10/(C11 A10 - C10 A11) (38); L = a + b*Tb (39, 40); B0 = [C11(1-A10-C10)L10 - C10(1-A11-C11)L11]/(C11 A10 - C10 A11) (41). Semua suku, tanda, dan penyebut sama dengan `mcm_mao`.
+- **MCM Qin, Eq. 21-32:** C = eps*tau (22, 23); D (24, 25); E0 = D11 C10 - D10 C11 (26); E1, E2 (27, 28); A = D10/E0 (29); A0, A1, A2 (30-32); Ts = A0 + A1 Tb10 - A2 Tb11 (21). Sama dengan `mcm_qin`.
+- **MCM Skokovic, Eq. 18-20 dan Tabel 4:** koefisien C0 -0,268, C1 1,378, C2 0,183, C3 54,300, C4 -2,238, C5 -129,200, C6 16,400 sama persis dengan `MCM_SKOKOVIC_COEFFICIENTS`; bentuk rumus (18) sama; Mean LSE dan Delta LSE (19, 20) sama dengan `core/emissivity.py`.
+- **Tb, Eq. 16:** K2 / ln(K1/L + 1) sama dengan kode.
+
+**Catatan penting:**
+- Keraguan sebelumnya soal C = epsilon/tau di paper MODIS 2026 (Eq. 17-18) **tidak berlaku untuk kode**: paper 2024 yang menjadi sumber kode menulis C = eps*tau, sama dengan kode. Selisih itu ada antar-paper (kemungkinan salah baca gambar atau salah ketik di paper 2026), bukan di kode. Belum diperiksa terhadap Qin et al. (2001b) asli, yang tidak diunggah.
+- Paper 2024 menyebut tau10/tau11 memakai profil "mid-latitude summer" dan mengutip Rozenstein dkk. (2014) tanpa menuliskan koefisiennya di halaman yang saya baca. Koefisien tau di kode (dari README) **belum dicocokkan dengan sumber manapun** karena sumber primernya (Rozenstein 2014) tidak ada di berkas. This needs verification.
+- Konstanta SCM (Eq. 11-15) belum dicocokkan, hanya Eq. 16 dari bagian itu.
+- Pencocokan ini membuktikan kode sama dengan paper, bukan bahwa paper benar. Hasil Qin/Mao/Skokovic yang saling berbeda beberapa Kelvin (lihat catatan validasi di atas) tetap tidak diselesaikan oleh pencocokan ini.
+
 ## Langkah berikutnya
 
 1. Kode aplikasi belum ada di repo manapun. Taruh `landsat_processor_v34.zip` ke repo (misalnya repo terpisah `landsat-processor`) supaya Claude Code bisa melanjutkan; dokumen ini tidak membawa kodenya.
