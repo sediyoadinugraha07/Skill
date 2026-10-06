@@ -166,6 +166,22 @@ Sumber: Nugraha dkk. (2024), Geomatics, Natural Hazards and Risk 15(1):2324975, 
 
 Tiga persamaan MCM, Rozenstein, dan kedua SCM kini semuanya cocok dengan sumbernya, kecuali butir terbuka di atas dan di bagian Rozenstein (definisi a_i, b_i untuk Qin).
 
+## Pencocokan terhadap Qin dkk. (2001b) dan Mao dkk. (2005), PDF asli (2026-10-06)
+
+Dibaca: Qin dkk. (2001b), JGR 106(D19):22655-22670, hlm. 1-8 (Eq. 1-39, Tabel 3-4); Mao dkk. (2005), IJRS 26(15):3181-3204, hlm. 1-17 (Eq. 1-28). Qin, Karnieli, Berliner (2001) tentang **mono-window Landsat TM** diunggah tetapi belum dibaca (metode berbeda, bukan bagian dari persamaan MCM aplikasi); sisa halaman Qin 2001b (validasi) juga belum dibaca.
+
+**Temuan 1 (serius): tanda suku E2*a11 pada A0.** Qin 2001b Eq. 29 dan 36a: B = E1 L4 - E2 L5, sehingga **A0 = E1*a4 - E2*a5** (minus). Rozenstein 2014 Eq. 4a, Nugraha 2024 Eq. 30, dan `core/lst.py` (`mcm_qin`) menulis **A0 = E1*a10 + E2*a11** (plus). Ekspansi di Qin 2001b Eq. 33-34 mendukung tanda minus. Uji round trip (`scripts/verify_mcm_roundtrip.py` di repo App_RS): model maju dibangun dari persamaan transfer radiasi yang diasumsikan paper (Eq. 21 Mao / Eq. 12 Qin) dengan Planck monokromatik, Ts diketahui, lalu rumus invers diuji memulihkan Ts. Hasil (galat K terhadap Ts benar, Ts 295-320 K): Qin dengan tanda plus **-3,3 K** (konsisten, bias dingin); Qin dengan tanda minus **+0,04 sampai +0,10 K**. Arah dan besar bias plus (sekitar -3,3 K) searah dengan contoh validasi pengguna (Qin lebih rendah dari Skokovic sekitar 3,8 K), tetapi itu belum membuktikan penyebabnya, hanya konsisten. Kode belum diubah.
+
+**Temuan 2: definisi a_i, b_i untuk Qin.** Qin 2001b Eq. 15 dan 20: L_i = B_i(T)/[dB_i/dT] = a_i + b_i T_i (Kelvin). Tabel 3 memberi koefisien per rentang suhu (untuk AVHRR). Hitungan saya dengan Planck monokromatik pada 10,895/12,005 um menghasilkan L10 = -64,55 + 0,4402 T dan L11 = -69,11 + 0,4767 T (0-60 C), dekat dengan angka Rozenstein 2014 untuk TIRS (-64,4661/0,4398 dan -68,8678/0,4755), jadi model Planck saya konsisten dengan paper. Memakai koefisien regresi radiance untuk Qin (seperti aplikasi) hampir tidak mengubah galat di uji ini (-3,1 sampai -3,3 K dengan plus), jadi tanda adalah masalah utama; definisi a_i,b_i tetap salah konsep untuk Qin dan sebaiknya mengikuti L_i.
+
+**Temuan 3: Mao.** Mao 2005 memakai **linearisasi radiance** B_i = a_i + b_i T (Eq. 2-3; B31 = 0,13787 T - 31,65677, B32 = 0,11849 T - 26,50036), jadi regresi radiance vs BT di aplikasi **benar untuk Mao** (koreksi atas kekhawatiran di bagian Rozenstein untuk metode ini). Solusi eksak Mao ada di **Eq. 25**: Ts = [C32(B31+D31) - C31(D32+B32)] / (C32 A31 - C31 A32), dengan A = b*eps*tau, B = b*T + a(1 - eps*tau), C = D'*b, D = -D'*a, D' = (1-tau)(1+(1-eps)tau). Persamaan Nugraha 2024 Eq. 33-41 (dipakai `mcm_mao`: Ts = Tb10 + B1(Tb10-Tb11) + B0) **tidak ekuivalen secara aljabar** dengan Eq. 25 Mao. Uji round trip: Mao Eq. 25 galat -0,13 sampai +0,40 K (naik pelan terhadap suhu karena linearisasi tunggal 0-60 C); `mcm_mao` aplikasi **-1,7 sampai -1,9 K**. Eq. 26 Mao (bentuk Ts = T31 + A(T31-T32) + B) tertulis tetapi definisi A dan B-nya tidak ada di halaman yang saya baca.
+
+**Persamaan lain di Mao 2005 yang terbaca:** tau MODIS Eq. 8a-8b (eksponensial, spesifik MODIS), emisivitas campuran Eq. 9-16 (Rv = 0,9332 + 0,0585 Pv, Rs = 0,9902 + 0,1068 Pv, NDVIv 0,65 dan NDVIs 0,05), semuanya khusus MODIS dan belum dibandingkan dengan `core/emissivity.py`.
+
+**Batas pembuktian:** uji round trip hanya membuktikan konsistensi aljabar terhadap model maju yang diasumsikan paper sendiri (Planck monokromatik, atmosfer satu lapis, Ta = suhu efektif); itu bukan validasi dengan data nyata atau radiative transfer penuh. Galat absolut dalam skenario nyata bisa berbeda. Skokovic/Sobrino tidak diuji dengan cara ini.
+
+**Usulan perbaikan (belum dilakukan, menunggu persetujuan):** (a) `mcm_qin`: A0 = E1*a10 - E2*a11 dan koefisien L_i (Kelvin) dengan pilihan rentang suhu; (b) `mcm_mao`: implementasi Eq. 25 Mao dengan fungsi linear generik; (c) tes pytest berbasis round trip; (d) tinjau ulang apakah tanda plus di Rozenstein/Nugraha adalah salah ketik di paper tersebut (periksa notifikasi koreksi Rozenstein 2014).
+
 ## Langkah berikutnya
 
 1. Kode aplikasi belum ada di repo manapun. Taruh `landsat_processor_v34.zip` ke repo (misalnya repo terpisah `landsat-processor`) supaya Claude Code bisa melanjutkan; dokumen ini tidak membawa kodenya.
