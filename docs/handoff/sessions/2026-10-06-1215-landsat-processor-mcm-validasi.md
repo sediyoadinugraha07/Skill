@@ -260,3 +260,9 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Penyebab error DEM TVDI: bukan salah proyeksi, melainkan label CRS (32750 vs 32650 dengan northing negatif) dan extent/ukuran berbeda. Perbaikan: align_to_reference otomatis ke grid LST; tes di tests/test_grid_align.py (galat 0 m pada bidang miring).
 - Heat Island sebagai tab kedua Advanced Analysis: SUHI (raster LST, acuan cincin luas sama Peng 2012, jendela elevasi, profil, sensitivitas, Excel) dan UHI (stasiun suhu udara pengguna). Keputusan: UHI tidak diestimasi dari LST karena beda besaran fisik; kelas intensitas tidak diadopsi karena tidak ada dasar yang terverifikasi.
 - Temuan uji: pada citra gunung (Karangasem) SUHII berubah -0.6 vs +10.6 K hanya oleh jendela elevasi; ditampilkan sebagai peringatan. Mask kota nyata belum ada. Artefak: landsat_processor_v43.zip.
+
+## Addendum lanjutan 9 (v44): SUHI revisi
+- Permintaan pengguna: NDBI, mask kota otomatis (bukan manual), ambang/arah ambang/air jangan manual, penjelasan cincin/raster acuan/jendela elevasi/pita jarak, DEM untuk wilayah studi, baca literatur pembanding.
+- Keputusan: NDBI dimasukkan ke Vegetation Index (MNDWI sudah ada). Mask kota baku NDBI > 0 karena aturan Zha (NDVI <= 0) menghasilkan 0 kota di citra tropis bervegetasi lebat (NDVI rata-rata 0.72); Otsu ditawarkan tapi menghasilkan 31% (bukan kota). Ditolak: memaksa satu ambang sebagai benar; histogram dan luas menurut tiap aturan ditampilkan.
+- Temuan: NDBI menandai tanah terbuka di lereng Gunung Agung sebagai kota; SUHII 7.3 K turun ke 2.2 K setelah wilayah studi dibatasi 300-500 m dengan DEM. Pilihan acuan juga menggeser hasil (1 sampai 5 K).
+- Literatur dibaca: Chakraborty & Lee 2019, Schwarz dkk. 2011, ESA LST CCI (slide), ulasan NDBI, studi NDBI wilayah kering. Zha 2003 asli tidak terbaca. Artefak: landsat_processor_v44.zip.
