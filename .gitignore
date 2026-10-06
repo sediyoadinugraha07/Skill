@@ -11,7 +11,7 @@ dist/
 .install-version
 .claude/settings.local.json
 .claude/agents/
-.claude/skills/
+# .claude/skills/ is tracked on purpose (task-observer)
 .claude/plans/
 .claude/worktrees/
 plugin/data/
