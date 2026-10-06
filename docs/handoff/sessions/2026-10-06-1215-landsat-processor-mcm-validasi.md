@@ -81,6 +81,28 @@ Belum diverifikasi di sesi ini:
 - Smoke test GUI headless Mao dan Validasi belum saya ulang.
 - Kode aplikasi masih hanya ada di zip unggahan, belum di repo manapun.
 
+## Berkas pendukung yang diunggah (analisis di Claude Code)
+
+PDF dan xlsx asli tidak dimasukkan ke repo (PDF berhak cipta penerbit). Hanya catatan ini yang disimpan.
+
+**Publikasi rujukan** (hanya halaman 1-2 tiap PDF yang saya baca; isi persamaan belum saya cocokkan dengan kode):
+1. Nugraha, Kamal, Murti, Widyatmanti (2023), "Development of the triangle method for drought studies based on remote sensing images: A review", Remote Sensing Applications: Society and Environment 29:100920. Tinjauan metode segitiga Ts/VI dan TVDI. Latar teori kekeringan, bukan sumber rumus LST aplikasi.
+2. Nugraha dkk. (2024), "Accuracy assessment of land surface temperature retrievals from remote sensing imagery: pixel-based, single and multi-channel methods", Geomatics, Natural Hazards and Risk 15(1):2324975. Membandingkan SCM dan MCM (Skokovic, Qin, Mao) dengan CBEM/NBEM. Dugaan kuat sumber "Nugraha et al. (2024)" untuk MCM di README, tetapi nomor persamaan 18-20 dan 21-41 belum dicocokkan. This needs verification.
+3. Nugraha dkk. (2024), "Comparison of Lambertian Model on Multi-Channel Algorithm for Estimating Land Surface Temperature...", Korean Journal of Remote Sensing 40(4):397-418. Koreksi topografi (SCS dan Cosine) pada MCM. Relevan untuk `core/topographic_correction.py`.
+
+Catatan: Correndo et al. 2021 (dasar konvensi sumbu plot) tidak termasuk berkas yang diunggah, jadi sitasinya masih belum diperiksa.
+
+**`validasi_perbandingan_raster.xlsx`** (LST Qin sebagai X, LST Skokovic sebagai Y, scene LC08 116/66, 3 Okt 2025, UTM 50N):
+- Statistik di sheet ringkasan direproduksi persis dari sheet Data Sampel (n=2500): R2 0,98879, RMSE 4,0719 K, MAE = MBE = 3,7753 K.
+- MAE sama dengan MBE karena Y lebih besar dari X di seluruh 2500 titik (selisih 1,28 sampai 11,03 K). Regresi Y atas X berslope 1,389, intersep -113,9. Jadi R2 tinggi menyembunyikan bias sistematik yang membesar pada suhu tinggi; R2 tidak peka terhadap slope dan bias. Sebaiknya laporan menyertakan slope dan intersep.
+- Qin dipakai sebagai "referensi", padahal itu hasil model, bukan observasi. Statistik di sini mengukur ketidaksepakatan dua metode, bukan akurasi. Selaras dengan catatan di entri bahwa belum ada validasi lapangan.
+- Chart native valid: sumbu X "b", Y "l", min 288 dan max 326 sama untuk kedua sumbu. Tampilan visual di Excel belum dilihat.
+- Header kolom koordinat berisi seluruh teks WKT proyeksi (ratusan karakter), membuat tabel sulit dibaca. Usul: header pendek (mis. "X (UTM 50N, m)") dan WKT di sheet ringkasan.
+
+**`..._MCM_QIN_regresi.xlsx`** (B10 dan B11, n=2500 dari 860.860 piksel valid):
+- Regresi direproduksi persis: B10 a=-33,7437 b=0,14448 R2=0,99959 RMSE=0,00923; B11 a=-27,1248 b=0,12021 R2=0,99982 RMSE=0,00354.
+- Berkas ini memakai **gambar PNG matplotlib**, bukan chart native. Jadi dihasilkan versi lama (sebelum v33). Kode v34 sudah memakai ScatterChart native, jadi contoh ini perlu dibuat ulang dengan v34 sebelum dipakai sebagai acuan tampilan.
+
 ## Langkah berikutnya
 
 1. Kode aplikasi belum ada di repo manapun. Taruh `landsat_processor_v34.zip` ke repo (misalnya repo terpisah `landsat-processor`) supaya Claude Code bisa melanjutkan; dokumen ini tidak membawa kodenya.
