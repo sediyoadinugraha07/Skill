@@ -250,3 +250,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Temuan: tepi kering dari sampel acak tidak stabil (data nyata 860 ribu piksel: sd kemiringan b 4.8 pada 20 ribu sampel, 2.6 pada 100 ribu, 0.3 pada 300 ribu). Baku jadi 100 ribu; ada sheet Kestabilan (10 ulangan + referensi semua piksel). Dicatat sebagai keputusan, alasan: sampel kecil menangkap ekstrem lebih sedikit.
 - Uji nyata memakai BT B10 sebagai pengganti LST (belum ada LST nyata di sandbox). Belum divalidasi terhadap kelembapan tanah. Kelas 5 tingkat = satu versi literatur.
 - Artefak: landsat_processor_v41.zip. Berikutnya: analisis lanjutan lain satu per satu sesuai arahan pengguna.
+
+## Addendum lanjutan 7 (v42): pemeriksaan TVDI dan perbaikan
+- Pengguna melaporkan TVDI tinggi pada area NDVI tinggi dan suhu rendah (data Karangasem, LST MCM Qin). Hasil unggahan identik dengan kode; penyebab metodologis: sampel 5 ribu dan interval 0.005 (Ts_max terlalu rendah), serta Ts_min minimum mutlak dari piksel dingin di sekitar Gunung Agung (efek ketinggian).
+- Keputusan: baku 300 ribu sampel dan Ts_min persentil 1; sheet Sensitivitas; opsi DEM (gamma 6.5 K/km, kasar, belum diuji pada DEM nyata); Mode Sederhana; panduan. Ditolak: memaksa satu pilihan Ts_min sebagai benar, karena tanpa data lapangan tidak ada dasar.
+- TVDI relatif terhadap scene, bukan kelembapan absolut; wilayah dominan kering tidak otomatis menghasilkan TVDI tinggi. Artefak: landsat_processor_v42.zip.
