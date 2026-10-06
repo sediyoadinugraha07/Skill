@@ -130,6 +130,22 @@ Sumber: Nugraha dkk. (2024), Geomatics, Natural Hazards and Risk 15(1):2324975, 
 - Konstanta SCM (Eq. 11-15) belum dicocokkan, hanya Eq. 16 dari bagian itu.
 - Pencocokan ini membuktikan kode sama dengan paper, bukan bahwa paper benar. Hasil Qin/Mao/Skokovic yang saling berbeda beberapa Kelvin (lihat catatan validasi di atas) tetap tidak diselesaikan oleh pencocokan ini.
 
+## Pencocokan terhadap Rozenstein dkk. (2014), PDF asli (2026-10-06)
+
+Sumber: Sensors 14(4):5768-5780, PDF diunggah pengguna, halaman 1-8 dibaca (Eq. 1-10, Tabel 1-2, bagian sensitivitas). Dibandingkan dengan `core/lst.py`.
+
+**Cocok:**
+- Tabel 2 (transmitansi): 1976 US Standard tau10 = -0,1146w + 1,0286, tau11 = -0,1568w + 1,0083; Mid-Latitude Summer tau10 = -0,1134w + 1,0335, tau11 = -0,1546w + 1,0078 (rentang w 0,5-3 g/cm2). `ROZENSTEIN_TAU_COEFFICIENTS` memuat angka yang sama untuk kedua profil, tanda dan intersep benar.
+- Eq. 3-10: Ts = A0 + A1 T10 - A2 T11; A0 = E1 a10 + E2 a11, A1 = 1 + A + E1 b10, A2 = A + E2 b11; C = eps*tau; D = (1-tau)(1+(1-eps)tau); A = D10/E0; E1, E2, E0. Sama dengan `mcm_qin`.
+
+**Temuan, perlu diputuskan (belum diubah di kode):**
+- Di Rozenstein, a_i dan b_i adalah koefisien regresi **L_i = B_i(T) / (dB_i/dT)** (Eq. 1-2), satuan Kelvin. Contoh: L10 = -64,4661 + 0,4398 T; L11 = -68,8678 + 0,4755 T (0-60 C); Tabel 1 memberi varian per rentang suhu (0-30, 0-40, 10-40, 10-50 C). Rozenstein menyarankan memilih koefisien sesuai rentang suhu citra.
+- Aplikasi memakai regresi **radiance vs BT** (contoh: a10 = -33,74, b10 = 0,1445). Itu besaran lain (radiance dalam W/m2/sr/um, bukan L_i dalam Kelvin). Paper Nugraha 2024 (Eq. 30-32, 39-40) hanya menulis "regression coefficients between temperature and radiance", jadi ambigu; untuk Qin, definisi Rozenstein yang eksplisit adalah L_i.
+- Uji satu piksel sintetis buatan saya (Tb10 300,0 K, Tb11 298,7 K, eps 0,975/0,978, w 1,5): Qin dengan koefisien aplikasi 301,23 K, dengan koefisien L_i Rozenstein 300,91 K; Mao 302,40 K lawan 303,87 K; Skokovic 303,34 K. Selisih Qin hanya 0,3 K di kasus ini, tetapi Mao 1,5 K. Satu piksel sintetis tidak mewakili citra nyata; belum diuji pada raster. Perbedaan definisi ini **tidak menjelaskan** bias Skokovic > Qin sebesar 3,8 K di contoh validasi (arah bias sama, tetapi koefisien L_i membuat Qin sedikit lebih rendah, bukan lebih tinggi).
+- Untuk Mao, persamaan 39-41 memakai L (radiance) langsung sehingga regresi radiance mungkin benar; saya belum memeriksa Mao et al. (2005) asli. This needs verification.
+
+**Belum:** notifikasi koreksi Rozenstein 2014 (Sensors) tidak ada di PDF ini dan belum dibaca; Persamaan SCM (11-15) belum dicocokkan; Qin et al. (2001b) asli belum dibaca.
+
 ## Langkah berikutnya
 
 1. Kode aplikasi belum ada di repo manapun. Taruh `landsat_processor_v34.zip` ke repo (misalnya repo terpisah `landsat-processor`) supaya Claude Code bisa melanjutkan; dokumen ini tidak membawa kodenya.
