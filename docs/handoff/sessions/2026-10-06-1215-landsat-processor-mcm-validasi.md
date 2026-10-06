@@ -255,3 +255,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Pengguna melaporkan TVDI tinggi pada area NDVI tinggi dan suhu rendah (data Karangasem, LST MCM Qin). Hasil unggahan identik dengan kode; penyebab metodologis: sampel 5 ribu dan interval 0.005 (Ts_max terlalu rendah), serta Ts_min minimum mutlak dari piksel dingin di sekitar Gunung Agung (efek ketinggian).
 - Keputusan: baku 300 ribu sampel dan Ts_min persentil 1; sheet Sensitivitas; opsi DEM (gamma 6.5 K/km, kasar, belum diuji pada DEM nyata); Mode Sederhana; panduan. Ditolak: memaksa satu pilihan Ts_min sebagai benar, karena tanpa data lapangan tidak ada dasar.
 - TVDI relatif terhadap scene, bukan kelembapan absolut; wilayah dominan kering tidak otomatis menghasilkan TVDI tinggi. Artefak: landsat_processor_v42.zip.
+
+## Addendum lanjutan 8 (v43): DEM beda grid dan Heat Island
+- Penyebab error DEM TVDI: bukan salah proyeksi, melainkan label CRS (32750 vs 32650 dengan northing negatif) dan extent/ukuran berbeda. Perbaikan: align_to_reference otomatis ke grid LST; tes di tests/test_grid_align.py (galat 0 m pada bidang miring).
+- Heat Island sebagai tab kedua Advanced Analysis: SUHI (raster LST, acuan cincin luas sama Peng 2012, jendela elevasi, profil, sensitivitas, Excel) dan UHI (stasiun suhu udara pengguna). Keputusan: UHI tidak diestimasi dari LST karena beda besaran fisik; kelas intensitas tidak diadopsi karena tidak ada dasar yang terverifikasi.
+- Temuan uji: pada citra gunung (Karangasem) SUHII berubah -0.6 vs +10.6 K hanya oleh jendela elevasi; ditampilkan sebagai peringatan. Mask kota nyata belum ada. Artefak: landsat_processor_v43.zip.
