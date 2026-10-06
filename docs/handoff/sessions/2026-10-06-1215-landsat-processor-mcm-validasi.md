@@ -216,3 +216,11 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - v37: Mao dipisah dua rumus. (1) Mao 2005 asli Pers. 25, koefisien radiance vs BT (Gambar 2 Mao), tanpa K2, bawaan. (2) Nugraha/Sekertekin Pers. 33-41, parameter L Kelvin, butuh K2, identik dengan Qin.
 - Dasar: Sekertekin & Bonafoni 2020 Tabel 2 (L10 = 0.4464*T - 66.61) berdimensi Kelvin; `planck_L_parameter` mereproduksinya. Klaim pengguna bahwa L di rumus B1/B0 adalah regresi radiance tidak didukung makalah itu.
 - Data nyata: Mao asli minus Qin = -0.05 C (sd 0.02). 208 tes lulus.
+
+## Koreksi lanjutan 3 (rilis v38)
+
+- Pengguna meminta rentang suhu pada hasil Qin dan Mao: tabel per rentang dan diagram editable, tunggal maupun gabungan, bisa memilih range tunggal atau banyak.
+- Keputusan: rentang hanya memengaruhi Excel ("Tabel Range", "Diagram Range B10/B11"); LST tetap satu regresi seluruh sampel. Alasan: pengguna sebelumnya menyatakan tidak perlu rentang untuk perhitungan LST, dan Qin sendiri menyebut Tabel 2/3 sebagai contoh.
+- Titik rentang = sampel citra, bukan grid Planck teoretis. Akibatnya rentang di luar suhu citra kosong dan ditandai, tidak dipaksakan.
+- Tidak dibuat: REE, uji T/F (definisi REE belum diverifikasi), mode LST piecewise per rentang (belum diminta).
+- 211 tes lulus. Paket `landsat_processor_v38.zip`.
