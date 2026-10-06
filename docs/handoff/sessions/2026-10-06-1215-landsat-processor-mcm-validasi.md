@@ -241,3 +241,12 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Sumber yang benar-benar dibaca: NOAA VIIRS VHP (TCI, VHI, a=0.5), makalah UTFVI (kelas, penyebut Tmean), studi CWSI Idso (baris dasar VPD), dua dokumen Indonesia untuk TVI. Temuan: arah TVI tidak seragam (EVI/LST vs LST/EVI), jadi dibuat pilihan; kelas TVI 0-55-70-85-99 tidak diadopsi. CWSI mode citra adalah pendekatan sendiri, ditandai perlu verifikasi.
 - Masukan indeks adalah raster olahan; perbedaan Landsat 7 vs 8/9 hanya di hulu (band termal, band NDVI, SLC-off).
 - Belum divalidasi dengan data lapangan atau citra nyata; tes memakai raster sintetis.
+
+## Addendum lanjutan 6 (v41): Advanced Analysis, TVDI
+
+- Menu Pengolahan Utama > Advanced Analysis (tab; satu analisis per tahap). Tahap 1: TVDI (core/tvdi.py, core/tvdi_report.py, gui/tvdi_page.py).
+- Acuan: Sandholt dkk. 2002 (dibaca penuh). Keputusan pengguna dijalankan: Ts_max wajib regresi tepi kering; Ts_min pilihan minimum LST atau garis basah regresi. Ditambah satu opsi dari makalah: rata-rata minimum per interval VI.
+- Tepi kering: ekstrem LST per interval VI (baku 0.02), sisi menurun otomatis dari puncak tepi. Sepertiga tengah dibuang tidak ditiru (kriteria tidak dijabarkan).
+- Temuan: tepi kering dari sampel acak tidak stabil (data nyata 860 ribu piksel: sd kemiringan b 4.8 pada 20 ribu sampel, 2.6 pada 100 ribu, 0.3 pada 300 ribu). Baku jadi 100 ribu; ada sheet Kestabilan (10 ulangan + referensi semua piksel). Dicatat sebagai keputusan, alasan: sampel kecil menangkap ekstrem lebih sedikit.
+- Uji nyata memakai BT B10 sebagai pengganti LST (belum ada LST nyata di sandbox). Belum divalidasi terhadap kelembapan tanah. Kelas 5 tingkat = satu versi literatur.
+- Artefak: landsat_processor_v41.zip. Berikutnya: analisis lanjutan lain satu per satu sesuai arahan pengguna.
