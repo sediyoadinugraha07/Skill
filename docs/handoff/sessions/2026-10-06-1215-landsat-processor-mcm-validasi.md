@@ -224,3 +224,12 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Titik rentang = sampel citra, bukan grid Planck teoretis. Akibatnya rentang di luar suhu citra kosong dan ditandai, tidak dipaksakan.
 - Tidak dibuat: REE, uji T/F (definisi REE belum diverifikasi), mode LST piecewise per rentang (belum diminta).
 - 211 tes lulus. Paket `landsat_processor_v38.zip`.
+
+## Addendum lanjutan 4 (v39): menu Sistem Koordinat terpisah
+
+- Permintaan: proyeksi UTM + zona di Region Masking "diam"/tidak berjalan; pengguna minta menu terpisah untuk identifikasi dan perubahan CRS (citra mentah maupun hasil olahan), tab Geografis/UTM dengan zona, lalu blok proyeksi di Region Masking dihapus.
+- Dibuat `core/reprojection.py` (inspect_raster, suggest_utm, reproject_raster_file, reproject_files) dan `gui/reprojection_page.py`, terdaftar di Pra-pemrosesan. Blok "Proyeksi hasil" + `target_crs` dihapus dari Region Masking (page, job, region_mask).
+- Keputusan: alasan memisah = Region Masking cukup memotong, perubahan CRS berlaku untuk semua jenis citra. Ditolak: tetap di Region Masking.
+- Bug Windows TIDAK direproduksi di sandbox (1,5 detik). Dugaan: exception di slot Qt hilang di .exe tanpa konsol; PROJ_LIB bentrok (QGIS/PostgreSQL). Mitigasi di `main.py`: excepthook ke error_log.txt dan pin PROJ/GDAL data bawaan rasterio. Belum diuji di Windows.
+- Catatan data: scene USGS selatan berlabel UTM 50N (northing negatif) itu sah; menu menandai dan bisa mengubah ke 50S.
+- Tes: 216 lulus (tests/test_reprojection.py baru). Artefak: landsat_processor_v39.zip.
