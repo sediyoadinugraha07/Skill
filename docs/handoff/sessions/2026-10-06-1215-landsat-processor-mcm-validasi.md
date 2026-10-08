@@ -313,3 +313,11 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Ditolak: memakai apply_region_mask_to_folder Landsat apa adanya. Alasan teruji: _is_band_file menolak Angstrom_Exponent, Scattering_Angle, dan cloud_mask; nodata 0 pada cloud mask berarti "jernih" sehingga luar wilayah salah terbaca.
 - Validasi: sintetis berkebenaran diketahui (selisih geometri 0 dari 2400 sel), kesetaraan urutan cloud-region, Karangasem nyata (837 sel, 100% valid tanpa cloud mask, 60.7% setelah).
 - Belum: perhitungan suhu kecerahan MODIS tidak ada di aplikasi; mosaik beberapa granul; build Windows. Folder task-observer-workspace tetap tidak ada. Artefak: landsat_processor_v52.zip.
+
+## Addendum lanjutan 17 (v53): MODIS Uap Air (W) dan pengait ke menu LST
+- Permintaan: W dari MODIS dengan alur dua tahap (faktor penimbang f dari transmisi band 17/18/19 dan W near-IR; lalu rasio G, regresi kuadratik, W = sum f*Wi); Excel regresi dengan diagram dapat diedit; W rata-rata (skalar) dipilih sebagai masukan LST.
+- Keputusan: core/modis_wv.py, core/modis_wv_report.py, gui/modis_wv_page.py, gui/wv_picker.py (tombol "Dari citra W..." di 4 kotak uap air menu LST, SCM dan MCM Skokovic/Qin/Mao), tests/test_modis_wv.py. Tiga artikel dibaca langsung (Sobrino 2003 pers. 15-24, Moradizadeh 2008, Nugraha 2019); rumus dan nilai f literatur dicocokkan ke teks.
+- Koreksi atas deskripsi: rho di rumus Mao adalah reflektansi, bukan massa jenis air (bila konstan ia hilang); band 5 ikut sebagai masukan; koefisien regresi ditulis bentuk Excel (a untuk G^2). C1 = 0.8 dan C2 = 0.2 mengikuti keterangan pengguna, artikel Mao 2005 tidak tersedia, belum diverifikasi.
+- Ditambahkan atas pertimbangan sendiri (dapat diubah): ambang reflektansi band 2 >= 0.05 (permukaan gelap), f dari persentil sebagai pembanding terhadap pencilan, sampel validasi pisah, batas domain G +10%, dan W negatif menjadi NaN.
+- Temuan: W dikalibrasi pada MOD05 sehingga bukan retrieval independen (ditulis di README, Excel, dan log). Granul nyata: f 0.211/0.424/0.365, R2 0.83/0.94/0.97, W rata-rata 2.64 cm.
+- Belum: validasi independen terhadap radiosonde atau stasiun; LST MODIS tidak ada di aplikasi; build Windows. Artefak: landsat_processor_v53.zip.
