@@ -266,3 +266,9 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Keputusan: NDBI dimasukkan ke Vegetation Index (MNDWI sudah ada). Mask kota baku NDBI > 0 karena aturan Zha (NDVI <= 0) menghasilkan 0 kota di citra tropis bervegetasi lebat (NDVI rata-rata 0.72); Otsu ditawarkan tapi menghasilkan 31% (bukan kota). Ditolak: memaksa satu ambang sebagai benar; histogram dan luas menurut tiap aturan ditampilkan.
 - Temuan: NDBI menandai tanah terbuka di lereng Gunung Agung sebagai kota; SUHII 7.3 K turun ke 2.2 K setelah wilayah studi dibatasi 300-500 m dengan DEM. Pilihan acuan juga menggeser hasil (1 sampai 5 K).
 - Literatur dibaca: Chakraborty & Lee 2019, Schwarz dkk. 2011, ESA LST CCI (slide), ulasan NDBI, studi NDBI wilayah kering. Zha 2003 asli tidak terbaca. Artefak: landsat_processor_v44.zip.
+
+## Addendum lanjutan 10 (v45): artikel Zha 2003 dan Granada 2022
+- Pengguna mengunggah Zha dkk. 2003 (NDBI) dan Hidalgo-García & Arco-Díaz 2022 (SUHI Granada), meminta: apakah UHS dapat diterapkan, apakah alur aplikasi sama, tautan Peng 2012.
+- Keputusan: UHS diterapkan (LST > mean + 2 sd, seluruh piksel valid) sebagai raster, statistik per zona, sheet Excel; filter median 5x5 Zha sebagai opsi. Ditolak: menyamakan acuan pedesaan dengan satu titik stasiun (tidak tersedia dari data penginderaan jauh, dan rentan terhadap elevasi); klaim kepercayaan 95% pada UHS (hanya sah untuk sebaran normal).
+- Temuan: Pers. 8 artikel Granada membalik tanda NDBI; Tabel 3 SUHI tidak konsisten dengan Pers. 10 (rentang dan simpangan baku). Zha memakai DN mentah, sehingga aturan NDVI <= 0 kemungkinan tidak berlaku pada reflektansi terkoreksi atmosfer (inferensi, belum diuji; di Karangasem aturan Zha menghasilkan 0 kota).
+- Tautan Peng 2012: https://doi.org/10.1021/es2030438 (Environ. Sci. Technol. 46(2):696-703). Crossref ditolak proxy (429), DOI diambil dari portal ip-paris. Artefak: landsat_processor_v45.zip.
