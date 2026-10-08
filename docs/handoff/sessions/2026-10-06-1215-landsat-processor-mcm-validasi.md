@@ -279,3 +279,9 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Ditolak: menganggap rumus artikel sudah benar tanpa verifikasi. Ma 2010, Rajasekar & Weng 2009 (versi IJRS), Xu 2013, Tsou 2017 tidak dapat dibuka (paywall/diblokir; shell tidak boleh mengunduh); yang terbaca: abstrak Rajasekar & Weng versi ISPRS (Gaussian MODIS, bukan rumus itu), Remote Sens. 10:665, Sci. Rep. 2025. Status ditulis di sheet Literatur dan README.
 - Temuan: ambang mu + 0.5 sd menandai ~31% piksel pada sebaran simetris apa pun (derau murni uji: 30.9%), jadi luas UHI mencerminkan bentuk sebaran; Karangasem: 25.5% UHI, 88% kota masuk UHI tetapi hanya 16% UHI berupa kota. LST berkorelasi -0.59 dengan elevasi. Koreksi elevasi adalah rancangan sendiri (kemiringan -8.2 K/km, R2 0.15 setelah dibatasi <= 500 m), perlu rujukan.
 - Belum: multitemporal (2000/2010/2018 seperti artikel), validasi lapangan, verifikasi sumber asli. Artefak: landsat_processor_v46.zip.
+
+## Addendum lanjutan 12 (v47): UHI dari LST dicabut, templat stasiun
+- Permintaan: hapus UHI dari LST karena mirip SUHI; tambahkan templat Excel yang jelas untuk UHI udara supaya data tidak salah dibaca.
+- Keputusan: core/uhi_rs.py, core/uhi_rs_report.py, tests/test_uhi_rs.py, dan tab-nya dihapus (v46 pernah memuatnya; alasan: duplikasi dengan SUHI, rumus ambang belum terverifikasi). Templat dibuat oleh write_station_template (sheet Data, Contoh, Petunjuk, dengan validasi sel); tombol di tab UHI udara.
+- Pembacaan stasiun diperketat: sheet Data diutamakan, templat kosong ditolak, lon-lat tertukar dan satuan suhu keliru ditolak dengan pesan jelas. Ditolak: menaruh baris contoh di sheet Data (risiko ikut terhitung); contoh dipisah ke sheet Contoh.
+- Catatan proses: sempat menjalankan `git rm --cached -r .` tanpa sengaja di repo handoff; segera dipulihkan dengan `git reset` (2130 berkas terlacak, status bersih), tidak ada perubahan isi. Artefak: landsat_processor_v47.zip.
