@@ -306,3 +306,10 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Ditolak: flag NCO (byte 2 bit 0) sebagai pilihan, karena bernilai ya pada 49-79% piksel di semua kelas; ambang band L1B buatan sendiri (produk resmi lebih sahih).
 - Validasi: granul yang sama dengan MOD021KM; reflektansi band 1 per kelas 0.240/0.061/0.038/0.040, radiansi band 31 5.48/8.17/8.45/8.53; hasil mask nyata: tersisa 0.062 vs terbuang 0.309 (band 1). Sintetis berkebenaran diketahui cocok 100% di luar tepi.
 - Belum: bayangan awan (MOD35 tidak punya), varian NetCDF nyata, ambang fraksi 0.5 adalah pilihan desain, build Windows. Folder task-observer-workspace tidak ada, protokolnya tidak dijalankan. Artefak: landsat_processor_v51.zip.
+
+## Addendum lanjutan 16 (v52): MODIS Region Masking
+- Permintaan: Region Mask untuk MODIS, alur sama dengan Landsat; masukan bisa cloud mask, radiance, reflektansi, suhu kecerahan, atau Level 2.
+- Keputusan: core/modis_region.py + gui/modis_region_page.py (turunan RegionMaskingPage Landsat; halaman Landsat hanya diberi atribut stage_b_layout, title_label, subtitle_label dan metode _make_apply_worker, perilakunya tidak berubah). Tahap A memakai ulang RegionMaskJob. Tahap B baru: penyaring nama sendiri, nodata mengikuti berkas, tag terbawa, laporan sel valid, opsi sel tersentuh.
+- Ditolak: memakai apply_region_mask_to_folder Landsat apa adanya. Alasan teruji: _is_band_file menolak Angstrom_Exponent, Scattering_Angle, dan cloud_mask; nodata 0 pada cloud mask berarti "jernih" sehingga luar wilayah salah terbaca.
+- Validasi: sintetis berkebenaran diketahui (selisih geometri 0 dari 2400 sel), kesetaraan urutan cloud-region, Karangasem nyata (837 sel, 100% valid tanpa cloud mask, 60.7% setelah).
+- Belum: perhitungan suhu kecerahan MODIS tidak ada di aplikasi; mosaik beberapa granul; build Windows. Folder task-observer-workspace tetap tidak ada. Artefak: landsat_processor_v52.zip.
