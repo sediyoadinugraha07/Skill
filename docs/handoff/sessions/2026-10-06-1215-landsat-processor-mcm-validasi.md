@@ -326,3 +326,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Temuan: (1) f17 terbesar pada v53 karena granul penuh berisi piksel T > 1 (awan, glint) dan W near-IR 12.9; (2) rantai ENVI pengguna memakai polinomial G~W dengan G sebagai masukan, hasil 0.57 sampai 0.62 bukan W; (3) pada wilayah ENVI aplikasi cocok dengan MOD05 (3.15 vs 3.14 cm).
 - Keputusan: filter T <= 1 otomatis, mode f otomatis (min/maks, cadangan persentil, dilaporkan), GUI hanya jumlah sampel, tes baru (awan, jumlah sampel, fallback). Ditolak: memaksa urutan f dengan angka tetap (itu mengarang hasil).
 - Belum: Excel manual pengguna (f 0.2706/0.3622/0.3671, urutan melanggar f18 terbesar) tidak ikut terunggah, tidak direproduksi; validasi independen W; build Windows. Artefak: landsat_processor_v54.zip.
+
+## Addendum lanjutan 19 (v55): orientasi regresi W
+- Pengguna: regresi harus x = W, y = G (Nugraha dkk. 2024, subsection 3.2, Tabel 5 dan Gambar 6). Dibenarkan: v53 dan v54 meregresi W pada G.
+- Temuan: substitusi langsung G ke polinomial G(W), cara yang menghasilkan Tabel 6 artikel (0.68 sampai 0.74) dan ENVI (0.616), berskala G bukan W (wilayah ENVI 0.608 vs MOD05 3.142 cm). Keputusan: regresi x = W, y = G sesuai artikel, W lewat pembalikan polinomial (cabang menurun); substitusi langsung tetap ditulis sebagai raster pembanding terpisah. Pengguna perlu memutuskan sendiri apakah W untuk LST memakai nilai fisik (3.1) atau angka ala artikel (0.6); itu mengubah tau Rozenstein.
+- Keterbatasan: puncak parabola W 4.5 sampai 5.4 cm, piksel di luar puncak dipatok (dilaporkan). Tes baru: orientasi dan substitusi langsung (cocok dengan rantai ENVI). Artefak: landsat_processor_v55.zip.
