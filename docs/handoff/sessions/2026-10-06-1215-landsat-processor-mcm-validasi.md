@@ -335,3 +335,9 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 ## Addendum lanjutan 20 (v56): W akhir memakai G sebagai x
 - Pengguna menegaskan: hasil regresi y = a x^2 + b x + c diisi x = G, bukan W (metode artikel). Keputusan: `_WV_W.tif` memakai itu (wilayah ENVI 0.608, rantai ENVI pengguna 0.616); pembalikan polinomial (3.124 cm, sejajar MOD05 3.142) tetap ditulis sebagai `_WV_W_inversi_polinomial.tif` dan dilaporkan di log dan Excel. Alasan: itu keputusan metode milik pengguna; sudah dijelaskan dua kali bahwa skalanya skala G.
 - Tes diperbarui (W akhir cocok dengan rantai ENVI; pembalikan pulih kebenaran). Artefak: landsat_processor_v56.zip.
+
+## Addendum lanjutan 21 (v57): ET tahap 1, albedo
+- Permintaan: analisis Evapotranspirasi mandiri (ET Waters dan ET Bandara), bertahap; tahap 1 albedo sebagai bagian Rn. Masukan pengguna hanya DEM dan jenis citra, bobot ESUN otomatis, MODIS lewat Liang 2001.
+- Keputusan: core/et_albedo.py, gui/et_albedo_page.py, menu "Evapotranspirasi", tests/test_et_albedo.py. albedo_path 0.03 (bukan 0.3 yang diketik pengguna; Waters 2002 dan naskah pengguna 0.03). Pilihan metode disediakan walau hasil sama. tau_sw per piksel dari DEM.
+- Ditolak: menerima 0.3 apa adanya (tes: 100% albedo negatif); menerima DN sebagai masukan (peringatan).
+- Belum diverifikasi: tanda offset Liang (-0.0015 vs +0.0015 di Rahimi); granul MODIS nyata dengan DEM (tes dilewati, DEM tidak ada); bobot L5 sedikit beda dari Waters Tabel 6.4. Tahap berikut: komponen Rn (Rs turun, RL turun, RL naik, emisivitas), lalu G, H, ET. Folder task-observer-workspace tetap tidak ada. Artefak: landsat_processor_v57.zip.
