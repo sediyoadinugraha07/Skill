@@ -341,3 +341,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Keputusan: core/et_albedo.py, gui/et_albedo_page.py, menu "Evapotranspirasi", tests/test_et_albedo.py. albedo_path 0.03 (bukan 0.3 yang diketik pengguna; Waters 2002 dan naskah pengguna 0.03). Pilihan metode disediakan walau hasil sama. tau_sw per piksel dari DEM.
 - Ditolak: menerima 0.3 apa adanya (tes: 100% albedo negatif); menerima DN sebagai masukan (peringatan).
 - Belum diverifikasi: tanda offset Liang (-0.0015 vs +0.0015 di Rahimi); granul MODIS nyata dengan DEM (tes dilewati, DEM tidak ada); bobot L5 sedikit beda dari Waters Tabel 6.4. Tahap berikut: komponen Rn (Rs turun, RL turun, RL naik, emisivitas), lalu G, H, ET. Folder task-observer-workspace tetap tidak ada. Artefak: landsat_processor_v57.zip.
+
+## Addendum lanjutan 22 (v58): Rn menu, luaran tau_sw, Rs turun
+- Pengguna: albedo sudah sesuai; menu harus "Rn" (berisi albedo dan komponen lain); albedo wajib 3 luaran (albedo, albedo_toa, tau_sw); lanjut Rs turun dengan dua rumus (Waters: Gsc cos θ dr τsw; Bandara/Chemin 2023: Gsc cos θ τsw / dr^2), Landsat lewat MTL, MODIS lewat DOY, jam rekam, lintang pusat, pers. 10 dan 11 ATBD MCD18.
+- Keputusan: core/et_rs.py, gui/et_rs_page.py, gui/et_rn_page.py (tab), tests/test_et_rs.py. dr Waters = 1/d^2 (teks Waters), Bandara dibagi d^2; dengan d sama hasil identik (diuji). Memasukkan d langsung ke rumus Waters ditolak (keliru 41 W/m2).
+- Belum diverifikasi: rumus Chemin 2023 hanya dari tulisan pengguna; t pada ATBD adalah GMT sedangkan pengguna menyebut jam WITA (cos θ beda ~1.5% pada contoh Bali); uji dengan granul MODIS nyata dan MTL nyata belum. Tahap berikut: RL turun, RL naik, emisivitas, Rn. Artefak: landsat_processor_v58.zip.
