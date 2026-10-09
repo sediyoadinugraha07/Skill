@@ -369,3 +369,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Keputusan: hapus konversi L dan kolom L (itu keputusan metode pengguna; dampak diukur: de0 maks 0.0074, sampai 0.8% RL naik pada vegetasi sedang). DEMmean dari piksel valid LST (wilayah kajian) setelah DEM disamakan ke grid LST; statistik DEMmean, rentang pergeseran Ts, dan pergeseran RL ditulis di log.
 - Analisis: rumus v61 menambah bias seragam (+4.97 K, +6.6% RL pada uji); rumus baru bebas bias rata-rata. Pada LST bergradien lapse rate nyata, kedua rumus meratakan RL naik terhadap ketinggian (rentang 55.7 menjadi 0.43 W/m2), jadi RL naik adalah ekuivalen pada ketinggian rata-rata, bukan pancaran piksel nyata. Perlu verifikasi terhadap rujukan Tan dkk. dan Lisnawati (Tabel 2 naskah) apakah koreksi itu dimaksudkan untuk RL naik atau hanya untuk dT pada H.
 - Belum diuji dengan LST nyata. Artefak: landsat_processor_v62.zip.
+
+## Addendum lanjutan 27 (v63): DEMmean seluruh DEM
+- Pengguna: kata "normalisasi" hanya ungkapan, DEMmean adalah rata-rata seluruh DEM sebagai satu angka (tidak merujuk LST), lalu DEM asli dikurangi angka itu.
+- Keputusan: DEMmean dari seluruh DEM pada grid aslinya (v62 memakai piksel valid LST). Peringatan bila rata-rata DEM pada piksel LST beda > 50 m (Ts rata-rata bergeser). Klaim pengguna bahwa daerah tinggi tetap lebih dingin tidak otomatis benar: bergantung gradien LST nyata (uji: -1.0, -0.65, -0.2 K/100 m memberi lebih dingin, hampir hilang, lebih hangat), sehingga kemiringan LST sebelum dan sesudah dilaporkan di log.
+- Belum diuji dengan LST nyata. Artefak: landsat_processor_v63.zip.
