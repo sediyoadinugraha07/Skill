@@ -374,3 +374,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Pengguna: kata "normalisasi" hanya ungkapan, DEMmean adalah rata-rata seluruh DEM sebagai satu angka (tidak merujuk LST), lalu DEM asli dikurangi angka itu.
 - Keputusan: DEMmean dari seluruh DEM pada grid aslinya (v62 memakai piksel valid LST). Peringatan bila rata-rata DEM pada piksel LST beda > 50 m (Ts rata-rata bergeser). Klaim pengguna bahwa daerah tinggi tetap lebih dingin tidak otomatis benar: bergantung gradien LST nyata (uji: -1.0, -0.65, -0.2 K/100 m memberi lebih dingin, hampir hilang, lebih hangat), sehingga kemiringan LST sebelum dan sesudah dilaporkan di log.
 - Belum diuji dengan LST nyata. Artefak: landsat_processor_v63.zip.
+
+## Addendum lanjutan 28 (v64): rumus Ts-DEM 1, 2, gabungan; Ts_DEM luaran kedua
+- Pengguna: di dataran rumus 2 menurunkan nilai dan rumus 1 menaikkan; meminta dua rumus dapat dipakai terpisah dan digabung dengan ambang ketinggian (di atas ambang rumus 2, di bawahnya rumus 1), satu citra hasil; Ts-DEM menjadi luaran kedua pada RL naik Bandara.
+- Keputusan: tiga mode (rumus1, rumus2, gabungan) di core/et_rl_up.py dan GUI; ambang manual atau otomatis dari puncak rata-rata LST per kelas 100 m; Ts_DEM.tif (K) luaran kedua. Dipertahankan atas permintaan pengguna meski gabungan menimbulkan lompatan 0.00645 x DEMmean pada ambang (diperingatkan, tidak disembunyikan). Tidak dibuat versi penyambung halus karena tidak diminta.
+- Belum diuji dengan LST nyata. Artefak: landsat_processor_v64.zip.
