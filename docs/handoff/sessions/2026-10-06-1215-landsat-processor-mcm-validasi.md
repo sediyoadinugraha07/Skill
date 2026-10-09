@@ -379,3 +379,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Pengguna: di dataran rumus 2 menurunkan nilai dan rumus 1 menaikkan; meminta dua rumus dapat dipakai terpisah dan digabung dengan ambang ketinggian (di atas ambang rumus 2, di bawahnya rumus 1), satu citra hasil; Ts-DEM menjadi luaran kedua pada RL naik Bandara.
 - Keputusan: tiga mode (rumus1, rumus2, gabungan) di core/et_rl_up.py dan GUI; ambang manual atau otomatis dari puncak rata-rata LST per kelas 100 m; Ts_DEM.tif (K) luaran kedua. Dipertahankan atas permintaan pengguna meski gabungan menimbulkan lompatan 0.00645 x DEMmean pada ambang (diperingatkan, tidak disembunyikan). Tidak dibuat versi penyambung halus karena tidak diminta.
 - Belum diuji dengan LST nyata. Artefak: landsat_processor_v64.zip.
+
+## Addendum lanjutan 29 (v65): Ts-DEM gabungan mulus
+- Pengguna: meminta alternatif yang menyambung di ambang, atau dua tahap (rumus 1 pada dataran, lalu rumus 2 pada sisanya, disambung).
+- Temuan: usulan dua tahap identik dengan gabungan keras (np.where menurut DEM), lompatan tetap. Kedua rumus berkemiringan sama (0.00645 K/m), sehingga selisihnya konstan 0.00645 x DEMmean di semua ketinggian dan tidak bergantung ambang. Menyambung hanya mungkin dengan menyebarkan selisih pada pita (bobot smoothstep), dengan harga gradien tambahan di dalam pita.
+- Keputusan: mode "mulus" (ambang manual atau otomatis, lebar pita bawaan 500 m); gradien tambahan dilaporkan di log. Gabungan keras dipertahankan. Belum diuji dengan LST nyata. Artefak: landsat_processor_v65.zip.
