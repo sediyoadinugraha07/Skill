@@ -331,3 +331,7 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Pengguna: regresi harus x = W, y = G (Nugraha dkk. 2024, subsection 3.2, Tabel 5 dan Gambar 6). Dibenarkan: v53 dan v54 meregresi W pada G.
 - Temuan: substitusi langsung G ke polinomial G(W), cara yang menghasilkan Tabel 6 artikel (0.68 sampai 0.74) dan ENVI (0.616), berskala G bukan W (wilayah ENVI 0.608 vs MOD05 3.142 cm). Keputusan: regresi x = W, y = G sesuai artikel, W lewat pembalikan polinomial (cabang menurun); substitusi langsung tetap ditulis sebagai raster pembanding terpisah. Pengguna perlu memutuskan sendiri apakah W untuk LST memakai nilai fisik (3.1) atau angka ala artikel (0.6); itu mengubah tau Rozenstein.
 - Keterbatasan: puncak parabola W 4.5 sampai 5.4 cm, piksel di luar puncak dipatok (dilaporkan). Tes baru: orientasi dan substitusi langsung (cocok dengan rantai ENVI). Artefak: landsat_processor_v55.zip.
+
+## Addendum lanjutan 20 (v56): W akhir memakai G sebagai x
+- Pengguna menegaskan: hasil regresi y = a x^2 + b x + c diisi x = G, bukan W (metode artikel). Keputusan: `_WV_W.tif` memakai itu (wilayah ENVI 0.608, rantai ENVI pengguna 0.616); pembalikan polinomial (3.124 cm, sejajar MOD05 3.142) tetap ditulis sebagai `_WV_W_inversi_polinomial.tif` dan dilaporkan di log dan Excel. Alasan: itu keputusan metode milik pengguna; sudah dijelaskan dua kali bahwa skalanya skala G.
+- Tes diperbarui (W akhir cocok dengan rantai ENVI; pembalikan pulih kebenaran). Artefak: landsat_processor_v56.zip.
