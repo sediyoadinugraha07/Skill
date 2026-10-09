@@ -321,3 +321,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Ditambahkan atas pertimbangan sendiri (dapat diubah): ambang reflektansi band 2 >= 0.05 (permukaan gelap), f dari persentil sebagai pembanding terhadap pencilan, sampel validasi pisah, batas domain G +10%, dan W negatif menjadi NaN.
 - Temuan: W dikalibrasi pada MOD05 sehingga bukan retrieval independen (ditulis di README, Excel, dan log). Granul nyata: f 0.211/0.424/0.365, R2 0.83/0.94/0.97, W rata-rata 2.64 cm.
 - Belum: validasi independen terhadap radiosonde atau stasiun; LST MODIS tidak ada di aplikasi; build Windows. Artefak: landsat_processor_v53.zip.
+
+## Addendum lanjutan 18 (v54): audit W MODIS terhadap ENVI
+- Temuan: (1) f17 terbesar pada v53 karena granul penuh berisi piksel T > 1 (awan, glint) dan W near-IR 12.9; (2) rantai ENVI pengguna memakai polinomial G~W dengan G sebagai masukan, hasil 0.57 sampai 0.62 bukan W; (3) pada wilayah ENVI aplikasi cocok dengan MOD05 (3.15 vs 3.14 cm).
+- Keputusan: filter T <= 1 otomatis, mode f otomatis (min/maks, cadangan persentil, dilaporkan), GUI hanya jumlah sampel, tes baru (awan, jumlah sampel, fallback). Ditolak: memaksa urutan f dengan angka tetap (itu mengarang hasil).
+- Belum: Excel manual pengguna (f 0.2706/0.3622/0.3671, urutan melanggar f18 terbesar) tidak ikut terunggah, tidak direproduksi; validasi independen W; build Windows. Artefak: landsat_processor_v54.zip.
