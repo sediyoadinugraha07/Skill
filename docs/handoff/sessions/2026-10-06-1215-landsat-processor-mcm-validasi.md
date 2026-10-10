@@ -394,3 +394,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Pengguna: pilihan terbaik untuk Bandara adalah memilih LST asli atau LST koreksi; LST asli memberi informasi sama dengan Waters, LST koreksi memakai rumus Chemin. Rumus 2 dan 3 dihapus karena tidak ada dasar penelitian.
 - Keputusan: hanya rumus Chemin (LST + 0.645/100 x DEM, tanpa DEMmean) dan LST asli. Dihapus juga gabungan, mulus, ambang, pita, kurva ketinggian. Ts_DEM.tif tetap luaran kedua. Ditolak: mempertahankan rumus lama sebagai pilihan tersembunyi.
 - Terbuka: koefisien 0.645 (rancangan pengguna) versus 0.627 (manual Chemin hlm. 70 dan 73 yang dibaca dari citra); perlu verifikasi ke makalah. Belum diuji dengan LST nyata. Artefak: landsat_processor_v67.zip.
+
+## Addendum lanjutan 32 (v68): koefisien Chemin 0.627
+- Pengguna: 0.645 adalah salah tulis; sesuaikan dengan nilai literatur Chemin.
+- Verifikasi: persamaan di manual evaporasi (hlm. 70 Pakistan, hlm. 73 Sri Lanka) dirender sebagai gambar dan terbaca T0_dem = T0 + (0.627/100) x DEM; teks hlm. 73 menyebut lapse rate 6.27 derajat C/km. Keputusan: LAPSE_PER_M = 0.627/100 di core/et_rl_up.py. Tidak ada keraguan koefisien yang tersisa; ejaan 0.00645 lama sudah hilang dari kode (modis.py 0.645 adalah panjang gelombang, tidak terkait).
+- Artefak: landsat_processor_v68.zip.
