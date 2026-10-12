@@ -430,3 +430,9 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Pengguna memutuskan Ta Bandara hanya Tatm = LST - 3 (Chemin), setelah addendum 37. Regresi Tan (TAN_A, TAN_B, ta_tan) dihapus dari core/et_rl_down.py; teks GUI disesuaikan; uji test_et_rl_down.py diubah (Ta = LST - 3, tanpa tatm_mean dan Pembanding; ta_tan tidak ada).
 - Alasan ditolak: regresi Tan menurunkan Ta rata-rata 6.1 K dan hanya 22.0% piksel masuk rentang 295.15-302.15 K; Tair pada Tan dkk. tidak terdefinisi.
 - Belum diverifikasi: validitas terhadap RL turun terukur; rentang suhu udara belum diketahui jam dan stasiunnya.
+
+## Addendum lanjutan 39: Ea/Ta pada RL turun dan tahap 5 Rn (v73)
+- Permintaan pengguna: Bandara menulis RL_down + Ea + Ta; Waters menulis Ea tambahan; Rn sebagai perhitungan terakhir dengan satu rumus (tanpa pilihan metode), masukan albedo, Rs turun, RL naik, RL turun, mean LSE.
+- Implementasi: core/et_rn.py (compute_rn, net_radiation), gui/et_rn_final_page.py, tab 5 di gui/et_rn_page.py; core/et_rl_down.py menulis _Ea.tif (dua metode) dan _Ta.tif (Bandara). Uji baru tests/test_et_rn.py; test_et_rl_down.py dan test_et_rs.py (jumlah tab 5) disesuaikan.
+- Keputusan: Waters tidak diberi _Ta.tif karena citra Tcold sama dengan Ta. Grid disamakan ke albedo. Rentang peringatan Rn 0-900 W/m2 adalah perkiraan, perlu verifikasi.
+- Belum diuji dengan data nyata Karangasem; hanya data sintetis.
