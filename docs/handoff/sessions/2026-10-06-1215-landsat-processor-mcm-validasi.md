@@ -453,3 +453,7 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Temuan yang diteruskan ke pengguna: (1) Ts pada rumus G wajib dalam Celsius (Waters dan Chemin); (2) manual Chemin v0.6.7 tertulis koefisien 0.0032/0.0062/0.978, rumus pengguna 0.0038/0.0074/0.98; bawaan mengikuti pengguna, pilihan Chemin tersedia; (3) aturan air/salju G/Rn = 0.5 dari Waters pers. 24 diterapkan hanya pada Waters; (4) 57-73% piksel Rn unggahan di luar 100-700 W/m2 (mean 702-724), perlu ditelusuri; (5) pembagian rentang waktu r0 adalah pembacaan aplikasi atas tabel 12/14/16.
 - Dugaan "luaran Waters = G dan r0" pada pesan pengguna dibaca sebagai Bandara (r0 hanya ada pada Bandara); Waters hanya G.
 - Belum diuji dengan albedo asli; G data nyata memakai albedo ilustrasi dari NDVI.
+
+## Addendum lanjutan 43: koefisien G Bandara hanya Chemin (v76)
+- Pengguna: koefisien pada pesan sebelumnya salah tulis; Bandara memakai manual Chemin. Core: BANDARA_COEF = (0.0032, 0.0062, 0.978); parameter bandara_coeffs dan combo koefisien di GUI dihapus. Waters tidak berubah (0.0038, 0.0074, 0.98).
+- Ditolak: mempertahankan dua pilihan koefisien (menambah opsi tanpa kebutuhan setelah pengguna memutuskan).
