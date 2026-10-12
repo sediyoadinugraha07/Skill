@@ -446,3 +446,10 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Hasil (rata-rata Ta; dalam rentang; di bawah; di atas): A LST-3: 299.21 K; 71.9%; 8.9%; 19.2%. B Tan di atas A: 293.11; 22.0%; 76.7%; 1.4%. C (BT^4/e0)^0.25: 301.99; 59.2%; 1.5%; 39.4%. D Tan di atas C: 295.68; 47.6%; 49.1%; 3.3%. Korelasi C dengan A 0.998; selisih rata-rata C - A = 2.78 K.
 - Tafsir: C pada dasarnya suhu permukaan terkoreksi emisivitas (rata-rata 301.99 vs LST 302.21), jadi bukan suhu atmosfer; A paling banyak berada dalam rentang. Kode tidak diubah; Bandara tetap A (v72-v74).
 - Batas bukti: rentang 7 K, jam dan stasiun pengukuran tidak diketahui, bukan per piksel.
+
+## Addendum lanjutan 42: Ta Bandara tetap LST - 3; menu G (v75)
+- Keputusan pengguna: Ta Bandara tetap Ta = Tair = T0 - 3 (tanpa perubahan kode dari v72). Pengguna mengunggah tiga Rn Karangasem (Bandara, Waters-LAI, Waters-emisivitas) sebagai bahan analisis.
+- Menu baru "G (Fluks Panas Tanah)" di bawah Rn (gui/et_g_page.py, core/et_g.py, tests/test_et_g.py). Waters: pers. 24, luaran G; Bandara: rumus Chemin dengan r0 dari waktu setempat, luaran G dan r0.
+- Temuan yang diteruskan ke pengguna: (1) Ts pada rumus G wajib dalam Celsius (Waters dan Chemin); (2) manual Chemin v0.6.7 tertulis koefisien 0.0032/0.0062/0.978, rumus pengguna 0.0038/0.0074/0.98; bawaan mengikuti pengguna, pilihan Chemin tersedia; (3) aturan air/salju G/Rn = 0.5 dari Waters pers. 24 diterapkan hanya pada Waters; (4) 57-73% piksel Rn unggahan di luar 100-700 W/m2 (mean 702-724), perlu ditelusuri; (5) pembagian rentang waktu r0 adalah pembacaan aplikasi atas tabel 12/14/16.
+- Dugaan "luaran Waters = G dan r0" pada pesan pengguna dibaca sebagai Bandara (r0 hanya ada pada Bandara); Waters hanya G.
+- Belum diuji dengan albedo asli; G data nyata memakai albedo ilustrasi dari NDVI.
