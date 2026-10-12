@@ -425,3 +425,8 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Pengguna: suhu udara 3 Oktober 2025 berkisar 295.15 sampai 302.15 K; minta dibandingkan mana yang lebih dekat, gabungan Tan dan Chemin atau Chemin saja.
 - Hasil (Karangasem, 860.515 piksel): piksel Ta dalam rentang: Chemin langsung (LST - 3) 71.9%, Waters citra Tcold 75.5%, gabungan Tan+Chemin 22.0% (76.7% di bawah rentang). Rata-rata Ta 299.2, 299.8, 293.1 K. Per ketinggian Chemin lebih unggul di 200-500, 500-1000 m; di 0-200 m Chemin 57.0% dalam rentang tetapi 43% di atas rentang, gabungan 45.7% dengan simpangan rata-rata lebih kecil (1.05 versus 1.41 K).
 - Batas bukti: rentang pengguna lebar (7 K), sumber dan jam pengukuran belum diketahui (rata-rata harian atau jam lintasan sekitar 10:10 WITA tidak sama); bukan pengukuran per piksel. Kesimpulan yang disampaikan: berdasarkan pembanding ini Chemin saja lebih dekat; belum ada perubahan kode, menunggu keputusan pengguna.
+
+## Addendum lanjutan 38: Bandara RL turun memakai Chemin tunggal (v72)
+- Pengguna memutuskan Ta Bandara hanya Tatm = LST - 3 (Chemin), setelah addendum 37. Regresi Tan (TAN_A, TAN_B, ta_tan) dihapus dari core/et_rl_down.py; teks GUI disesuaikan; uji test_et_rl_down.py diubah (Ta = LST - 3, tanpa tatm_mean dan Pembanding; ta_tan tidak ada).
+- Alasan ditolak: regresi Tan menurunkan Ta rata-rata 6.1 K dan hanya 22.0% piksel masuk rentang 295.15-302.15 K; Tair pada Tan dkk. tidak terdefinisi.
+- Belum diverifikasi: validitas terhadap RL turun terukur; rentang suhu udara belum diketahui jam dan stasiunnya.
