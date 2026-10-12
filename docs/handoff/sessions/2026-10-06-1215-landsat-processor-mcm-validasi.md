@@ -436,3 +436,7 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 - Implementasi: core/et_rn.py (compute_rn, net_radiation), gui/et_rn_final_page.py, tab 5 di gui/et_rn_page.py; core/et_rl_down.py menulis _Ea.tif (dua metode) dan _Ta.tif (Bandara). Uji baru tests/test_et_rn.py; test_et_rl_down.py dan test_et_rs.py (jumlah tab 5) disesuaikan.
 - Keputusan: Waters tidak diberi _Ta.tif karena citra Tcold sama dengan Ta. Grid disamakan ke albedo. Rentang peringatan Rn 0-900 W/m2 adalah perkiraan, perlu verifikasi.
 - Belum diuji dengan data nyata Karangasem; hanya data sintetis.
+
+## Addendum lanjutan 40: rentang peringatan Rn diubah ke 100-700 W/m2 (v74)
+- Pengguna: rentang Rn menurut penelitian Waters adalah 100-700 W/m2. Batas 0-900 pada v73 adalah perkiraan saya tanpa sumber, jadi diganti. PDF Waters tidak tersedia di lingkungan sesi ini, jadi angka 100-700 belum saya cek langsung ke halaman rujukannya (perlu verifikasi).
+- Hanya mengubah peringatan, bukan hasil Rn. Piksel di luar rentang tidak dihapus.
