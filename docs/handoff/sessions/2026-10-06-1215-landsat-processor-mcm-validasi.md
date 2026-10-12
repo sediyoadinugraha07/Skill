@@ -440,3 +440,9 @@ Pengguna tidak jadi pindah ke Claude Code; pengembangan dilanjutkan di claude.ai
 ## Addendum lanjutan 40: rentang peringatan Rn diubah ke 100-700 W/m2 (v74)
 - Pengguna: rentang Rn menurut penelitian Waters adalah 100-700 W/m2. Batas 0-900 pada v73 adalah perkiraan saya tanpa sumber, jadi diganti. PDF Waters tidak tersedia di lingkungan sesi ini, jadi angka 100-700 belum saya cek langsung ke halaman rujukannya (perlu verifikasi).
 - Hanya mengubah peringatan, bukan hasil Rn. Piksel di luar rentang tidak dihapus.
+
+## Addendum lanjutan 41: pembandingan empat varian Ta terhadap suhu udara 3 Oktober 2025 (tanpa perubahan kode)
+- Pengguna mengingatkan metode ke-3 Chemin: Tair = (BT^4/eps0)^0.25. Dibandingkan dengan rentang 295.15-302.15 K pada 860.860 piksel Karangasem (BT B10, mean LSE, LST MCM-QIN, grid sama).
+- Hasil (rata-rata Ta; dalam rentang; di bawah; di atas): A LST-3: 299.21 K; 71.9%; 8.9%; 19.2%. B Tan di atas A: 293.11; 22.0%; 76.7%; 1.4%. C (BT^4/e0)^0.25: 301.99; 59.2%; 1.5%; 39.4%. D Tan di atas C: 295.68; 47.6%; 49.1%; 3.3%. Korelasi C dengan A 0.998; selisih rata-rata C - A = 2.78 K.
+- Tafsir: C pada dasarnya suhu permukaan terkoreksi emisivitas (rata-rata 301.99 vs LST 302.21), jadi bukan suhu atmosfer; A paling banyak berada dalam rentang. Kode tidak diubah; Bandara tetap A (v72-v74).
+- Batas bukti: rentang 7 K, jam dan stasiun pengukuran tidak diketahui, bukan per piksel.
