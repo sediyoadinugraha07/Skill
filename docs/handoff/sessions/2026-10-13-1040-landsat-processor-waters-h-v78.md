@@ -76,3 +76,9 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Pendekatan: f = 1 + A cos(2 pi (t - 14)/24), A = 0,4 (asumsi, belum diverifikasi); MTL wajib. Simulasi sensitivitas: ux 2,47 / 3,00 / 3,46 memberi ET24 rata-rata 5,65 / 5,33 / 5,10 mm/hari (zom NDVI, PET MODIS).
 - Ditolak: faktor tetap tersembunyi (membingungkan); data angin per jam tidak bisa diambil (jaringan lingkungan menolak NASA POWER).
 - Zip: landsat_processor_v81.zip
+
+## Tambahan v82 (hilangkan kolom asumsi)
+- Keputusan pengguna: kolom fraksi Rs langsung (Rn) dihapus dan dihitung aplikasi; kolom amplitudo dan jam puncak angin disembunyikan. Fraksi langsung kini dari kt dan korelasi Erbs (koefisien dicek ke dokumentasi DNV).
+- Angin: berkas Relasi_Suhu_dan_Udara.xlsx berisi suhu dan kelembapan per jam pada 3 ketinggian, bukan angin; tidak bisa membangun model angin vs ketinggian. A = 0,4 dan puncak jam 14 tetap asumsi internal, dilog.
+- Data berkas itu tampak berisik (suhu udara 45 C di 100 mdpal, loncatan antar jam).
+- Zip: landsat_processor_v82.zip
