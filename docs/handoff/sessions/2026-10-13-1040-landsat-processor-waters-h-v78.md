@@ -95,3 +95,8 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Dikerjakan: Rs dari n/N, P dari elevasi, tinggi alat tetap 10 m; kolom bujur, terbit, terbenam ikut dihapus (N dari lintang). Masukan jadi 10 kolom.
 - Ditolak: mempertahankan Rs terukur sebagai opsi (pengguna ingin sederhana). Risiko: stasiun dengan alat bukan 10 m (mis. 2 m) memberi u2 terlalu rendah; perlu diverifikasi bila ada.
 - Zip: landsat_processor_v84.zip
+
+## Tambahan v85 (tinggi alat angin ditampilkan)
+- Pengguna menanyakan arti 2,47 (contoh saya; itu angin harian rata-rata dari data pengguna sebelumnya) dan meminta tinggi alat tetap muncul. Kolom opsional dikembalikan, bawaan 1,2 m (dari keterangan pengguna). Koreksi atas v84 yang mengunci 10 m.
+- Perlu diverifikasi: tinggi alat sebenarnya tiap stasiun BMKG.
+- Zip: landsat_processor_v85.zip
