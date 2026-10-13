@@ -89,3 +89,9 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Keputusan: tidak mereplikasi kesalahan lembar lama; selisih dicatat di Excel luaran. Temuan penting: n/N dibagi 100 dua kali di lembar bulanan (Rs ~0,25 Ra), suku angin PM diganti 1,41, kurung AA salah.
 - Belum diverifikasi: bentuk fungsi angin AA; ETr ASCE harian dari Rn FAO-56; ETr alfalfa belum otomatis mengisi Tab 2 (diketik pengguna).
 - Zip: landsat_processor_v83.zip
+
+## Tambahan v84 (ET Manual disederhanakan)
+- Keputusan pengguna: Rs, tekanan udara, dan tinggi alat tidak perlu diinput karena lembar Excel aslinya juga menghitung; tinggi alat dianggap sama di stasiun Indonesia.
+- Dikerjakan: Rs dari n/N, P dari elevasi, tinggi alat tetap 10 m; kolom bujur, terbit, terbenam ikut dihapus (N dari lintang). Masukan jadi 10 kolom.
+- Ditolak: mempertahankan Rs terukur sebagai opsi (pengguna ingin sederhana). Risiko: stasiun dengan alat bukan 10 m (mis. 2 m) memberi u2 terlalu rendah; perlu diverifikasi bila ada.
+- Zip: landsat_processor_v84.zip
