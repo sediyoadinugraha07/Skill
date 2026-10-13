@@ -70,3 +70,9 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Pengguna sedang memeriksa kecepatan angin 9,17 m/s (satuan dan jam ukur). Tanggal komposit PET sudah diperiksa pengguna sesuai.
 - Ditolak: menjadikan koreksi topografi bawaan (risiko koreksi berlebih untuk ET24 sehari).
 - Zip: landsat_processor_v80.zip
+
+## Tambahan v81 (angin harian ke jam citra)
+- Data angin pengguna hanya rata-rata harian (ux 2,47 m/s pada 1,2 m, DEM stasiun 135 m). Keputusan pengguna: kolom ux tetap, tambah kotak centang "sesuai jam perekaman citra"; bila tidak, aplikasi menyesuaikan.
+- Pendekatan: f = 1 + A cos(2 pi (t - 14)/24), A = 0,4 (asumsi, belum diverifikasi); MTL wajib. Simulasi sensitivitas: ux 2,47 / 3,00 / 3,46 memberi ET24 rata-rata 5,65 / 5,33 / 5,10 mm/hari (zom NDVI, PET MODIS).
+- Ditolak: faktor tetap tersembunyi (membingungkan); data angin per jam tidak bisa diambil (jaringan lingkungan menolak NASA POWER).
+- Zip: landsat_processor_v81.zip
