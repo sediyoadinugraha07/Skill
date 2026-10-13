@@ -28,7 +28,7 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Simulasi Karangasem (albedo TOA 0,152): konvergen 5 iterasi; H rata-rata sekitar 137 W/m2 (Rn - G 588); dT_panas 3,3 K; rah_panas sekitar 8 s/m.
 
 ## Belum terverifikasi
-- Rumus dan konstanta ETr (Cn, Cd, G, Rnl per jam) ditulis dari ingatan; perlu dicek terhadap ASCE-EWRI 2005.
+- ETr: Cn, Cd, G, Rnl, fcd, Ra jam terverifikasi via web (ASCE Tabel 2, IFAS, K-State, UC Davis PMhrDoc) dan uji silang paket refet (selisih < 1e-4 mm/jam). Belum dicek langsung dari dokumen: u2, es, Delta, P (FAO-56). Aturan baru: tolak bila sudut matahari < 17,2 derajat.
 - ux = 3 m/s, ETr = 0,55 mm/jam, ujung zom 0,002 m (pinjaman Chemin) hanyalah asumsi ilustrasi.
 - Albedo 0,22 sampai 0,24 tidak tercapai di Karangasem (hanya 31 piksel); jangkar dingin jatuh ke NDVI atau LAI saja.
 - Pada varian tanpa LAI, jangkar panas jatuh ke puncak gunung (DEM 2800 m) karena saringan kemiringan dibuang.
