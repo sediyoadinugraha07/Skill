@@ -82,3 +82,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Angin: berkas Relasi_Suhu_dan_Udara.xlsx berisi suhu dan kelembapan per jam pada 3 ketinggian, bukan angin; tidak bisa membangun model angin vs ketinggian. A = 0,4 dan puncak jam 14 tetap asumsi internal, dilog.
 - Data berkas itu tampak berisik (suhu udara 45 C di 100 mdpal, loncatan antar jam).
 - Zip: landsat_processor_v82.zip
+
+## Tambahan v83 (menu ET Manual)
+- Permintaan pengguna: menu baru ET Manual dari lembar Hasil_Hitung_Penman-AA.xlsx, input manual, luaran Excel, ETr harian lebih sesuai untuk Waters bila data stasiun ada.
+- Dikerjakan: core/et_manual.py, gui/et_manual_page.py, tests/test_et_manual.py; menu di bawah ET24. Hasil: ETo FAO-56, ETr ASCE harian (alfalfa), AA.
+- Keputusan: tidak mereplikasi kesalahan lembar lama; selisih dicatat di Excel luaran. Temuan penting: n/N dibagi 100 dua kali di lembar bulanan (Rs ~0,25 Ra), suku angin PM diganti 1,41, kurung AA salah.
+- Belum diverifikasi: bentuk fungsi angin AA; ETr ASCE harian dari Rn FAO-56; ETr alfalfa belum otomatis mengisi Tab 2 (diketik pengguna).
+- Zip: landsat_processor_v83.zip
