@@ -48,3 +48,9 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 1. Pengguna menjalankan v78 pada data nyata dengan ux, zx, h, ETr stasiun.
 2. Putuskan sumber NDVI/SAVI (DOS2+cos atau TOA) dan L SAVI.
 3. Faktor Mountain Lampiran 12 setelah satuan kemiringan terverifikasi.
+
+## Tambahan sesi 2026-10-13 sore (tab 1/2/5)
+- Tab 1 hanya LST (Bandara: rho final langsung; Waters: tentatif, final dari iterasi tab 3). Alasan: pengguna ingin menghindari salah pilih Ta.
+- Tab 2: filter dialog MTL (txt, json) diperbaiki; sumber zom berlabel NDVI/LAI/Klasifikasi lahan (NDVI = pers. 28, zom = 0,12 h; NDVI hanya acuan grid). Excel ETr tab 2 baru; ETr sesaat otomatis mengisi tab 3 dan tab 5.
+- Tab 5 ET24 (Waters hlm. 34-35): lambdaET = Rn - G - H tanpa ETr; ETinst = 3600 lambdaET / lambda (lambda bergantung Ts, disetujui pengguna); ETrF = ETinst / ETr sesaat; ET24 = ETrF x ETr-24. ETrF tidak dipotong. Ditolak: memotong ETrF ke 0-1 (manual tidak menyuruh).
+- Belum terverifikasi: scene Karangasem dengan ETr 0,55 (asumsi) memberi ETrF rata-rata 1,21; ET24 bergantung pada sebaran sinusoidal bila ETr sesaat dari ETr harian; rumus rho Senay/Januar belum dicocokkan ke makalah asli.
