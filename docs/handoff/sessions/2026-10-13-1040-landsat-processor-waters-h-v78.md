@@ -20,6 +20,8 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 
 - Revisi ETr: tab 2 tidak lagi menghitung Penman-Monteith (modul terpisah nanti, user: aplikasi meminimalkan data lapangan). Tab 2 menerima ET harian stasiun (mm/hari) lalu konversi sinusoidal ke laju sesaat pada jam citra; atau mm/jam langsung; atau kosong (H dingin 0).
 
+- ETr harian: tanggal, jam, lokasi dibaca dari MTL (user menolak input ulang); pilihan ETo dihapus. Kemiringan jangkar panas < 1% bersumber Waters Lampiran 7 (khusus Mountain Model); jendela elevasi tambahan aplikasi.
+
 ## Yang ditolak atau gagal
 - Penman-Monteith per jam di tab 2 ditolak user: menggandakan modul PM terpisah dan menuntut data lapangan.
 - Dugaan "DOS2 mengurangi NIR berlebihan" ditarik: DOS2 sah, masalahnya penggandaan koreksi dengan alpha_path.
