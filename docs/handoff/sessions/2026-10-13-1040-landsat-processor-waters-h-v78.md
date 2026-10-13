@@ -22,7 +22,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 
 - ETr harian: tanggal, jam, lokasi dibaca dari MTL (user menolak input ulang); pilihan ETo dihapus. Kemiringan jangkar panas < 1% bersumber Waters Lampiran 7 (khusus Mountain Model); jendela elevasi tambahan aplikasi.
 
+- zom Waters disederhanakan: hanya pers. 28 (c = 0,12 tetap, h rata-rata lokasi penelitian, zom seragam); ujung bawah/atas, pers. 31b, dan pinjaman Chemin dihapus atas permintaan user. Jendela elevasi dan kemiringan jangkar panas tidak lagi di GUI (otomatis).
+
 ## Yang ditolak atau gagal
+- Pers. 31b dan mode otomatis Chemin ditolak user (fokus Waters, membingungkan).
 - Penman-Monteith per jam di tab 2 ditolak user: menggandakan modul PM terpisah dan menuntut data lapangan.
 - Dugaan "DOS2 mengurangi NIR berlebihan" ditarik: DOS2 sah, masalahnya penggandaan koreksi dengan alpha_path.
 - Regresi Ts_DEM terhadap Ts sebagai dT ditolak: hasilnya suhu absolut. Dipakai hanya sebagai diagnostik di Excel.
@@ -33,6 +36,7 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Simulasi Karangasem (albedo TOA 0,152): konvergen 5 iterasi; H rata-rata sekitar 137 W/m2 (Rn - G 588); dT_panas 3,3 K; rah_panas sekitar 8 s/m.
 
 ## Belum terverifikasi
+- zom seragam menyamakan air, tanah gundul, dan hutan; Waters memakai h per jenis penutup lahan. Di Karangasem H rata-rata hanya berubah 143 ke 153 W/m2 untuk h 0,5 sampai 20 m (ETr 0,55 asumsi).
 - Konversi harian ke sesaat (sinusoidal) adalah pendekatan, tidak diverifikasi pada dokumen; fraksi sekitar 0,11 per jam pada 10:00 Bali. Nilai harian ETo vs ETr berbeda 10 sampai 25% (perkiraan).
 - ETr: Cn, Cd, G, Rnl, fcd, Ra jam terverifikasi via web (ASCE Tabel 2, IFAS, K-State, UC Davis PMhrDoc) dan uji silang paket refet (selisih < 1e-4 mm/jam). Belum dicek langsung dari dokumen: u2, es, Delta, P (FAO-56). Aturan baru: tolak bila sudut matahari < 17,2 derajat.
 - ux = 3 m/s, ETr = 0,55 mm/jam, ujung zom 0,002 m (pinjaman Chemin) hanyalah asumsi ilustrasi.
