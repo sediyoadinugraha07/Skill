@@ -18,7 +18,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 
 - ETr sesaat dihitung otomatis di tab 2 (Penman-Monteith per jam ASCE-EWRI, acuan tinggi bawaan) karena iterasi L tidak bisa menggantikan syarat batas ET jangkar dingin; tab 3 membacanya dari tag zom; lembar ETr di Excel. Rasio ET panas bawaan 0.
 
+- Revisi ETr: tab 2 tidak lagi menghitung Penman-Monteith (modul terpisah nanti, user: aplikasi meminimalkan data lapangan). Tab 2 menerima ET harian stasiun (mm/hari) lalu konversi sinusoidal ke laju sesaat pada jam citra; atau mm/jam langsung; atau kosong (H dingin 0).
+
 ## Yang ditolak atau gagal
+- Penman-Monteith per jam di tab 2 ditolak user: menggandakan modul PM terpisah dan menuntut data lapangan.
 - Dugaan "DOS2 mengurangi NIR berlebihan" ditarik: DOS2 sah, masalahnya penggandaan koreksi dengan alpha_path.
 - Regresi Ts_DEM terhadap Ts sebagai dT ditolak: hasilnya suhu absolut. Dipakai hanya sebagai diagnostik di Excel.
 
@@ -28,6 +31,7 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Simulasi Karangasem (albedo TOA 0,152): konvergen 5 iterasi; H rata-rata sekitar 137 W/m2 (Rn - G 588); dT_panas 3,3 K; rah_panas sekitar 8 s/m.
 
 ## Belum terverifikasi
+- Konversi harian ke sesaat (sinusoidal) adalah pendekatan, tidak diverifikasi pada dokumen; fraksi sekitar 0,11 per jam pada 10:00 Bali. Nilai harian ETo vs ETr berbeda 10 sampai 25% (perkiraan).
 - ETr: Cn, Cd, G, Rnl, fcd, Ra jam terverifikasi via web (ASCE Tabel 2, IFAS, K-State, UC Davis PMhrDoc) dan uji silang paket refet (selisih < 1e-4 mm/jam). Belum dicek langsung dari dokumen: u2, es, Delta, P (FAO-56). Aturan baru: tolak bila sudut matahari < 17,2 derajat.
 - ux = 3 m/s, ETr = 0,55 mm/jam, ujung zom 0,002 m (pinjaman Chemin) hanyalah asumsi ilustrasi.
 - Albedo 0,22 sampai 0,24 tidak tercapai di Karangasem (hanya 31 piksel); jangkar dingin jatuh ke NDVI atau LAI saja.
