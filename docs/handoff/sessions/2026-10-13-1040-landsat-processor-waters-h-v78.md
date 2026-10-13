@@ -56,3 +56,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Belum terverifikasi: scene Karangasem dengan ETr 0,55 (asumsi) memberi ETrF rata-rata 1,21; ET24 bergantung pada sebaran sinusoidal bila ETr sesaat dari ETr harian; rumus rho Senay/Januar belum dicocokkan ke makalah asli.
 - Tab 2 punya mode 'ETr harian dari PET MODIS (MOD16)' (rata-rata PET scene x skala / hari komposit sebagai ETr harian). Alasan: stasiun sering tidak punya ETr harian untuk tanggal lama. Ditolak: memakai ET aktual MOD16 sebagai ETr (bukan referensi). Belum terverifikasi: skala 0,1, satuan, batas valid 32700, selisih PET MOD16 terhadap ETr alfalfa ASCE.
 - Analisis hasil pengguna (Excel Tab 3): jangkar dingin Ts_DEM 28,7 C hanya di persentil 6, jangkar panas 39,7 C di ekor; zom dari LAI (pers. 31a) membuat zom hutan terlalu kecil; dugaan penyebab ETrF > 1,05 pada vegetasi lebat. Saran: sumber zom Klasifikasi lahan (Lampiran 2).
+
+## Tambahan v79 (PET MODIS otomatis)
+- Keputusan pengguna: mode PET MODIS di Tab 2 tidak punya kolom faktor skala dan hari komposit (PET sudah hasil akhir menu MODIS); hari komposit dibaca dari tag UNITS, bawaan 8.
+- Menu ET24 langkah 3 menerima berkas PET MODIS dan menghitung ETr-24 per piksel; piksel kosong diisi rata-rata scene.
+- Ditolak: faktor skala manual (berisiko ganda mengalikan 0,1). Nomor v49 pada permintaan dianggap salah ketik, dipakai v79.
+- Belum diverifikasi: tag satuan MOD16, kecocokan tanggal komposit dengan citra (A2025281 vs tanggal 2025-10-03).
+- Zip: landsat_processor_v79.zip
