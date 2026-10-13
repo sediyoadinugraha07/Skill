@@ -63,3 +63,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: faktor skala manual (berisiko ganda mengalikan 0,1). Nomor v49 pada permintaan dianggap salah ketik, dipakai v79.
 - Belum diverifikasi: tag satuan MOD16, kecocokan tanggal komposit dengan citra (A2025281 vs tanggal 2025-10-03).
 - Zip: landsat_processor_v79.zip
+
+## Tambahan v80 (koreksi topografi Rn, simulasi zom LAI dan angin)
+- Menu Rn tab 5 menerima DEM, MTL, fraksi langsung (0,85, asumsi); menghasilkan Rn, albedo_topo, Rs_topo. Opsional, bawaan mati.
+- Simulasi zom LAI (0,016 m rata-rata) lawan NDVI (3 m seragam): rah 7,7 lawan 3,6 s/m, ET24 rata-rata hampir sama (4,53 lawan 4,62) pada ux 9,17; angin 2,55 m/s menaikkan ET24 ke sekitar 5,6 sampai 5,8 dan ETrF>1,1 ke 14 sampai 19%.
+- Pengguna sedang memeriksa kecepatan angin 9,17 m/s (satuan dan jam ukur). Tanggal komposit PET sudah diperiksa pengguna sesuai.
+- Ditolak: menjadikan koreksi topografi bawaan (risiko koreksi berlebih untuk ET24 sehari).
+- Zip: landsat_processor_v80.zip
