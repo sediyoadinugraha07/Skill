@@ -121,3 +121,11 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Tangga saringan lereng jangkar dingin memilih NDVI >= 0,6 (LAI median 1,2) sebelum melonggarkan lereng ke 20% pada LAI: belum diubah, perlu dinilai.
 - Belum diverifikasi: kesesuaian dengan teks Waters; hasil pada data asli pengguna.
 - Zip: landsat_processor_v88.zip
+
+## Tambahan v89 (hasil v88 pengguna diterima, ZW ET Manual 10 m)
+- Hasil pengguna (zip c8083441, Excel ea68836a) dipastikan versi v88 (catatan u* jangkar diperbarui, iterasi 8, ux 2,47 jadi 3,05, zx 10, Rn topo hari). ET24 rata-rata 4,50 (v87 5,87); ET > 1,1 PET 2,8% (v87 32,5%); lahan terbuka sekitar 1,5 sampai 1,7, datar sampai landai seragam; vegetasi menurun monoton menurut relD (2,0 sampai 5,3); korelasi ET dengan NDVI 0,76.
+- Kekurangan yang diterima: ET negatif 1,8% (NDVI rendah, lereng > 30 derajat; lahan terbuka lereng > 20 derajat rata-rata sekitar 0); jangkar dingin pakai NDVI >= 0,6 (LAI median 1,2, dT dingin 2,44) karena LAI+albedo hanya 26 piksel; faktor angin harian dan Erbs belum diverifikasi; belum ada validasi lapangan.
+- Keputusan pengguna: hasil v88 boleh dianggap hasil Waters minimal terbaik; lanjut ke metode Bandara.
+- Dikerjakan: ZW_STD ET Manual 1,2 ke 10 m (templat, contoh, teks, uji). Diuji dan ditolak mengubah: urutan tangga jangkar dingin (hasil identik karena tingkat LAI tidak lolos MIN_POOL pada 10% maupun 20%).
+- Ditolak: memotong ET negatif di aplikasi (Waters tidak memotong; masking dilakukan pengguna pada analisis hilir).
+- Zip: landsat_processor_v89.zip. Berikutnya: metode Bandara.
