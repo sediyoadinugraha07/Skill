@@ -256,3 +256,12 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Wan & Dozier 1996 hanya dipakai untuk memastikan tanda +38.33 pada M (OCR awal sempat terbaca minus); itu dan Galve 2008 disimpan untuk MCM Wan-Dozier dan Coll.
 - Pemeriksaan: model maju Planck menghasilkan bias +1.4 sampai +1.9 K pada atmosfer sintetis yang bukan atmosfer Sobrino; tidak dibaca sebagai bukti akurasi.
 - Terbuka: belum diuji pada granule nyata; rentang simulasi Sobrino bisa terlampaui di Bali (W, Delta e); Wan-Dozier dan Coll belum dibangun; pengecekan MCM Qin terhadap MOD11A2 ditunda atas permintaan pengguna.
+
+## v108: MCM Wan dan Dozier di MODIS LST
+
+- Permintaan: MCM ke-5 (disebut terakhir) = Wan dan Dozier; identifikasi input; luaran satu raster LST.
+- Keputusan: input = BT31, BT32, mean LSE, delta LSE; TANPA uap air (Tabel 6 artikel hanya satu set b0-b7, tanpa W). Persamaan = Pers. 38 artikel (bentuk Wan & Dozier 1996 Pers. 15 ditambah suku kuadrat b7, "Wan 2014"). Bentuk linear dicocokkan pada gambar halaman Wan & Dozier; suku kuadrat dan koefisien tidak ada di PDF yang diunggah.
+- Ditolak: mengarang atau mencari koefisien lain dari ingatan; Wan & Dozier tidak menerbitkan koefisien (hanya lewat surel), jadi b0-b7 dipakai dari Tabel 6 artikel dan diberi peringatan di tag GeoTIFF, README, GUI. Juga ditolak: memotong (NaN) piksel di luar rentang emisivitas; hanya ditandai.
+- Pemeriksaan: model maju Planck pada atmosfer sintetis memberi bias kurang dari 2 K dan RMSE kurang dari 1 K; itu bukan validasi koefisien.
+- Terbuka: b0-b7 perlu diverifikasi terhadap Wang et al. (artikel [94]) dan Wan (2014); koefisien Wan berbeda menurut rentang W, sudut, suhu, jadi satu set tetap mungkin menyimpang di lokasi lain; belum diuji pada granule nyata.
+- CATATAN: artikel rujukan membahas ENAM MCM (Sobrino, Qin, Mao, Becker-Li, Wan-Dozier, Coll). Pengguna menyebut Wan-Dozier metode terakhir, tetapi Coll (Galve et al. 2008 diunggah) belum dibangun; perlu konfirmasi pengguna apakah Coll dilewati.
