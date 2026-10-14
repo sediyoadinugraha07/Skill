@@ -194,3 +194,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Dikerjakan: peta basah disembunyikan; Lambda mentah disimpan; teks Excel angin diperbaiki.
 - Ditolak: menghapus pemotongan ke nol (ET negatif tidak bermakna fisik); mengubah jangkar kering ke persentil ekstrem (belum diputuskan).
 - Zip: landsat_processor_v98.zip.
+
+## Tambahan v99
+- Pengguna: nilai 0 ETact dipertahankan atau disesuaikan; deteksi laut atau danau di Waters dan Bandara; jadikan batas 20 W/m2 ketetapan; apakah wilayah lain (Xinyang) akan galat.
+- Keputusan: nol dipertahankan (ET negatif tidak bermakna; Waters juga sekitar nol di piksel itu), Lambda mentah disimpan sebagai pembanding. Batas 20 tetap dan tidak ada di GUI.
+- Temuan: Bandara mendeteksi air lewat NDVI <= 0, lereng <= 1%, Ts_DEM <= persentil 10 (butuh NDVI di tab 3; air hangat di atas persentil 10 tidak terdeteksi). Waters tidak punya deteksi air: jangkar dingin = vegetasi penuh (NDVI >= 0,6 atau LAI), air hanya diperlakukan pada G/Rn = 0,5 (NDVI < 0).
+- Risiko wilayah lain: ambang kering Chemin (310 K, albedo 0,18) khas lokasi studinya; fallback persentil dan kini albedo median. Masukan wilayah (angin, ETr, tanggal MTL, tinggi vegetasi) tetap harus sesuai wilayah.
+- Zip: landsat_processor_v99.zip.
