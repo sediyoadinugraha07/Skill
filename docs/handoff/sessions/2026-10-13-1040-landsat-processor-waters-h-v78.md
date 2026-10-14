@@ -100,3 +100,9 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Pengguna menanyakan arti 2,47 (contoh saya; itu angin harian rata-rata dari data pengguna sebelumnya) dan meminta tinggi alat tetap muncul. Kolom opsional dikembalikan, bawaan 1,2 m (dari keterangan pengguna). Koreksi atas v84 yang mengunci 10 m.
 - Perlu diverifikasi: tinggi alat sebenarnya tiap stasiun BMKG.
 - Zip: landsat_processor_v85.zip
+
+## Tambahan v86 (topo Rn sehari penuh)
+- Pengguna: hasil dengan topo Rn naik jauh. Analisis: kenaikan rata-rata utamanya dari angin (u200 19,8 ke 4,4 m/s), bukan topo (efek topo pada rata-rata ~0,0). Topo sesaat membalik bias bayangan (teduh − terpapar dari +1,1..+1,7 ke −2,1..−2,7 mm/hari). Keputusan: iluminasi terintegrasi sehari penuh, otomatis, posisi input tetap di menu Rn. Angin harian 2,47 harus dikoreksi ke jam citra (kotak centang Tab 2).
+- Ditolak: pembatasan REL_MAX ad hoc dan penyetelan faktor agar cocok; dipilih alasan fisika (ETrF 24 jam).
+- Belum diverifikasi: ux sebenarnya pada proses pengguna (u200 4,45 setara ux ~2,06 pada zx 1,2 m, bukan 2,47 atau 3,05); validasi lapangan; efek LST jam citra pada H.
+- Zip: landsat_processor_v86.zip
