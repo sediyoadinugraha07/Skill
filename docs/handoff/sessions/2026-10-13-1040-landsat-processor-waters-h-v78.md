@@ -166,3 +166,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Rujukan lain: Almhab dan Busu 2008 (Eq. 17 tercetak rusak, dan memaksa L = 0 bila stabil), Tan dkk. 2021 (ET24 = 86400 Lambda (Rn24 - G24)/lambda).
 - Keputusan: RL24 bawaan -110 tau_sw (argumen harian rata-rata); RL citra tetap tersedia. Belum diputuskan: ROI atau seluruh scene untuk regresi dT.
 - Zip: landsat_processor_v94.zip.
+
+## Tambahan v95
+- Pengguna: tab Rn24 membingungkan (kolom tau aktif/mati, tau konstan); input Rn, Rs, albedo harus versi topo; ETact tampak terpotong; ET Bandara terlalu tinggi. Berkas: H_bandara_iterasi.xlsx, rah_Bandara_regresi.xlsx, Rn_sebelum_sesudah_topo.xlsx, ET24_pot dan ETact24 (raster).
+- Temuan: ETact hanya 18% piksel karena U*eff = NaN untuk z0m > 0,26 m (ln(Zsur/z0m) - psi <= 0,05). H piksel kering hanya sekitar 150 dari 486 W/m2 pada regresi mentah. Albedo_topo dikali K24 datar menghasilkan Rn24 tidak konsisten di lereng teduh. rah1 rata-rata 1205 s/m (44% di luar 5 sampai 500) belum dipecahkan: U*eff kecil akibat psi 3,59 dari L piksel -1,3 m (manual hlm. 20), U*kering 0,157 m/s.
+- Dikerjakan: lantai U*eff 0,2; K24 topo; Λ dipotong 0 sampai 1; opsi dT regresi terskala; GUI Rn24 dirapikan. Ditolak: menjadikan regresi terskala bawaan (Λ median 0, tidak masuk akal).
+- Terbuka: asal U*kering dan rah1 terlalu besar (butuh keputusan pengguna); validasi ETact terhadap ET terukur; apakah regresi Ts_DEM cocok sebagai dT.
+- Zip: landsat_processor_v95.zip.
