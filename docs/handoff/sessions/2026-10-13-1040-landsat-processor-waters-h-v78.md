@@ -180,3 +180,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Dikerjakan: rah_mode almhab (bawaan) di tab 2, rah Almhab + psi di tab 3, GUI dT bawaan dua titik. Angin 200 m diturunkan dari rah_kering Chemin karena tanpa stasiun (penyesuaian, perlu ditinjau). Data uji: rah rata-rata 63 s/m (sebelumnya 1205); regresi dT mentah menjadi Lambda 0 (H > Rn - G) sehingga tidak layak; dua titik Lambda 0,65 (p5 0,04, p95 1,0), ETact 4,4 mm/hari (belum divalidasi).
 - Terbuka: rah_kering Chemin (sekitar 93 s/m, dT kering 40 K) masih tinggi; jangkar basah pada data uji jatuh ke fallback; validasi terhadap ET terukur.
 - Zip: landsat_processor_v96.zip.
+
+## Tambahan v97
+- Pengguna: angin rata-rata diisi manual seperti Waters beserta tinggi alat, lalu rah dan dT; apakah logika dT Waters tanpa ETr bisa dan optimal untuk Chemin.
+- Dikerjakan: ux, zx, h, faktor jam citra opsional di tab 2 Bandara (station_u200 dipakai ulang). dT Waters tanpa ETr = dua titik dengan H basah 0; tidak ada kode baru.
+- Temuan: ETact di data uji tidak sensitif terhadap angin (ux 2 sampai 5 m/s: 5,2 sampai 4,5 mm/hari), jadi ET tinggi bukan terutama karena angin. Dugaan penyebab: jangkar basah fallback vegetasi (dT = 0) dan bentuk garis dT; belum diverifikasi.
+- Terbuka: peta piksel basah (laut atau waduk), validasi terhadap ET terukur, opsi H jangkar basah tidak nol (butuh ETr atau fraksi).
+- Zip: landsat_processor_v97.zip.
