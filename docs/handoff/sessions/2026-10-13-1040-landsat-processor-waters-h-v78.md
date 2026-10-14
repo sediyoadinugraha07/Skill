@@ -247,3 +247,12 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: Pers. 26 dan 28/32 artikel apa adanya (Tb di tempat B; tau di tempat T). Diuji: meleset lebih dari 5 K pada model maju. Juga ditolak: meregresi a dan b dari citra seperti MCM Mao Landsat; di MODIS konstanta Mao tetap, sesuai artikel.
 - Pemeriksaan: model maju Planck (Ta = Ts - 8 K) memulihkan Ts dalam 1 K pada 295-315 K. Itu menguji aljabar dan galat linearisasi tetap, bukan akurasi lapangan.
 - Terbuka: linearisasi tetap 273-322 K bias sampai sekitar 0.3 K pada 300-330 K; belum diuji pada granule nyata; tau Mao hanya sahih pada rentang simulasi Mao; BT memakai panjang gelombang nominal. MCM lain (Becker-Li, Wan-Dozier, Coll) belum dibangun. Pengecekan hasil MCM Qin terhadap MOD11A2 (selisih 14 K di artikel) ditunda atas permintaan pengguna.
+
+## v107: MCM Becker dan Li di MODIS LST
+
+- Permintaan: MCM ke-4 = Becker dan Li; pengguna mengunggah Becker & Li 1990, Wan & Dozier 1996, Galve et al. 2008 sebagai rujukan tambahan; identifikasi input; luaran satu raster LST.
+- Keputusan: input = BT31, BT32, mean LSE, delta LSE (dari Tahap C menu Emisivitas, sama seperti MCM Sobrino), W. Persamaan = Sobrino et al. 2003 Pers. 14 (LST3), yang memakai struktur Becker & Li 1990 dengan 14 koefisien tergantung W; cocok dengan Pers. 37 dan Tabel 5 artikel 2026. Tanda koefisien dicek pada gambar halaman, bukan teks ekstraksi.
+- Ditolak: koefisien asli Becker & Li (NOAA-9; penulis menyatakan hanya sahih untuk NOAA-9); tidak dibuat opsi AVHRR. Juga ditolak: kurung artikel "(Tb31 + Tb32/2)".
+- Wan & Dozier 1996 hanya dipakai untuk memastikan tanda +38.33 pada M (OCR awal sempat terbaca minus); itu dan Galve 2008 disimpan untuk MCM Wan-Dozier dan Coll.
+- Pemeriksaan: model maju Planck menghasilkan bias +1.4 sampai +1.9 K pada atmosfer sintetis yang bukan atmosfer Sobrino; tidak dibaca sebagai bukti akurasi.
+- Terbuka: belum diuji pada granule nyata; rentang simulasi Sobrino bisa terlampaui di Bali (W, Delta e); Wan-Dozier dan Coll belum dibangun; pengecekan MCM Qin terhadap MOD11A2 ditunda atas permintaan pengguna.
