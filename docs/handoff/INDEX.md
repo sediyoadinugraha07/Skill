@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-14 | claude-code | Landsat Processor v104: MODIS Emisivitas (NBEM), MCM Sobrino MODIS | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-14 | claude-code | Landsat Processor v103: area gulir semua halaman, Emissivity muat lebar jendela | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-14 | claude-code | Landsat Processor v102: pilihan NDVI Threshold di menu Emissivity diperjelas | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-14 | claude-code | Landsat Processor v101: BT di MODIS L1B, menu MODIS LST (SCM Artis & Carnahan) | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
