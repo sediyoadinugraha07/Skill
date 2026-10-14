@@ -218,3 +218,8 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Keluhan pengguna: empat pilihan NDVI Threshold tidak terlihat jelas. Penyebab: keempatnya hanya item satu QComboBox tanpa koefisien. Kini empat radio button dengan koefisien tampil, plus ringkasan rumus aktif. Bug kecil: "&" pada label dibaca Qt sebagai mnemonic, diganti "&&".
 - Koefisien Tabel 3 sudah sama persis dengan PDF Nugraha et al. 2024 (tidak ada yang diubah). Rumus tunggal (tanpa tiga cabang NDVIs/NDVIv Pers. 4) tetap, sesuai keputusan pengguna sebelumnya.
 - Terbuka: pemakaian koefisien Tabel 3 untuk MODIS band 31/32 belum divalidasi; emisivitas MODIS perlu se-grid dengan BT 1 km.
+
+## v103: area gulir
+- Keluhan: halaman terpotong saat maximize dan tidak bisa digeser saat jendela kecil. Penyebab: 16 halaman (termasuk Emissivity) menaruh layout langsung di widget tanpa QScrollArea. Dipilih pembungkusan generik di main_window (hanya bila halaman belum punya QScrollArea) daripada mengubah 16 berkas satu per satu. Efek samping: main_window menyimpan daftar halaman di self._pages karena stack kini berisi pembungkus.
+- Lebar: kotak centang berteks panjang tidak bisa membungkus dan memaksa lebar minimum; diganti teks pendek plus label penjelas.
+- Terbuka: Vegetation Index masih lebar minimum 1968 px (belum diselidiki sumbernya), Koreksi Topografi 962, Reprojection 848, Landsat L2 839.
