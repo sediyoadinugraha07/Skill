@@ -239,3 +239,11 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: mengikuti teks artikel 2026 apa adanya (C = e/tau, E0 tanpa minus, L = regresi radiance). Dasar: Qin 2001 Pers. 21, 32, 15, 20. Laporan regresi Excel seperti di Landsat tidak dibuat, karena pengguna meminta luaran hanya satu citra LST; koefisien regresi disimpan di tag GeoTIFF dan dilaporkan di GUI.
 - Pemeriksaan: model maju Planck (Ta = Ts - 8 K) memulihkan Ts dalam 0.1 K untuk W 1 sampai 4; ini menguji aljabar dan L, bukan akurasi lapangan.
 - Terbuka: artikel melaporkan MCM Qin kurang dari MOD11A2 sekitar 14 K; penyebab pada data artikel belum diketahui (kandidat: W, L, emisivitas, BT dari radiance L1B); belum diuji pada granule nyata. tau Mao hanya sahih pada rentang simulasi Mao. Satu rentang suhu regresi (tanpa opsi rentang ganda seperti Landsat). MCM lain (Mao, Becker-Li, Wan-Dozier, Coll) belum dibangun.
+
+## v106: MCM Mao et al. di MODIS LST
+
+- Permintaan: MCM ke-3 = Mao 2005 (PDF sudah diunggah); identifikasi input; luaran hanya satu raster LST Mao.
+- Keputusan: input = BT31, BT32, e31, e32, W (sama dengan Qin, tanpa regresi). Planck dilinearkan dengan konstanta tetap Mao (Pers. 3), tau dari W lewat Mao Pers. 8 (fungsi `transmittance_mao` dipakai bersama Qin). Hitungan mengikuti Mao Pers. 23-25 yang dibaca dari gambar halaman PDF, bukan teks artikel 2026.
+- Ditolak: Pers. 26 dan 28/32 artikel apa adanya (Tb di tempat B; tau di tempat T). Diuji: meleset lebih dari 5 K pada model maju. Juga ditolak: meregresi a dan b dari citra seperti MCM Mao Landsat; di MODIS konstanta Mao tetap, sesuai artikel.
+- Pemeriksaan: model maju Planck (Ta = Ts - 8 K) memulihkan Ts dalam 1 K pada 295-315 K. Itu menguji aljabar dan galat linearisasi tetap, bukan akurasi lapangan.
+- Terbuka: linearisasi tetap 273-322 K bias sampai sekitar 0.3 K pada 300-330 K; belum diuji pada granule nyata; tau Mao hanya sahih pada rentang simulasi Mao; BT memakai panjang gelombang nominal. MCM lain (Becker-Li, Wan-Dozier, Coll) belum dibangun. Pengecekan hasil MCM Qin terhadap MOD11A2 (selisih 14 K di artikel) ditunda atas permintaan pengguna.
