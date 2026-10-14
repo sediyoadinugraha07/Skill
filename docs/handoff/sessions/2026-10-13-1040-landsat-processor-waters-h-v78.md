@@ -173,3 +173,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Dikerjakan: lantai U*eff 0,2; K24 topo; Λ dipotong 0 sampai 1; opsi dT regresi terskala; GUI Rn24 dirapikan. Ditolak: menjadikan regresi terskala bawaan (Λ median 0, tidak masuk akal).
 - Terbuka: asal U*kering dan rah1 terlalu besar (butuh keputusan pengguna); validasi ETact terhadap ET terukur; apakah regresi Ts_DEM cocok sebagai dT.
 - Zip: landsat_processor_v95.zip.
+
+## Tambahan v96
+- Pengguna: pakai satu perhitungan rah1 dan U*eff saja, sesuaikan dengan Almhab dan Busu 2008, dan adopsi dT Almhab ke Chemin bila bisa.
+- Almhab: rah = ln(z2/z1)/(u* k), z1 0,1 m, z2 2 m; u* = u(z) k / ln(z/zm) dengan angin stasiun 200 m; dT dua titik dengan Ts (Eq. 15), dT basah = 0; iterasi L sampai H berubah < 10%, L > 0 dipaksa netral. Dua titik ini sama dengan manual Chemin.
+- Dikerjakan: rah_mode almhab (bawaan) di tab 2, rah Almhab + psi di tab 3, GUI dT bawaan dua titik. Angin 200 m diturunkan dari rah_kering Chemin karena tanpa stasiun (penyesuaian, perlu ditinjau). Data uji: rah rata-rata 63 s/m (sebelumnya 1205); regresi dT mentah menjadi Lambda 0 (H > Rn - G) sehingga tidak layak; dua titik Lambda 0,65 (p5 0,04, p95 1,0), ETact 4,4 mm/hari (belum divalidasi).
+- Terbuka: rah_kering Chemin (sekitar 93 s/m, dT kering 40 K) masih tinggi; jangkar basah pada data uji jatuh ke fallback; validasi terhadap ET terukur.
+- Zip: landsat_processor_v96.zip.
