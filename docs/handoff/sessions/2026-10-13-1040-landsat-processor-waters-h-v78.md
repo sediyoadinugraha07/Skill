@@ -113,3 +113,11 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: saringan lereng selalu aktif (mengubah hasil tanpa topo dan membingungkan).
 - Belum diverifikasi: ambang 10 dan 20 persen (asumsi), efek pada data asli pengguna (ditunggu pengguna menjalankan ulang).
 - Zip: landsat_processor_v87.zip
+
+## Tambahan v88 (konsistensi u* jangkar dan piksel)
+- Pengguna: tinggi alat angin 10 m (1,2 m ternyata alat hujan); Rn topo dipakai di G dan H; minta cek lahan terbuka dan bayangan, sebaran mirip hasil sebelumnya.
+- Temuan: v87 hasilnya ~sama dengan topo sesaat (5,87 vs 5,93) karena kalibrasi dT tidak membedakan; akar masalah: pada Sampel_L, piksel sepanas jangkar panas punya H 150..190 W/m2 (bukan 441) dan rah ~20 (bukan 8,35). Penyebab: L jangkar memakai u* netral tetap, L piksel memakai u* terkoreksi. Perbaikan: perbarui u* jangkar tiap putaran. Uji: rasio 1,00 vs 0,18.
+- Dampak simulasi: ET24 rata-rata 5,79 jadi 4,50; lahan terbuka ~0; vegetasi rapat 5,5; ET > 1,1 PET 25% jadi 2,7%.
+- Tangga saringan lereng jangkar dingin memilih NDVI >= 0,6 (LAI median 1,2) sebelum melonggarkan lereng ke 20% pada LAI: belum diubah, perlu dinilai.
+- Belum diverifikasi: kesesuaian dengan teks Waters; hasil pada data asli pengguna.
+- Zip: landsat_processor_v88.zip
