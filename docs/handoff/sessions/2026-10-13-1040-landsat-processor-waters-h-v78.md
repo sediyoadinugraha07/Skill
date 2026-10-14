@@ -158,3 +158,11 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Temuan: manual Chemin hlm. 148 MEMBAGI rho_w (1000), bukan mengalikan; rumus pengguna dengan Pw = 1 tidak dipakai. Manual Landsat 7 memakai Rn24 = (1 - alpha) K24 - 110 tau_sw; pengguna memilih RL24 citra. Ksun Excel 1367 (manual 1358).
 - Rho Chemin (persamaan Pakistan, P dan e stasiun) dibanding Senay (3,486 P/(1,01 T)): selisih <= 0,5% untuk e 15 sampai 35 mbar; rho aplikasi tetap Senay dan Januar (P dari DEM, Allen).
 - Zip: landsat_processor_v93.zip. Berikutnya: pengguna menjalankan pada data asli.
+
+## Tambahan v94
+- Pengguna: menu ET24 harus dibedakan per metode (tab luar Waters dan Bandara, tab langkah di dalam); dT Chemin untuk kasus gurun, sehingga dT Bandara memakai adopsi pengguna (regresi Ts_DEM terhadap LST dalam derajat Celsius, dT = a + b LST); pilihan RL24 atau -110 tau_sw diserahkan ke analisis; minta rujukan lain untuk ET dengan fraksi evaporatif.
+- Dikerjakan: GUI ET24 dua tab luar; Bandara tiga langkah (Lambda, Rn24, ET24) dengan Excel masing-masing; compute_bandara_h dt_mode regresi (bawaan) atau dua_titik; RL24 manual atau citra.
+- Temuan: file contoh pengguna (ROI 1878 piksel) memberi Ts_DEM = 1,82 + 0,9708 LST (C), R2 0,9999; seluruh scene Karangasem memberi a 16,7, b 0,533, R2 0,41. dT regresi 25,5 sampai 40,2 K (bukan Ts - Ta). Lambda rata-rata 0,485 (P5 0,36, P95 0,59): kontras sempit. ETact24 3,38 mm/hari (RL24 manual) dan 2,46 (RL citra); ET24 potensial 6,94 dan 5,07; PET MOD16 komposit 6,03.
+- Rujukan lain: Almhab dan Busu 2008 (Eq. 17 tercetak rusak, dan memaksa L = 0 bila stabil), Tan dkk. 2021 (ET24 = 86400 Lambda (Rn24 - G24)/lambda).
+- Keputusan: RL24 bawaan -110 tau_sw (argumen harian rata-rata); RL citra tetap tersedia. Belum diputuskan: ROI atau seluruh scene untuk regresi dT.
+- Zip: landsat_processor_v94.zip.
