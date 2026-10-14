@@ -129,3 +129,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Dikerjakan: ZW_STD ET Manual 1,2 ke 10 m (templat, contoh, teks, uji). Diuji dan ditolak mengubah: urutan tangga jangkar dingin (hasil identik karena tingkat LAI tidak lolos MIN_POOL pada 10% maupun 20%).
 - Ditolak: memotong ET negatif di aplikasi (Waters tidak memotong; masking dilakukan pengguna pada analisis hilir).
 - Zip: landsat_processor_v89.zip. Berikutnya: metode Bandara.
+
+## Tambahan v90 (mulai metode Bandara: tinjauan rah, dT, H terhadap Chemin)
+- Pengguna: Albedo sampai RL naik Bandara dianggap sesuai; RL naik Bandara wajib Ts_DEM (hapus pilihan LST asli: dikerjakan di v90); RL turun memakai Ta = Ts - 3 (dijelaskan, kini LST bukan Ts_DEM; keputusan menunggu); Rn disamakan (topo); G dan rho (Senay, Januar) dianggap sesuai. Minta analisis kebutuhan masukan rah, dT, H terhadap PDF Chemin (Hitungan_H.pdf, hlm. 87, 91-132).
+- Temuan: kode Bandara sudah mengikuti manual (rah1 dari piksel kering) tetapi rantai rah sangat sensitif: pada data Karangasem rah_kering 83,5 s/m, L_kering -2,2 m, rah1 rata-rata 267, dT_panas 102 K, 60,7 persen piksel dT di luar -2..25 K. Perubahan tanda turunan albedo mengubah dT_kering 103 menjadi 489 K. rah_kering 30 memberi 15 K.
+- Manual tidak konsisten: Zsur 10 vs 100 m, k 0,4 vs 0,41, T' = (T0 - Tz)/2, U*eff tanpa 1/k, m1 dan m2 tidak diberikan, rah2 dan rah3 ada di manual tetapi tidak diterapkan di aplikasi (keputusan 2026-10-12).
+- Belum diputuskan: apakah menjalankan rah2/rah3 dan dT2/H2 sesuai manual hlm. 122-132; apakah Ta RL turun memakai Ts_DEM; ambang kering 310 K dan albedo 0,18.
+- Zip: landsat_processor_v90.zip
