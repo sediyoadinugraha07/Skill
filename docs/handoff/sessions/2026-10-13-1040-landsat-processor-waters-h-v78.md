@@ -201,3 +201,9 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Temuan: Bandara mendeteksi air lewat NDVI <= 0, lereng <= 1%, Ts_DEM <= persentil 10 (butuh NDVI di tab 3; air hangat di atas persentil 10 tidak terdeteksi). Waters tidak punya deteksi air: jangkar dingin = vegetasi penuh (NDVI >= 0,6 atau LAI), air hanya diperlakukan pada G/Rn = 0,5 (NDVI < 0).
 - Risiko wilayah lain: ambang kering Chemin (310 K, albedo 0,18) khas lokasi studinya; fallback persentil dan kini albedo median. Masukan wilayah (angin, ETr, tanggal MTL, tinggi vegetasi) tetap harus sesuai wilayah.
 - Zip: landsat_processor_v99.zip.
+
+## Tambahan v100
+- Pengguna: ETact Bandara punya piksel NoData, perlu diperbaiki atau tidak.
+- Temuan: 320 piksel, semuanya |Rn - G| < 20 W/m2 (Rn median 7), ET24 potensial negatif, gugus kecil di lereng sangat teduh; tetangga Lambda median 0,89. H tidak NaN.
+- Dikerjakan: tanpa Lambda dan Rn24 <= 0 diisi 0; ETact negatif dinaikkan ke 0; tanpa Lambda dan Rn24 > 0 tetap NoData. Ditolak: mengisi Lambda dari tetangga (tidak berdasar fisik pada Rn24 negatif).
+- Zip: landsat_processor_v100.zip.
