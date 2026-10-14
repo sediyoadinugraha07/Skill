@@ -213,3 +213,8 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Rumus pengguna "Ts = b/1+alog(((lambda*b)/rho)*b0)" ditafsirkan sebagai Artis & Carnahan Pers. 3/4: Ts = Tb/(1 + (lambda Tb/rho) ln eps). Bentuk harfiah salah (prioritas operator dan ln dipasang pada hasil kali) dan lambda 11.030 (um) dengan rho 0.01438 (m K) tidak sepadan; lambda dikonversi ke meter. Contoh Tb 300 K, eps 0.98: benar 301.40 K, harfiah 312.33.
 - Diterapkan di core/modis.py (mode "bt"), core/modis_lst.py, gui/modis_lst_page.py, core.lst.scm_artis_carnahan(wavelength_um). Ditolak: BT untuk band selain 31/32 (band 20 dsb. punya kontribusi surya siang hari, belum divalidasi).
 - Terbuka: lambda pusat tunggal vs respons detektor (sampai 0,11 K); emisivitas harus se-grid dengan BT MODIS (1 km), belum ada resampling otomatis; MCM MODIS belum dibangun.
+
+## v102: NDVI Threshold di menu Emissivity
+- Keluhan pengguna: empat pilihan NDVI Threshold tidak terlihat jelas. Penyebab: keempatnya hanya item satu QComboBox tanpa koefisien. Kini empat radio button dengan koefisien tampil, plus ringkasan rumus aktif. Bug kecil: "&" pada label dibaca Qt sebagai mnemonic, diganti "&&".
+- Koefisien Tabel 3 sudah sama persis dengan PDF Nugraha et al. 2024 (tidak ada yang diubah). Rumus tunggal (tanpa tiga cabang NDVIs/NDVIv Pers. 4) tetap, sesuai keputusan pengguna sebelumnya.
+- Terbuka: pemakaian koefisien Tabel 3 untuk MODIS band 31/32 belum divalidasi; emisivitas MODIS perlu se-grid dengan BT 1 km.
