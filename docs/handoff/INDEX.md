@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-14 | claude-code | Landsat Processor v98: peta basah disembunyikan, Lambda mentah, banding Waters | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-14 | claude-code | Landsat Processor v97: angin stasiun opsional pada rah1 Bandara | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-14 | claude-code | Landsat Processor v96: rah1 satu perhitungan ala Almhab, dT dua titik bawaan | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-14 | claude-code | Landsat Processor v95: ETact Bandara tidak terpotong, K24 topo, Λ 0 sampai 1, tab Rn24 dirapikan | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |

@@ -187,3 +187,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Temuan: ETact di data uji tidak sensitif terhadap angin (ux 2 sampai 5 m/s: 5,2 sampai 4,5 mm/hari), jadi ET tinggi bukan terutama karena angin. Dugaan penyebab: jangkar basah fallback vegetasi (dT = 0) dan bentuk garis dT; belum diverifikasi.
 - Terbuka: peta piksel basah (laut atau waduk), validasi terhadap ET terukur, opsi H jangkar basah tidak nol (butuh ETr atau fraksi).
 - Zip: landsat_processor_v97.zip.
+
+## Tambahan v98
+- Pengguna: kolom peta basah muncul lagi (usulan dihapus); apakah batas |Rn - G| 0 atau 20 berpengaruh; ETact bernilai 0 di wilayah kering, apakah itu kekurangan (dugaan nilai sebenarnya nol atau negatif); bandingkan dengan Waters.
+- Temuan: dengan angin 2,47 m/s (harian, 3,05 m/s di jam citra), dT kering 6,8 K dan rah akhir 17,7 s/m (wajar). ETact 4,96 vs Waters 4,50 mm/hari, r = 0,949. Nol (25.444 piksel, 3%) hanya di desil terpanas (29% desil itu); Waters di sana median -0,06 (negatif pada banyak piksel), jadi nol konsisten secara fisik; sebabnya jangkar kering = median sehingga piksel lebih panas punya H > Rn - G. Lambda = 1 pada 7,8% piksel (lebih dingin dari jangkar basah vegetasi), Waters di sana 5,98 mm/hari. Batas 20 W/m2 hanya 320 piksel, dampak < 0,001 mm/hari.
+- Dikerjakan: peta basah disembunyikan; Lambda mentah disimpan; teks Excel angin diperbaiki.
+- Ditolak: menghapus pemotongan ke nol (ET negatif tidak bermakna fisik); mengubah jangkar kering ke persentil ekstrem (belum diputuskan).
+- Zip: landsat_processor_v98.zip.
