@@ -207,3 +207,9 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Temuan: 320 piksel, semuanya |Rn - G| < 20 W/m2 (Rn median 7), ET24 potensial negatif, gugus kecil di lereng sangat teduh; tetangga Lambda median 0,89. H tidak NaN.
 - Dikerjakan: tanpa Lambda dan Rn24 <= 0 diisi 0; ETact negatif dinaikkan ke 0; tanpa Lambda dan Rn24 > 0 tetap NoData. Ditolak: mengisi Lambda dari tetangga (tidak berdasar fisik pada Rn24 negatif).
 - Zip: landsat_processor_v100.zip.
+
+## v101: BT MODIS dan LST SCM MODIS
+- Keputusan pengguna: ET MODIS ditunda; validasi ET digabung ke menu Validasi yang ada (penyamaan resolusi dilakukan manual pengguna). Lanjut ke LST MODIS: BT di MODIS L1B dulu, lalu SCM, lalu MCM.
+- Rumus pengguna "Ts = b/1+alog(((lambda*b)/rho)*b0)" ditafsirkan sebagai Artis & Carnahan Pers. 3/4: Ts = Tb/(1 + (lambda Tb/rho) ln eps). Bentuk harfiah salah (prioritas operator dan ln dipasang pada hasil kali) dan lambda 11.030 (um) dengan rho 0.01438 (m K) tidak sepadan; lambda dikonversi ke meter. Contoh Tb 300 K, eps 0.98: benar 301.40 K, harfiah 312.33.
+- Diterapkan di core/modis.py (mode "bt"), core/modis_lst.py, gui/modis_lst_page.py, core.lst.scm_artis_carnahan(wavelength_um). Ditolak: BT untuk band selain 31/32 (band 20 dsb. punya kontribusi surya siang hari, belum divalidasi).
+- Terbuka: lambda pusat tunggal vs respons detektor (sampai 0,11 K); emisivitas harus se-grid dengan BT MODIS (1 km), belum ada resampling otomatis; MCM MODIS belum dibangun.

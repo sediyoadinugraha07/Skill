@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-14 | claude-code | Landsat Processor v101: BT di MODIS L1B, menu MODIS LST (SCM Artis & Carnahan) | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-14 | claude-code | Landsat Processor v100: ETact24 Bandara tanpa NoData di lereng teduh | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-14 | claude-code | Landsat Processor v99: batas 20 W/m2 tetap, fallback piksel kering wilayah lain | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-14 | claude-code | Landsat Processor v98: peta basah disembunyikan, Lambda mentah, banding Waters | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
