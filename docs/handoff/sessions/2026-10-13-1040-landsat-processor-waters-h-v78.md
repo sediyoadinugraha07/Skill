@@ -136,3 +136,11 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Manual tidak konsisten: Zsur 10 vs 100 m, k 0,4 vs 0,41, T' = (T0 - Tz)/2, U*eff tanpa 1/k, m1 dan m2 tidak diberikan, rah2 dan rah3 ada di manual tetapi tidak diterapkan di aplikasi (keputusan 2026-10-12).
 - Belum diputuskan: apakah menjalankan rah2/rah3 dan dT2/H2 sesuai manual hlm. 122-132; apakah Ta RL turun memakai Ts_DEM; ambang kering 310 K dan albedo 0,18.
 - Zip: landsat_processor_v90.zip
+
+## Tambahan: uji rah2 dan rah3 Bandara (tanpa perubahan kode aplikasi)
+- Pengguna: Ta RL turun tetap LST - 3; m1 dan m2 setara a dan b NOAA (z0m = exp(a + b NDVI)); k 0,41; ingin NOAA (Chemin dan Ahmad; Chandrapala) dan Landsat (Bandara) dipadukan; minta rah2 dan rah3 diuji sebelum pengguna menjalankan di aplikasi (PDF H_Bandara.pdf berisi rah1 NOAA/Landsat saja; rah2 dan rah3 dari Hitungan_H.pdf hlm. 122-132).
+- Rantai uji (skrip di scratchpad sim/run25.py dan run27.py): RL naik Ts_DEM, RL turun LST - 3, Rn topo hari (rata-rata 622), G Bandara, rho Senay. Hasil: piksel kering 28.005, rah_kering 93 s/m, L -1,8 m, rah1 rata-rata 330.
+- Temuan penting: piksel basah otomatis NDVI <= 0 memilih 648 piksel puncak gunung (DEM sekitar 2800 m), x_basah 319,8 K > x_kering 312,3 K, sehingga aplikasi akan berhenti dengan galat selisih x. Sungai/laut tidak ada (laut dimasker). Perlu keputusan jangkar basah.
+- Koreksi pernyataan sebelumnya: dT besar (66 sampai 109 K) bukan sendirinya cacat ET, karena H_kering = Rn - G ditetapkan; yang menentukan ET adalah rasio rah antar piksel. dT besar hanya membuat dT tidak bermakna sebagai selisih suhu.
+- Hasil ET24 (cold dT = 0 / cold 1,05 ETr): Landsat 5,18 / 4,31; NOAA U*eff 4,87 / 4,00; Waters v88 4,50. Bandara dengan dT = 0 pada vegetasi rapat: ET > 1,1 PET pada 22,8 sampai 29,8 persen piksel. U*eff polinomial NOAA mentah 0,572 terpotong ke batas 0,45 (turunan albedo positif).
+- Belum diputuskan: definisi jangkar basah; implementasi rah2 dan rah3 di aplikasi; apakah memakai U*eff NOAA.
