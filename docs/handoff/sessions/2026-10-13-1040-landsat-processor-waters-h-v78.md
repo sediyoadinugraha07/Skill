@@ -106,3 +106,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: pembatasan REL_MAX ad hoc dan penyetelan faktor agar cocok; dipilih alasan fisika (ETrF 24 jam).
 - Belum diverifikasi: ux sebenarnya pada proses pengguna (u200 4,45 setara ux ~2,06 pada zx 1,2 m, bukan 2,47 atau 3,05); validasi lapangan; efek LST jam citra pada H.
 - Zip: landsat_processor_v86.zip
+
+## Tambahan v87 (Excel angin, Excel Rn topo, saringan lereng jangkar dingin)
+- Temuan: u200 = 4,4476 di Excel pengguna sesuai ux 2,47 x faktor 1,235 = 3,05 pada zx = 10 m, h = 0,12 m, zom LAI (kotak centang tidak dicentang): pengaturan pengguna benar; dugaan saya sebelumnya (ux 2,06) keliru. Kolom zx pengguna berisi 10 m, sedangkan pengguna pernah menyebut alat sekitar 1,2 m (zx 1,2 memberi u200 6,58): perlu dikonfirmasi.
+- Keputusan pengguna: Excel menampilkan ux yang diketik; Rn sebelum dan sesudah topo di Excel; saringan lereng jangkar dingin boleh aktif hanya bila Rn dikoreksi topo. Dikerjakan semuanya (tag WIND_JSON, Excel Rn, tangga 10 dan 20 persen).
+- Ditolak: saringan lereng selalu aktif (mengubah hasil tanpa topo dan membingungkan).
+- Belum diverifikasi: ambang 10 dan 20 persen (asumsi), efek pada data asli pengguna (ditunggu pengguna menjalankan ulang).
+- Zip: landsat_processor_v87.zip
