@@ -231,3 +231,11 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Pv NDVI Threshold memakai NDVImin 0,2 dan NDVImax 0,5 tetap (definisi metode); Tahap A MODIS bawaan 0,2/0,5. Suku kekasaran C hanya Tang, hanya di piksel campuran, C = (1-es)(1-Pv)F*ev dengan F = 0,55 (Tang Pers. 7; di Landsat dipakai Fev = 0,55 sebagai satu simbol, selisih sekitar 1e-4).
 - Pers. 14/15 artikel menulis LSE10/LSE11 (sisa Landsat); dipakai e31/e32. Pers. 13 artikel salah ketik "(a4+a5W)/(1-e)"; dipakai (a4+a5W)(1-e) dari Sobrino 2003.
 - Terbuka: reflektansi TOA vs permukaan untuk rumus Tang/Sobrino; konstanta air/salju Tang belum ada; MCM lain (Qin, Mao, Becker-Li, Wan-Dozier, Coll) belum dibangun.
+
+## v105: MCM Qin et al. di MODIS LST
+
+- Permintaan: MCM ke-2 = Qin, sesuai artikel rujukan dan Qin 2001 (sudah diunggah sebelumnya); identifikasi input; luaran satu raster LST Qin.
+- Keputusan: input = BT31, BT32, e31, e32 (per band, bukan mean/delta seperti Sobrino), W (raster atau nilai). tau otomatis dari W lewat Mao et al. 2005 Pers. 8 (tanda eksponen diperiksa pada gambar halaman PDF Mao dan terhadap Tabel 2 Mao). L = B/(dB/dT) dalam Kelvin dari Planck pada c2/lambda, diregresikan terhadap BT sampel acak; tidak butuh radiance.
+- Ditolak: mengikuti teks artikel 2026 apa adanya (C = e/tau, E0 tanpa minus, L = regresi radiance). Dasar: Qin 2001 Pers. 21, 32, 15, 20. Laporan regresi Excel seperti di Landsat tidak dibuat, karena pengguna meminta luaran hanya satu citra LST; koefisien regresi disimpan di tag GeoTIFF dan dilaporkan di GUI.
+- Pemeriksaan: model maju Planck (Ta = Ts - 8 K) memulihkan Ts dalam 0.1 K untuk W 1 sampai 4; ini menguji aljabar dan L, bukan akurasi lapangan.
+- Terbuka: artikel melaporkan MCM Qin kurang dari MOD11A2 sekitar 14 K; penyebab pada data artikel belum diketahui (kandidat: W, L, emisivitas, BT dari radiance L1B); belum diuji pada granule nyata. tau Mao hanya sahih pada rentang simulasi Mao. Satu rentang suhu regresi (tanpa opsi rentang ganda seperti Landsat). MCM lain (Mao, Becker-Li, Wan-Dozier, Coll) belum dibangun.
