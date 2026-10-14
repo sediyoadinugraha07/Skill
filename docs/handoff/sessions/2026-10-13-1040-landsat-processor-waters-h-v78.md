@@ -144,3 +144,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Koreksi pernyataan sebelumnya: dT besar (66 sampai 109 K) bukan sendirinya cacat ET, karena H_kering = Rn - G ditetapkan; yang menentukan ET adalah rasio rah antar piksel. dT besar hanya membuat dT tidak bermakna sebagai selisih suhu.
 - Hasil ET24 (cold dT = 0 / cold 1,05 ETr): Landsat 5,18 / 4,31; NOAA U*eff 4,87 / 4,00; Waters v88 4,50. Bandara dengan dT = 0 pada vegetasi rapat: ET > 1,1 PET pada 22,8 sampai 29,8 persen piksel. U*eff polinomial NOAA mentah 0,572 terpotong ke batas 0,45 (turunan albedo positif).
 - Belum diputuskan: definisi jangkar basah; implementasi rah2 dan rah3 di aplikasi; apakah memakai U*eff NOAA.
+
+## Tambahan v91 (Bandara tahap 3 dikerjakan)
+- Permintaan pengguna: perbaiki L (hlm. 20), terapkan rah2 dan rah3; kolom yang dihitung aplikasi disembunyikan dan dicatat di Excel gaya Waters; tampilkan hanya masukan dari citra dan masukan manual yang benar-benar perlu (angin hanya bila perlu).
+- Keputusan: Bandara tanpa angin stasiun (u* = U*eff dari citra); hv opsional (kosong = Chandrapala -5,5/5,8); jangkar basah otomatis air, fallback vegetasi dengan 1,05 ETr (adaptasi Waters); L stabil memakai Webb; |L| >= 0,5 m.
+- Ditolak: NDVI <= 0 tanpa saringan (memilih puncak gunung); dT = 0 pada vegetasi (ET > 1,1 PET di 23 sampai 30 persen piksel).
+- Hasil simulasi: ET24 4,11 (Waters v88 4,50); belum ada validasi lapangan.
+- Zip: landsat_processor_v91.zip. Berikutnya: pengguna menjalankan pada data asli dan memeriksa Excel _H_bandara_iterasi; menu ET24 untuk Bandara belum menerima ETr dari tab 3 secara otomatis.
