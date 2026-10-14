@@ -151,3 +151,10 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: NDVI <= 0 tanpa saringan (memilih puncak gunung); dT = 0 pada vegetasi (ET > 1,1 PET di 23 sampai 30 persen piksel).
 - Hasil simulasi: ET24 4,11 (Waters v88 4,50); belum ada validasi lapangan.
 - Zip: landsat_processor_v91.zip. Berikutnya: pengguna menjalankan pada data asli dan memeriksa Excel _H_bandara_iterasi; menu ET24 untuk Bandara belum menerima ETr dari tab 3 secara otomatis.
+
+## Tambahan v92 dan v93
+- v92: Bandara tanpa ETr; titik basah dT = 0; garis dT dua titik y = a + b x. Keputusan pengguna: Chemin tidak mengadopsi Waters.
+- v93: galat jangkar basah di data pengguna diganti tangga fallback (air, vegetasi rapat, vegetasi tertinggi, terdingin). ET24 Bandara baru (tab 4 menu ET24): Lambda, Kexo24 (Excel pengguna), Rn24 = (1 - alpha) K24 + RL24, ET24 = Rn24/(L rho_w) 86400 1000, ETact24 = ET24 x Lambda.
+- Temuan: manual Chemin hlm. 148 MEMBAGI rho_w (1000), bukan mengalikan; rumus pengguna dengan Pw = 1 tidak dipakai. Manual Landsat 7 memakai Rn24 = (1 - alpha) K24 - 110 tau_sw; pengguna memilih RL24 citra. Ksun Excel 1367 (manual 1358).
+- Rho Chemin (persamaan Pakistan, P dan e stasiun) dibanding Senay (3,486 P/(1,01 T)): selisih <= 0,5% untuk e 15 sampai 35 mbar; rho aplikasi tetap Senay dan Januar (P dari DEM, Allen).
+- Zip: landsat_processor_v93.zip. Berikutnya: pengguna menjalankan pada data asli.
