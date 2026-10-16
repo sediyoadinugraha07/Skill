@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-16 | claude-code | Landsat Processor v114: validasi interpolasi ke menu Validasi, CA-Markov disederhanakan | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-16 | claude-code | Landsat Processor v113: menu Prediksi Lahan (CA-Markov) | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-16 | claude-code | Landsat Processor v112: Interpolasi dengan shapefile, rerata otomatis, validasi, luaran raster + Excel | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-16 | claude-code | Landsat Processor v111: menu Interpolasi (resolusi) | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
