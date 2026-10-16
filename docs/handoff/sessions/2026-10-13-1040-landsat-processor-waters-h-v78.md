@@ -283,3 +283,12 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Temuan: Tahap A menghitung Pv dengan mengkuadratkan NDVI yang belum dijepit; dengan ambang tetap 0.2 dan 0.5, NDVI rendah (air) memberi Pv sampai 1. Diperbaiki dengan menjepit NDVI dulu. Pv lama dengan ambang tetap perlu dihitung ulang.
 - Ditolak: membuang ρ1 sepenuhnya (menyalahi sumber Sobrino 2008); menanyakan pengguna dulu (maksud sudah jelas dari artikel).
 - Terbuka: ρ1 L1B adalah TOA, Sobrino memakai reflektansi permukaan.
+
+
+## v111: menu Interpolasi (resolusi)
+
+- Permintaan (2026-10-16): menu terpisah Interpolasi; piksel jadi titik lalu diinterpolasi; resolusi target manual untuk penyamaan resolusi antar citra.
+- Keputusan: enam metode berbasis titik (Nearest, TIN linear, TIN kubik, IDW, Ordinary Kriging lokal, TPS lokal) dengan scipy dan numpy saja (pykrige tidak ada). Celah tidak diisi (batas 1.5 piksel). Validasi silang opsional.
+- Ditolak: Natural Neighbor (tidak ada di scipy); metode raster biasa (bilinear, cubic) sebagai metode utama karena pengguna meminta alur titik; agregasi rerata blok tidak dibuat meski lebih tepat untuk resolusi lebih kasar (hanya diperingatkan).
+- Pemeriksaan: 9 uji (akurasi terhadap fungsi sebenarnya, eksak pada resolusi sama, celah, rentang nilai, variogram, GUI). Mekanisme metode dari pengetahuan klasik (Shepard 1968, Matheron 1963, Duchon 1977, Clough-Tocher 1965) dan dokumentasi scipy; makalah primer tidak dibuka ulang di sesi ini.
+- Terbuka: belum diuji pada citra nyata; untuk penyamaan ke resolusi lebih kasar, rerata blok mungkin lebih sesuai; tile untuk raster sangat besar belum ada.
