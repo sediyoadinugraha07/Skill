@@ -274,3 +274,12 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: Pers. 41 artikel apa adanya (tanda W); memakai Pv Tahap A untuk Sobrino (ambang 0.2 dan 0.5 bisa berbeda dari Tahap A bila diubah); koefisien Tasseled Cap OLI dari Wikipedia dan geetools (brightness berbeda dan tidak cocok dengan dua sumber lain).
 - Pemeriksaan: suite 374 lolos. Model maju Coll bias kurang dari 3 K pada atmosfer sintetis (bukan validasi). Koefisien Tasseled Cap dicocokkan pada dua sumber sekunder per sensor.
 - Terbuka: makalah primer Baig 2014 dan Lobser-Cohen 2007 belum dibaca; Landsat 9 dianggap setara Landsat 8; MODIS L1B (TOA) vs koefisien NBAR; W Coll memakai W vertikal, Galve W jalur; belum diuji pada granule nyata; pengecekan Qin terhadap MOD11A2 tetap ditunda.
+
+
+## v110: Sobrino MODIS dari Pv Tahap A
+
+- Permintaan (2026-10-16): mengapa Sobrino meminta NDVI padahal yang dibutuhkan Pv; tidak sesuai artikel.
+- Keputusan: input = raster Pv Tahap A; ρ1 opsional untuk cabang tanah (Sobrino 2008 Tabel IV); tanpa ρ1 tanah tetap 0.984 dan 0.982 dengan peringatan. Tang tetap NDVI.
+- Temuan: Tahap A menghitung Pv dengan mengkuadratkan NDVI yang belum dijepit; dengan ambang tetap 0.2 dan 0.5, NDVI rendah (air) memberi Pv sampai 1. Diperbaiki dengan menjepit NDVI dulu. Pv lama dengan ambang tetap perlu dihitung ulang.
+- Ditolak: membuang ρ1 sepenuhnya (menyalahi sumber Sobrino 2008); menanyakan pengguna dulu (maksud sudah jelas dari artikel).
+- Terbuka: ρ1 L1B adalah TOA, Sobrino memakai reflektansi permukaan.
