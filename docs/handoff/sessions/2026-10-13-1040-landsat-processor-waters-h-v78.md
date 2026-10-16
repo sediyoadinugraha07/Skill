@@ -292,3 +292,12 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: Natural Neighbor (tidak ada di scipy); metode raster biasa (bilinear, cubic) sebagai metode utama karena pengguna meminta alur titik; agregasi rerata blok tidak dibuat meski lebih tepat untuk resolusi lebih kasar (hanya diperingatkan).
 - Pemeriksaan: 9 uji (akurasi terhadap fungsi sebenarnya, eksak pada resolusi sama, celah, rentang nilai, variogram, GUI). Mekanisme metode dari pengetahuan klasik (Shepard 1968, Matheron 1963, Duchon 1977, Clough-Tocher 1965) dan dokumentasi scipy; makalah primer tidak dibuka ulang di sesi ini.
 - Terbuka: belum diuji pada citra nyata; untuk penyamaan ke resolusi lebih kasar, rerata blok mungkin lebih sesuai; tile untuk raster sangat besar belum ada.
+
+
+## v112: Interpolasi dengan shapefile, rerata otomatis, validasi bertingkat
+
+- Permintaan (2026-10-16 17:11): raster penuh + shp; piksel di wilayah shp jadi titik termasuk tepi; grid mengikuti shp; rerata otomatis untuk rasio resolusi besar (mis. MODIS ke Landsat), tidak untuk resolusi sama; validasi blok 3x3 atau lain sebagai opsi, antar file utuh sebagai validasi; hapus k, pangkat, celah; luaran raster + Excel; tampilkan resolusi asli.
+- Keputusan: cincin 2 piksel di luar poligon sebagai titik; grid dari batas shp, disejajarkan ke raster pembanding bila resolusi dan CRS sama; rasio >= 2 memakai koreksi aditif rerata piksel asli (hanya piksel asli yang termuat penuh), rasio kasar >= 2 memakai agregasi rerata; variogram dipilih otomatis dari tiga model.
+- Ditolak: satu piksel utuh sebagai nilai tunggal (rerata lebih optimal, disetujui pengguna); koreksi pada piksel asli yang terpotong tepi grid (bias); validasi titik pada mode agregasi (tidak ada interpolasi); peta varians dan CSV sebagai luaran bawaan.
+- Pemeriksaan: 13 uji interpolasi, suite 390 lolos; MODIS 1 km ke 30 m sintetis R2 0,9998 (IDW) dan 0,99999 (TIN linear) terhadap kebenaran; 5 juta piksel 13 detik, 530 MB.
+- Terbuka: belum diuji pada granule MODIS nyata; koreksi aditif dapat mengubah rentang nilai (dijepit ke rentang sumber); Forecasting tetap diskusi, belum dibangun.
