@@ -301,3 +301,12 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: satu piksel utuh sebagai nilai tunggal (rerata lebih optimal, disetujui pengguna); koreksi pada piksel asli yang terpotong tepi grid (bias); validasi titik pada mode agregasi (tidak ada interpolasi); peta varians dan CSV sebagai luaran bawaan.
 - Pemeriksaan: 13 uji interpolasi, suite 390 lolos; MODIS 1 km ke 30 m sintetis R2 0,9998 (IDW) dan 0,99999 (TIN linear) terhadap kebenaran; 5 juta piksel 13 detik, 530 MB.
 - Terbuka: belum diuji pada granule MODIS nyata; koreksi aditif dapat mengubah rentang nilai (dijepit ke rentang sumber); Forecasting tetap diskusi, belum dibangun.
+
+
+## v113: menu Prediksi Lahan (CA-Markov)
+
+- Permintaan (2026-10-16 17:29): CA-Markov dari klasifikasi lahan, tiga tanggal T0, T1, T2, iterasi otomatis, metode dipilih pengguna (RF, ANN, CNN, KNN, dll.), variabel pendorong opsional, validasi lengkap (RMSE, MAE, MSE, ME, confusion matrix, sampel otomatis acak) ke Excel; tanya apakah NDVI/NDBI cocok.
+- Keputusan: tiga tanggal dipakai sebagai uji mundur (T0,T1 memprediksi T2) lalu prediksi dari T2; Markov menentukan jumlah, CA atau klasifikator menentukan lokasi; sampel latih berstrata per pasangan kelas; sampel validasi berstrata menurut kelas rujukan, confusion matrix seluruh piksel disediakan karena sampel berstrata bias; FoM dan pembanding tanpa perubahan wajib karena OA menyesatkan; indeks spektral boleh sebagai pendorong dengan peringatan kebocoran.
+- Ditolak: CNN (tidak ada torch di aplikasi, berat untuk Windows); tata ruang (permintaan pengguna); Natural Neighbor dll tidak terkait. Literatur yang benar-benar dibuka: ulasan AI untuk prediksi lahan (UGM), studi FLUS-ANN (MDPI Sustainability 13(18):10458, pendorong DEM, lereng, jarak jalan dan pusat kota, kendala air dan cagar), studi PLUS (Land 11(5):652, pendorong ekonomi, infrastruktur, medan, hidrologi). Penilaian RF dalam PLUS dan semua rumus Kappa/FoM/quantity-allocation dari ingatan (Pontius), belum diverifikasi ulang ke makalahnya.
+- Pemeriksaan: 13 tes baru, suite 403 lolos; data sintetis dengan aturan pertumbuhan terbangun terdekat jalan memberi FoM uji mundur 0,26 sampai 0,35. Skala 6,25 juta piksel RF 97 detik.
+- Terbuka: belum diuji pada klasifikasi nyata; stasioneritas diasumsikan; CNN, PLUS penuh (LEAS/CARS dengan benih patch) dan FLUS (inersia adaptif, roulette) belum ada; ME diartikan rerata galat (pengguna menulis MEE, perlu konfirmasi).
