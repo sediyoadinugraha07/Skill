@@ -265,3 +265,12 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Pemeriksaan: model maju Planck pada atmosfer sintetis memberi bias kurang dari 2 K dan RMSE kurang dari 1 K; itu bukan validasi koefisien.
 - Terbuka: b0-b7 perlu diverifikasi terhadap Wang et al. (artikel [94]) dan Wan (2014); koefisien Wan berbeda menurut rentang W, sudut, suhu, jadi satu set tetap mungkin menyimpang di lokasi lain; belum diuji pada granule nyata.
 - CATATAN: artikel rujukan membahas ENAM MCM (Sobrino, Qin, Mao, Becker-Li, Wan-Dozier, Coll). Pengguna menyebut Wan-Dozier metode terakhir, tetapi Coll (Galve et al. 2008 diunggah) belum dibangun; perlu konfirmasi pengguna apakah Coll dilewati.
+
+
+## v109: enam revisi (Indeks MODIS, Sobrino, Excel regresi, MCM Coll, ET Manual, Tasseled Cap)
+
+- Permintaan (2026-10-16): enam poin; berkas ET_Uji4.xlsx dan Coll dan Caselles 1997 diunggah.
+- Keputusan: menu indeks MODIS terpisah (13 indeks, reuse fungsi compute_* Landsat); Sobrino sudah NDVI plus rho1 di build ini, hanya teks diperjelas, tidak ada input Pv ditambah; Excel regresi Qin dari sampel citra, Mao dari titik Planck 273-322 K karena konstanta Mao tetap; Coll = Galve 2008 (diverifikasi pada gambar halaman, tanda De W berbeda dari Pers. 41 artikel); ET Manual: peringatan Tmax/Tmin kosong, tolak bila Tmean di luar [Tmin, Tmax]; Tasseled Cap tiga sensor.
+- Ditolak: Pers. 41 artikel apa adanya (tanda W); memakai Pv Tahap A untuk Sobrino (ambang 0.2 dan 0.5 bisa berbeda dari Tahap A bila diubah); koefisien Tasseled Cap OLI dari Wikipedia dan geetools (brightness berbeda dan tidak cocok dengan dua sumber lain).
+- Pemeriksaan: suite 374 lolos. Model maju Coll bias kurang dari 3 K pada atmosfer sintetis (bukan validasi). Koefisien Tasseled Cap dicocokkan pada dua sumber sekunder per sensor.
+- Terbuka: makalah primer Baig 2014 dan Lobser-Cohen 2007 belum dibaca; Landsat 9 dianggap setara Landsat 8; MODIS L1B (TOA) vs koefisien NBAR; W Coll memakai W vertikal, Galve W jalur; belum diuji pada granule nyata; pengecekan Qin terhadap MOD11A2 tetap ditunda.
