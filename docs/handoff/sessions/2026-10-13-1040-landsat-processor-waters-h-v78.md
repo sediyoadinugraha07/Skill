@@ -310,3 +310,11 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Ditolak: CNN (tidak ada torch di aplikasi, berat untuk Windows); tata ruang (permintaan pengguna); Natural Neighbor dll tidak terkait. Literatur yang benar-benar dibuka: ulasan AI untuk prediksi lahan (UGM), studi FLUS-ANN (MDPI Sustainability 13(18):10458, pendorong DEM, lereng, jarak jalan dan pusat kota, kendala air dan cagar), studi PLUS (Land 11(5):652, pendorong ekonomi, infrastruktur, medan, hidrologi). Penilaian RF dalam PLUS dan semua rumus Kappa/FoM/quantity-allocation dari ingatan (Pontius), belum diverifikasi ulang ke makalahnya.
 - Pemeriksaan: 13 tes baru, suite 403 lolos; data sintetis dengan aturan pertumbuhan terbangun terdekat jalan memberi FoM uji mundur 0,26 sampai 0,35. Skala 6,25 juta piksel RF 97 detik.
 - Terbuka: belum diuji pada klasifikasi nyata; stasioneritas diasumsikan; CNN, PLUS penuh (LEAS/CARS dengan benih patch) dan FLUS (inersia adaptif, roulette) belum ada; ME diartikan rerata galat (pengguna menulis MEE, perlu konfirmasi).
+
+
+## v114: validasi interpolasi ke menu Validasi; CA-Markov disederhanakan
+
+- Permintaan (2026-10-16 17:54): validasi interpolasi dipindah ke menu Validasi; interpolasi hanya input dan hasil. CA-Markov: rantai T0,T1 ke T2 prediksi (dibanding T2 asli), T1,T2 ke Tprediksi, T1,T2 prediksi ke Tprediksi 2 (dibanding Tprediksi); hapus kolom abaikan, kelas tetap, matriks prediksi, benih acak; satu kolom sampel total dengan pembagian latih/validasi otomatis; template sampel manual csv/xlsx; iterasi wajib disimpan.
+- Keputusan: tab baru di Validasi (titik acak, blok, antar file); interpolasi tetap punya raster acuan opsional untuk menyejajarkan kisi; kelas tetap otomatis dari aliran nol pada kedua periode; matriks terbaru; benih tetap; porsi validasi 1/(1+akar(p)) dijepit 20 sampai 40 persen (Joseph 2022, basis lemah, ditandai); sampel manual boleh membawa kelas rujukan lapangan.
+- Ditolak: menebak porsi 70/30 sebagai 'optimal' tanpa dasar; menghapus raster acuan penyejajaran (berguna untuk validasi antar citra); memilih matriks rerata dua periode otomatis (tanpa bukti).
+- Terbuka: tafsir 'Tprediksi 2' perlu konfirmasi pengguna; rumus Joseph belum diverifikasi ke makalah (abstrak ringkasan menulis p:1); belum diuji pada klasifikasi nyata.
