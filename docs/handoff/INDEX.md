@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-20 | claude-code | Landsat Processor v118: viewer umum, statistik, grafik korelasi, resolusi acuan, bahasa en/zh | berlanjut | sessions/2026-10-20-2215-landsat-processor-v118-viewer-umum-i18n.md |
 | 2026-10-20 | claude-code | Landsat Processor v116-v117: klasifikasi terawasi (7 metode) dan OBIA | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-20 | claude-code | Landsat Processor v115: klasifikasi hibrida, Viewer, menu bar, akurasi klasifikasi | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
 | 2026-10-16 | claude-code | Landsat Processor v114: validasi interpolasi ke menu Validasi, CA-Markov disederhanakan | berlanjut | sessions/2026-10-13-1040-landsat-processor-waters-h-v78.md |
