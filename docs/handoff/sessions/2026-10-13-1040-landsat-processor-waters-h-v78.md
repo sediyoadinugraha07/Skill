@@ -328,3 +328,13 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Uji sintetis: keenam metode memulihkan 4 kelas dengan kemurnian > 98 persen; silhouette memuncak di K benar. Belum diuji pada citra nyata.
 - Belum diverifikasi: rujukan algoritma (MacQueen, Ball-Hall, Bezdek, dll) dari ingatan; ambang JM 1,0 dan 1,9 aturan praktis; penaksir berbobot luas Olofsson dari ingatan.
 - Terbuka: Viewer memakai band pertama sebagai latar bila masukan beberapa file satu band; Tprediksi 2 CA-Markov masih tafsiran saya.
+
+
+## v116 dan v117: klasifikasi terawasi dan OBIA (2026-10-20)
+- Permintaan: tambahkan metode maximum likelihood, minimum distance, SVM, SAM, Mahalanobis, parallelepiped, dan OBIA, bertahap, dengan acuan mekanisme yang sudah dibangun.
+- v116: `core/supervised.py` (7 metode, sampel dari shapefile/tabel titik/klaster berlabel, pemisahan uji per poligon, perbandingan metode, Excel), `gui/supervised_page.py`. `write_class_raster` dipakai bersama.
+- v117: `core/obia.py` (segmentasi SLIC dan Felzenszwalb, fitur objek, `cluster_objects`, `run_obia_supervised`), `gui/obia_page.py`, layer batas objek di `gui/viewer.py`. `package_clusters` diekstrak dari `run_clustering` agar klasterisasi objek memakai skema klaster dan alur pelabelan yang sama. scikit-image masuk requirements.
+- Keputusan: pemisahan latih/uji per poligon agar tidak bocor spasial; SLIC dijalankan tanpa parameter mask (60 kali lebih lambat) lalu dipotong dengan mask dan dipecah per komponen terhubung; klaster objek dilatih dari sampel berpeluang sebanding luas; kode kelas diberikan saat penerapan.
+- Ditolak: meniru multiresolution segmentation eCognition (tidak ada implementasi terbuka yang setara), ambang SAM/MLC (semua piksel dikelaskan kecuali parallelepiped), CNN.
+- Uji: suite penuh lolos; sintetis 2000x2000x6: SLIC 7 detik, SVM piksel 96 detik, puncak memori 1,2 GB. Belum diuji pada citra nyata; kompaktness SLIC (0,1/0,5/2,0) belum diuji pada data nyata.
+- Terbuka: rujukan algoritma dari ingatan; Viewer memakai band pertama sebagai latar untuk masukan banyak berkas; OBIA di atas 25 juta piksel ditolak.
