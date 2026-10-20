@@ -318,3 +318,13 @@ Metode Waters untuk H: rho dan rah tentatif, dT dari dua jangkar pada Ts_DEM, it
 - Keputusan: tab baru di Validasi (titik acak, blok, antar file); interpolasi tetap punya raster acuan opsional untuk menyejajarkan kisi; kelas tetap otomatis dari aliran nol pada kedua periode; matriks terbaru; benih tetap; porsi validasi 1/(1+akar(p)) dijepit 20 sampai 40 persen (Joseph 2022, basis lemah, ditandai); sampel manual boleh membawa kelas rujukan lapangan.
 - Ditolak: menebak porsi 70/30 sebagai 'optimal' tanpa dasar; menghapus raster acuan penyejajaran (berguna untuk validasi antar citra); memilih matriks rerata dua periode otomatis (tanpa bukti).
 - Terbuka: tafsir 'Tprediksi 2' perlu konfirmasi pengguna; rumus Joseph belum diverifikasi ke makalah (abstrak ringkasan menulis p:1); belum diuji pada klasifikasi nyata.
+
+
+## v115: Klasifikasi Multispektral hibrida, Viewer, menu bar (2026-10-20)
+- Permintaan: klasifikasi hibrida (aplikasi mengelompokkan, pengguna memeriksa lalu menamai kelas), jendela viewer, menu bar, menu tambahan.
+- Dibangun: `core/classification.py` (enam metode klaster, ISODATA sendiri, JM, saran K, apply_labels, majority, sieve, penghalusan RF), `core/classification_report.py`, `core/classification_accuracy.py`, `gui/viewer.py`, `gui/classification_page.py`, `gui/classification_accuracy_tab.py`, menu bar di `MainWindow`, tab Akurasi Klasifikasi di Validasi. `_read_window` menerima `band`.
+- Keputusan: klaster dilatih pada sampel 200 ribu piksel; kode kelas otomatis ditetapkan saat penerapan (bukan saat mengetik); nama sama berarti digabung; 0 dicadangkan untuk tanpa data; Viewer menolak CRS berbeda.
+- Ditolak: CNN/deep learning (tidak ada torch), klasifikasi terawasi penuh (di luar permintaan), reproyeksi otomatis di Viewer.
+- Uji sintetis: keenam metode memulihkan 4 kelas dengan kemurnian > 98 persen; silhouette memuncak di K benar. Belum diuji pada citra nyata.
+- Belum diverifikasi: rujukan algoritma (MacQueen, Ball-Hall, Bezdek, dll) dari ingatan; ambang JM 1,0 dan 1,9 aturan praktis; penaksir berbobot luas Olofsson dari ingatan.
+- Terbuka: Viewer memakai band pertama sebagai latar bila masukan beberapa file satu band; Tprediksi 2 CA-Markov masih tafsiran saya.
