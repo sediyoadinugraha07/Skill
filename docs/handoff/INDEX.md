@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-25 | claude-code | Landsat Processor v124: perbaikan galat numpy.dtype size changed, pemeriksa lingkungan Python | berlanjut | sessions/2026-10-25-2200-landsat-processor-v124-envcheck.md |
 | 2026-10-25 | claude-code | Landsat Processor v123: Forecasting tabel ML (regresi, klasifikasi, deret waktu), Excel, konfusi, interpolasi | berlanjut | sessions/2026-10-25-2100-landsat-processor-v123-forecasting.md |
 | 2026-10-25 | claude-code | Landsat Processor v122: pengambilan sampel (plot) ML/DL dari raster dan vektor, keluaran Excel | berlanjut | sessions/2026-10-25-2130-landsat-processor-v122-sampel-plot.md |
 | 2026-10-25 | claude-code | Landsat Processor v121: menu Layout peta untuk jurnal (multi-panel, grid, legenda, toponimi) | berlanjut | sessions/2026-10-25-2000-landsat-processor-v121-layout.md |
