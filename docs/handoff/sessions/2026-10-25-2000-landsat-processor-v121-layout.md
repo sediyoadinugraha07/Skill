@@ -16,6 +16,13 @@ Menu Layout mandiri untuk menyusun peta hasil (1 atau banyak raster) menjadi gam
 - Keluaran TPI kini menulis tag CLASS_NAMES, CLASS_NAMES_EN, LAYER_LABEL, UNITS agar legenda otomatis.
 - Legenda kelas dikelompokkan per panel bila set kelas berbeda (percobaan pertama mencampur dua peta, ditolak karena menyesatkan).
 
+## Perbaikan lanjutan v121 (permintaan pengguna 19:29)
+- Legenda otomatis melabeli ujung min dan maks (batas dibulatkan ke angka rapi, bisa dimatikan); manual: selang, daftar, rentang, genap/ganjil.
+- Skala batang ditulis ulang dalam mm; diuji terhadap panjang cetak (toleransi 3%) untuk CRS geografis dan UTM; panjang tak wajar diganti otomatis dengan peringatan. Penyebab batang hilang: isian meter.
+- 9 model panah utara; ukuran font dan jarak huruf label perairan; penempatan nama khusus (hanya nama terpilih, posisi klik, nama bebas).
+- UTM negatif: raster Landsat L2 Bali berada di EPSG:32650 (zona utara), northing asli -843.885 sampai -1.075.515 m; bukan salah tafsir. Label +10.000.000 m secara bawaan, data tidak diubah.
+- Ditolak: kotak putih di belakang panah utara (menutup data); diganti halo pada huruf N.
+
 ## Yang ditolak atau gagal
 - Shapefile Bali_desa punya koordinat Z: LineCollection gagal, diperbaiki dengan memotong ke XY.
 - Ukuran piksel Agg dibulatkan ke bawah: size_px kini dibaca dari canvas.
