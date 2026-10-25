@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-25 | claude-code | Landsat Processor v121: menu Layout peta untuk jurnal (multi-panel, grid, legenda, toponimi) | berlanjut | sessions/2026-10-25-2000-landsat-processor-v121-layout.md |
 | 2026-10-25 | claude-code | Landsat Processor v120: TPI dan klasifikasi bentuklahan dari DEM (Advanced Analysis) | berlanjut | sessions/2026-10-25-1800-landsat-processor-v120-tpi.md |
 | 2026-10-24 | claude-code | Landsat Processor v119: pemindai folder multi-temporal dan kalibrasi atmosfer (tau) dengan Excel | berlanjut | sessions/2026-10-24-1700-landsat-processor-v119-kalibrasi-atmosfer.md |
 | 2026-10-20 | claude-code | Landsat Processor v118: viewer umum, statistik, grafik korelasi, resolusi acuan, bahasa en/zh | berlanjut | sessions/2026-10-20-2215-landsat-processor-v118-viewer-umum-i18n.md |
