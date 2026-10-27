@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-27 | claude-code | Landsat Processor v127: Forecasting disederhanakan (auto_setup), grafik Excel dapat disunting | berlanjut | sessions/2026-10-27-1400-landsat-processor-v127-forecasting-sederhana.md |
 | 2026-10-27 | claude-code | Landsat Processor v126: bagian 3. Sampel disederhanakan, metode/alokasi/strata/seed otomatis, split dipindah ke Forecasting | berlanjut | sessions/2026-10-27-1300-landsat-processor-v126-sampel-sederhana.md |
 | 2026-10-25 | claude-code | Landsat Processor v125: aplikasi gagal start karena pyarrow dan numpy 2; blokir paket opsional rusak, halaman rusak terisolasi | berlanjut | sessions/2026-10-25-2300-landsat-processor-v125-pyarrow.md |
 | 2026-10-25 | claude-code | Landsat Processor v124: perbaikan galat numpy.dtype size changed, pemeriksa lingkungan Python | berlanjut | sessions/2026-10-25-2200-landsat-processor-v124-envcheck.md |
