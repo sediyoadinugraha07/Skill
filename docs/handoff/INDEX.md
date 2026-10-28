@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-28 | claude-code | Landsat Processor v131: analisis FCD (AVI, BI, SI, TI, VD, SSI, FCD) dengan tab per masukan dan Excel | berlanjut | sessions/2026-10-28-1800-landsat-processor-v131-fcd.md |
 | 2026-10-28 | claude-code | Landsat Processor v130: deteksi nol juga pada raster ber-NoData terdeklarasi (raster SOC asli) | berlanjut | sessions/2026-10-28-1130-landsat-processor-v130-nol-nodata-terdeklarasi.md |
 | 2026-10-28 | claude-code | Landsat Processor v129: shapefile batas interpolasi, nol sebagai tanpa data, penjaga fitur bocor | berlanjut | sessions/2026-10-28-1100-landsat-processor-v129-batas-shp-nol-bocor.md |
 | 2026-10-28 | claude-code | Landsat Processor v128: indeks BSI (Vegetation Index) dan analisis TWI (Advanced Analysis) | berlanjut | sessions/2026-10-28-0930-landsat-processor-v128-bsi-twi.md |
