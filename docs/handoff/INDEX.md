@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-28 | claude-code | Landsat Processor v129: shapefile batas interpolasi, nol sebagai tanpa data, penjaga fitur bocor | berlanjut | sessions/2026-10-28-1100-landsat-processor-v129-batas-shp-nol-bocor.md |
 | 2026-10-28 | claude-code | Landsat Processor v128: indeks BSI (Vegetation Index) dan analisis TWI (Advanced Analysis) | berlanjut | sessions/2026-10-28-0930-landsat-processor-v128-bsi-twi.md |
 | 2026-10-27 | claude-code | Landsat Processor v127: Forecasting disederhanakan (auto_setup), grafik Excel dapat disunting | berlanjut | sessions/2026-10-27-1400-landsat-processor-v127-forecasting-sederhana.md |
 | 2026-10-27 | claude-code | Landsat Processor v126: bagian 3. Sampel disederhanakan, metode/alokasi/strata/seed otomatis, split dipindah ke Forecasting | berlanjut | sessions/2026-10-27-1300-landsat-processor-v126-sampel-sederhana.md |
