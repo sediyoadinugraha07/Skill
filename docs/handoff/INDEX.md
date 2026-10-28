@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-10-28 | claude-code | Landsat Processor v133: tab Terapan LST dan analisis (atmosfer kalibrasi untuk LST, Excel berumus, PNG, LOSO) | berlanjut | sessions/2026-10-28-2030-landsat-processor-v133-terapan-lst.md |
 | 2026-10-28 | claude-code | Landsat Processor v132: koreksi FCD (normalisasi per citra, SSI linear) dan modul Tajuk dan LAI (foto fisheye/biasa, kalibrasi NDVI) | berlanjut | sessions/2026-10-28-1900-landsat-processor-v132-fcd-koreksi-tajuk-lai.md |
 | 2026-10-28 | claude-code | Landsat Processor v131: analisis FCD (AVI, BI, SI, TI, VD, SSI, FCD) dengan tab per masukan dan Excel | berlanjut | sessions/2026-10-28-1800-landsat-processor-v131-fcd.md |
 | 2026-10-28 | claude-code | Landsat Processor v130: deteksi nol juga pada raster ber-NoData terdeklarasi (raster SOC asli) | berlanjut | sessions/2026-10-28-1130-landsat-processor-v130-nol-nodata-terdeklarasi.md |
