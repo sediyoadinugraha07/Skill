@@ -31,3 +31,8 @@ Tab 2 (Terapan LST dan analisis): ganti kolom folder emisivitas dengan menu meto
 1. Pengguna menjalankan tab 2 pada data Bali dan melaporkan log.
 2. Fase 2: metode MCM dengan band 11 dari Level 1.
 3. Fitur uji laut SST setelah pengguna mengirim daftar berkas dan paket tanggal.
+
+## Tambahan (sesi yang sama)
+- v136: pyproj dibuang dari tab 2 dan tab 3 (penyebab kegagalan tab 2 di mesin pengguna), diganti rasterio.warp.
+- v137: core/libradtran_setup.py dan tombol pasang/tes libRadtran di tab 3 (jalur WSL belum diuji di Windows).
+- Aturan pengguna: setiap perubahan memakai nomor versi baru berurutan (v138 dst), jangan menimpa nama zip yang sama; zip lama bernama v135 sudah memuat v136 dan v137.
