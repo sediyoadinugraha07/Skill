@@ -1,0 +1,33 @@
+---
+date: 2026-11-04 14:20
+source: claude-code
+topic: landsat-processor-v135-tab2-emisivitas-metode
+status: berlanjut
+---
+
+## Tujuan
+Tab 2 (Terapan LST dan analisis): ganti kolom folder emisivitas dengan menu metode emisivitas yang dihitung aplikasi, tambah menu metode LST (yang memakai uap air), dan tampilkan hasil LST metode Landsat berdampingan dengan LST atmosfer hasil kalibrasi.
+
+## Keputusan dan alasannya
+- Memakai ulang fungsi core.emissivity dan core.lst lewat modul baru core/atmo_lst_methods.py karena rumus harus sama dengan menu aslinya.
+- Metode LST fase 1 hanya satu band (JMS dengan tau Rozenstein dari W, Artis-Carnahan) karena produk L2 tidak punya band 11.
+- Fallback ke ST_EMIS bila SR_B4/SR_B5 tidak ada, dengan catatan per scene, agar proses tidak berhenti.
+- Folder emisivitas pengguna dipertahankan sebagai salah satu pilihan menu (kompatibel dengan versi lama).
+
+## Yang ditolak atau gagal
+- Metode multi-kanal (Skokovic, Qin, Mao) ditunda karena butuh band 11 dari Level 1 (pemindaian L1 dan MTL L1 belum ada).
+
+## Hasil nyata
+- Berkas: core/atmo_lst_methods.py, core/atmo_lst.py, core/atmo_lst_report.py, gui/atmo_calib_page.py, tests/test_atmo_lst_methods.py, README v135, zip landsat_processor_v135.zip.
+- Sheet baru: Emisivitas_Metode, Metode_LST, Sampel_Metode (rumus hidup), Grafik_Metode; Cek_Rumus lolos di LibreOffice.
+- Uji: 29 lolos, 2 dilewati (rtm + lst + methods).
+
+## Belum terverifikasi
+- Jalur W dari ERA5 di tab 2 belum diuji dengan ERA5 nyata.
+- Jalur WSL (tab 3) belum diuji di Windows.
+- Uji pada data nyata Bali oleh pengguna belum ada.
+
+## Langkah berikutnya
+1. Pengguna menjalankan tab 2 pada data Bali dan melaporkan log.
+2. Fase 2: metode MCM dengan band 11 dari Level 1.
+3. Fitur uji laut SST setelah pengguna mengirim daftar berkas dan paket tanggal.
