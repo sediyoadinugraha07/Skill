@@ -37,3 +37,4 @@ Tab 2 (Terapan LST dan analisis): ganti kolom folder emisivitas dengan menu meto
 - v137: core/libradtran_setup.py dan tombol pasang/tes libRadtran di tab 3 (jalur WSL belum diuji di Windows).
 - Aturan pengguna: setiap perubahan memakai nomor versi baru berurutan (v138 dst), jangan menimpa nama zip yang sama; zip lama bernama v135 sudah memuat v136 dan v137.
 - v138: wsl -l -q timeout 30 dtk pada mesin pengguna; panggilan wsl kini stdin kosong, tanpa jendela konsol, batas 150 dtk, pesan perbaikan jelas. Penyebab pasti belum terverifikasi.
+- v139: configure libRadtran gagal "Could not find NetCDF" di Ubuntu pengguna (gcc/gfortran 15); pemasang kini memasang libnetcdf-dev, netcdf-bin, python3 dan memeriksa nc-config sebelum configure. Build selanjutnya di WSL pengguna belum terkonfirmasi.
