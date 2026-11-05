@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-05 | claude-code | Landsat Processor v147: pilihan normalisasi TEI (min-max atau persentil; per scene, seluruh scene, manual) | berlanjut | sessions/2026-11-05-1700-landsat-processor-v147-normalisasi-tei.md |
 | 2026-11-05 | claude-code | Landsat Processor v146: tab TEI di Advanced Analysis (TEI asli, normalisasi, tiga kelas, regresi ET-elevasi, lapse LST, Excel) | berlanjut | sessions/2026-11-05-1630-landsat-processor-v146-tei.md |
 | 2026-11-05 | claude-code | Landsat Processor v144-v145: galat ERA5 tab 3 (ERA5 hanya profil tekanan) dan turunan permukaan sebagai cadangan | berlanjut | sessions/2026-11-05-1150-landsat-processor-v144-v145-era5-permukaan.md |
 | 2026-11-05 | claude-code | Landsat Processor v143: tab 2 menambah metode LST multi-kanal (MCM) dari band 10 dan 11 Level 1 | berlanjut | sessions/2026-11-05-1100-landsat-processor-v143-tab2-mcm.md |
