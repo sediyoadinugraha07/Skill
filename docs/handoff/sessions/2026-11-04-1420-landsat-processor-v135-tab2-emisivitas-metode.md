@@ -38,3 +38,4 @@ Tab 2 (Terapan LST dan analisis): ganti kolom folder emisivitas dengan menu meto
 - Aturan pengguna: setiap perubahan memakai nomor versi baru berurutan (v138 dst), jangan menimpa nama zip yang sama; zip lama bernama v135 sudah memuat v136 dan v137.
 - v138: wsl -l -q timeout 30 dtk pada mesin pengguna; panggilan wsl kini stdin kosong, tanpa jendela konsol, batas 150 dtk, pesan perbaikan jelas. Penyebab pasti belum terverifikasi.
 - v139: configure libRadtran gagal "Could not find NetCDF" di Ubuntu pengguna (gcc/gfortran 15); pemasang kini memasang libnetcdf-dev, netcdf-bin, python3 dan memeriksa nc-config sebelum configure. Build selanjutnya di WSL pengguna belum terkonfirmasi.
+- v140: configure ke-2 gagal "Did not find GSL"; pemasang menambah libgsl-dev, pkg-config dan memeriksa gsl-config. Build selanjutnya belum terkonfirmasi.
