@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-05 | claude-code | Landsat Processor v143: tab 2 menambah metode LST multi-kanal (MCM) dari band 10 dan 11 Level 1 | berlanjut | sessions/2026-11-05-1100-landsat-processor-v143-tab2-mcm.md |
 | 2026-11-04 | claude-code | Landsat Processor v135: tab 2 memakai menu Emisivitas (NBEM) dan metode LST (JMS tau Rozenstein, Artis-Carnahan) dibandingkan dengan LST atmosfer kalibrasi | berlanjut | sessions/2026-11-04-1420-landsat-processor-v135-tab2-emisivitas-metode.md |
 | 2026-10-29 | claude-code | Landsat Processor v134: tab Benchmark ERA5-RTM (libRadtran, tau/L_up/L_down vs USGS, regresi, Excel) | berlanjut | sessions/2026-10-29-1300-landsat-processor-v134-era5-rtm.md |
 | 2026-10-28 | claude-code | Landsat Processor v133: tab Terapan LST dan analisis (atmosfer kalibrasi untuk LST, Excel berumus, PNG, LOSO) | berlanjut | sessions/2026-10-28-2030-landsat-processor-v133-terapan-lst.md |
