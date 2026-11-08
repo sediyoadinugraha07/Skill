@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-08 | claude-code | Landsat Processor v149: perbaikan galat tab 3 (K1/K2 dari MTL.json berupa teks) dan penilaian status SST | berlanjut | sessions/2026-11-08-1750-landsat-processor-v149-mtl-json-k1k2.md |
 | 2026-11-05 | claude-code | Landsat Processor v148: tab Urban Sprawl (terbangun multi-indeks, uji GHSL, pola, entropi, pertumbuhan, penduduk dasimetrik, PGR/LCR/LCRPGR) | berlanjut | sessions/2026-11-05-1800-landsat-processor-v148-urban-sprawl.md |
 | 2026-11-05 | claude-code | Landsat Processor v147: pilihan normalisasi TEI (min-max atau persentil; per scene, seluruh scene, manual) | berlanjut | sessions/2026-11-05-1700-landsat-processor-v147-normalisasi-tei.md |
 | 2026-11-05 | claude-code | Landsat Processor v146: tab TEI di Advanced Analysis (TEI asli, normalisasi, tiga kelas, regresi ET-elevasi, lapse LST, Excel) | berlanjut | sessions/2026-11-05-1630-landsat-processor-v146-tei.md |
