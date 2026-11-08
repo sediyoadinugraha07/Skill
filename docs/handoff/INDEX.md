@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-08 | claude-code | Landsat Processor v150: tab Autokorelasi Spasial (Moran, Geary, LISA, Gi*, korelogram, bivariat; raster semua jenis data dan vektor) | berlanjut | sessions/2026-11-08-2130-landsat-processor-v150-autokorelasi-spasial.md |
 | 2026-11-08 | claude-code | Analisis SST tambahan, emisivitas 0,99 lawan ST_EMIS, toleransi waktu (tanpa perubahan aplikasi) | berlanjut | sessions/2026-11-08-1830-sst-emisivitas-waktu-analisis.md |
 | 2026-11-08 | claude-code | Landsat Processor v149: perbaikan galat tab 3 (K1/K2 dari MTL.json berupa teks) dan penilaian status SST | berlanjut | sessions/2026-11-08-1750-landsat-processor-v149-mtl-json-k1k2.md |
 | 2026-11-05 | claude-code | Landsat Processor v148: tab Urban Sprawl (terbangun multi-indeks, uji GHSL, pola, entropi, pertumbuhan, penduduk dasimetrik, PGR/LCR/LCRPGR) | berlanjut | sessions/2026-11-05-1800-landsat-processor-v148-urban-sprawl.md |
