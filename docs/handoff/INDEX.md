@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v155: tab Geostatistik (semivariogram, model, validasi silang LOO, kriging biasa) | berlanjut | sessions/2026-11-09-1500-landsat-processor-v155-geostatistik.md |
 | 2026-11-09 | claude-code | Landsat Processor v154: jalur Level 1 multi-temporal (pilihan metode per tahap, LST, ET24 Bandara, TEI) | berlanjut | sessions/2026-11-09-1400-landsat-processor-v154-jalur-level1.md |
 | 2026-11-09 | claude-code | Landsat Processor v153: ET Bandara multi-temporal dari Level 2 (tabel angin per tanggal, satu tinggi vegetasi) lanjut TEI | berlanjut | sessions/2026-11-09-1300-landsat-processor-v153-et-bandara-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v152: TEI multi-temporal, pemilih sumber LST otomatis dari satu folder (tab 2 dan menu LST) | berlanjut | sessions/2026-11-09-1230-landsat-processor-v152-tei-multitemporal.md |
