@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v168: Cloud dan Region Masking multi-temporal disederhanakan (dua folder, mask di masks/, referensi opsional) | berlanjut | sessions/2026-11-09-1900-landsat-processor-v168-cloud-region-disederhanakan.md |
 | 2026-11-09 | claude-code | Landsat Processor v167: radiometrik dan atmosferik multi-temporal disederhanakan (satu kolom folder .tar, kelompok band, DOS dari hasil reflektansi, peringatan reflektansi terpotong) | berlanjut | sessions/2026-11-09-1830-landsat-processor-v167-radiometrik-atmosferik-sederhana.md |
 | 2026-11-09 | claude-code | Landsat Processor v166: LST multi-temporal dengan pilihan lima metode (SCM-AC, JMS, MCM Skokovic, Qin, Mao), atmosfer dari tabel per tanggal | berlanjut | sessions/2026-11-09-1730-landsat-processor-v166-lst-multitemporal-pilih-metode.md |
 | 2026-11-09 | claude-code | Landsat Processor v165: ET24 Bandara multi-temporal dari Level 1 (reflektansi TOA, emisivitas v164, LST katalog, angin tabel) | berlanjut | sessions/2026-11-09-1640-landsat-processor-v165-et-level1-multitemporal.md |
