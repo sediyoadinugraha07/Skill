@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v157: perbaikan tabrakan nama v156 (Interpolasi Citra lama pulih; Interpolasi Spasial pindah ke spatial_interp*) | selesai | sessions/2026-11-09-1700-landsat-processor-v157-perbaikan-tabrakan-nama.md |
 | 2026-11-09 | claude-code | Landsat Processor v156: tab Interpolasi Spasial (nn, TIN, IDW, RBF, kriging; validasi blok spasial) | berlanjut | sessions/2026-11-09-1600-landsat-processor-v156-interpolasi-spasial.md |
 | 2026-11-09 | claude-code | Landsat Processor v155: tab Geostatistik (semivariogram, model, validasi silang LOO, kriging biasa) | berlanjut | sessions/2026-11-09-1500-landsat-processor-v155-geostatistik.md |
 | 2026-11-09 | claude-code | Landsat Processor v154: jalur Level 1 multi-temporal (pilihan metode per tahap, LST, ET24 Bandara, TEI) | berlanjut | sessions/2026-11-09-1400-landsat-processor-v154-jalur-level1.md |
