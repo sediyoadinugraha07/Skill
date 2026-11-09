@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v176: MODIS Uap Air dan Emisivitas multi-temporal | berlanjut | sessions/2026-11-09-2048-landsat-processor-v176-modis-uapair-emisivitas-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v175: MODIS Cloud, Region, dan Indeks multi-temporal | berlanjut | sessions/2026-11-09-2025-landsat-processor-v175-modis-cloud-region-index-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v174: Perbaikan BT/LST multi-temporal: radiance bernama ..._radiance_masked_clipped.tif kini dikenali | berlanjut | sessions/2026-11-09-2300-landsat-processor-v174-perbaikan-nama-radiance-bt-lst.md |
 | 2026-11-09 | claude-code | Landsat Processor v173: MODIS multi-temporal L1B dan Level 2 (tombol folder, hasil per granul) | berlanjut | sessions/2026-11-09-2230-landsat-processor-v173-modis-multitemporal-l1b-l2.md |
