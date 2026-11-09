@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v164: Emisivitas multi-temporal bertahap (cek band, NDVI, Pv, NBEM, Mean dan Delta) + perbaikan gulir tab Satu scene | berlanjut | sessions/2026-11-09-2330-landsat-processor-v164-emisivitas-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v163: Brightness Temperature multi-temporal (menu LST, Landsat 8/9) | berlanjut | sessions/2026-11-09-2300-landsat-processor-v163-brightness-temperature-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v162: Region Masking multi-temporal (shapefile administrasi, pilih unit lewat atribut, persen piksel valid) | berlanjut | sessions/2026-11-09-2200-landsat-processor-v162-region-masking-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v161: Cloud Masking multi-temporal, pratinjau semua scene dan tahap hanya-mask | berlanjut | sessions/2026-11-09-2100-landsat-processor-v161-cloud-pratinjau-tahap.md |
