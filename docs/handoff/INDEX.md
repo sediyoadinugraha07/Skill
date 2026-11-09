@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v171: Sistem Koordinat multi-temporal (tombol folder per scene, hasil per scene, nama berkas tetap) | berlanjut | sessions/2026-11-09-2100-landsat-processor-v171-sistem-koordinat-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v170: Emisivitas multi-temporal dari folder NDVI, skala NDVI di masukan, hapus cek hitung ulang | berlanjut | sessions/2026-11-09-2030-landsat-processor-v170-emisivitas-disederhanakan.md |
 | 2026-11-09 | claude-code | Landsat Processor v169: Vegetation Index multi-temporal (band dikenali dari nama, 12 index, keluarga band dipilih, VCI dikecualikan) | berlanjut | sessions/2026-11-09-2000-landsat-processor-v169-vegetation-index-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v168: Cloud dan Region Masking multi-temporal disederhanakan (dua folder, mask di masks/, referensi opsional) | berlanjut | sessions/2026-11-09-1900-landsat-processor-v168-cloud-region-disederhanakan.md |
