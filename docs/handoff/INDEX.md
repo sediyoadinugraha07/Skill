@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v152: TEI multi-temporal, pemilih sumber LST otomatis dari satu folder (tab 2 dan menu LST) | berlanjut | sessions/2026-11-09-1230-landsat-processor-v152-tei-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v151: tab Validasi SST (atmosfer USGS, kalibrasi, ERA5-RTM lawan SST kulit GHRSST; saringan sudut pindai) | berlanjut | sessions/2026-11-09-1200-landsat-processor-v151-validasi-sst.md |
 | 2026-11-08 | claude-code | Landsat Processor v150: tab Autokorelasi Spasial (Moran, Geary, LISA, Gi*, korelogram, bivariat; raster semua jenis data dan vektor) | berlanjut | sessions/2026-11-08-2130-landsat-processor-v150-autokorelasi-spasial.md |
 | 2026-11-08 | claude-code | Analisis SST tambahan, emisivitas 0,99 lawan ST_EMIS, toleransi waktu (tanpa perubahan aplikasi) | berlanjut | sessions/2026-11-08-1830-sst-emisivitas-waktu-analisis.md |
