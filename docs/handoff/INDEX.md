@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v159: Koreksi Atmosferik multi-temporal Level 1 (DOS Chavez, SHV antar tanggal, masker SHV opsional) | berlanjut | sessions/2026-11-09-1900-landsat-processor-v159-atmosferik-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v158: Koreksi Radiometrik multi-temporal Level 1 (satu folder; fungsi sama dengan menu satu scene) | berlanjut | sessions/2026-11-09-1800-landsat-processor-v158-radiometrik-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v157: perbaikan tabrakan nama v156 (Interpolasi Citra lama pulih; Interpolasi Spasial pindah ke spatial_interp*) | selesai | sessions/2026-11-09-1700-landsat-processor-v157-perbaikan-tabrakan-nama.md |
 | 2026-11-09 | claude-code | Landsat Processor v156: tab Interpolasi Spasial (nn, TIN, IDW, RBF, kriging; validasi blok spasial) | berlanjut | sessions/2026-11-09-1600-landsat-processor-v156-interpolasi-spasial.md |
