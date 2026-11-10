@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v179: ET multi-temporal L1: tabel angin per citra, lapse, topografi, RL24, Excel tiap tahap | berlanjut | sessions/2026-11-09-1130-landsat-processor-v179-et-l1-wind-topo.md |
 | 2026-11-09 | claude-code | Landsat Processor v178: Landsat L2 multi-temporal, tab LST ke-3 dilepas, kolom tanggal dihapus | berlanjut | sessions/2026-11-09-0830-landsat-processor-v178-l2-multi-lst-tabs.md |
 | 2026-11-09 | claude-code | Landsat Processor v177: LST multi-temporal dari folder hasil (SCM/MCM, Level 2, uap air MODIS) | berlanjut | sessions/2026-11-09-2105-landsat-processor-v177-lst-multi-folder.md |
 | 2026-11-09 | claude-code | Landsat Processor v176: MODIS Uap Air dan Emisivitas multi-temporal | berlanjut | sessions/2026-11-09-2048-landsat-processor-v176-modis-uapair-emisivitas-multitemporal.md |
