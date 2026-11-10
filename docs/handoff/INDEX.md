@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v182: ET MODIS Bandara satu granul (tahap 2) | berlanjut | sessions/2026-11-09-1845-landsat-processor-v182-et-modis-bandara.md |
 | 2026-11-09 | claude-code | Landsat Processor v181: Metadata MODIS (tahap 1 ET MODIS) | berlanjut | sessions/2026-11-09-1801-landsat-processor-v181-metadata-modis.md |
 | 2026-11-09 | claude-code | Landsat Processor v180: Perbaikan validasi SST: tanpa pyproj (rasterio.warp) | berlanjut | sessions/2026-11-09-1650-landsat-processor-v180-sst-no-pyproj.md |
 | 2026-11-09 | claude-code | Landsat Processor v179: ET multi-temporal L1: tabel angin per citra, lapse, topografi, RL24, Excel tiap tahap | berlanjut | sessions/2026-11-09-1130-landsat-processor-v179-et-l1-wind-topo.md |
