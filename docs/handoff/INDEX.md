@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v188: Identitas visual GeoSpectra: logo Opsi 1, ilustrasi Opsi 4, ikon .ico, layar pembuka | berlanjut | sessions/2026-11-09-1104-landsat-processor-v188-identitas-visual-geospectra.md |
 | 2026-11-09 | claude-code | Landsat Processor v187: Nama aplikasi GeoSpectra (judul jendela, Tentang, kredit laporan, README, spec) | berlanjut | sessions/2026-11-09-1018-landsat-processor-v187-nama-geospectra.md |
 | 2026-11-09 | claude-code | Landsat Processor v186: ET MODIS Waters (satu granul dan multi-temporal) dan Metadata MODIS sadar wilayah studi | berlanjut | sessions/2026-11-09-1005-landsat-processor-v186-waters-modis-metadata-wilayah.md |
 | 2026-11-09 | claude-code | Landsat Processor v185: Pengenalan berkas MODIS .nc dan nama tidak baku | berlanjut | sessions/2026-11-09-0955-landsat-processor-v185-modis-nc-ident.md |
