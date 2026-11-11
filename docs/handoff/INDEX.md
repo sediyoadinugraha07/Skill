@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v190: logo E3 diterapkan, nama institusi dihapus dari tampilan | berlanjut | sessions/2026-11-09-1650-landsat-processor-v190-logo-e3-tanpa-institusi.md |
 | 2026-11-09 | claude-code | Landsat Processor v189: pasangan uap air MODIS lentur (tanggal sama, terdekat, rata-rata) pada LST multi-temporal | berlanjut | sessions/2026-11-09-1530-landsat-processor-v189-pasangan-w-lst-multi.md |
 | 2026-11-09 | claude-code | Landsat Processor v188: Identitas visual GeoSpectra: logo Opsi 1, ilustrasi Opsi 4, ikon .ico, layar pembuka | berlanjut | sessions/2026-11-09-1104-landsat-processor-v188-identitas-visual-geospectra.md |
 | 2026-11-09 | claude-code | Landsat Processor v187: Nama aplikasi GeoSpectra (judul jendela, Tentang, kredit laporan, README, spec) | berlanjut | sessions/2026-11-09-1018-landsat-processor-v187-nama-geospectra.md |
