@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v186: ET MODIS Waters (satu granul dan multi-temporal) dan Metadata MODIS sadar wilayah studi | berlanjut | sessions/2026-11-09-1005-landsat-processor-v186-waters-modis-metadata-wilayah.md |
 | 2026-11-09 | claude-code | Landsat Processor v185: Pengenalan berkas MODIS .nc dan nama tidak baku | berlanjut | sessions/2026-11-09-0955-landsat-processor-v185-modis-nc-ident.md |
 | 2026-11-09 | claude-code | Landsat Processor v184: Indeks kekeringan SPI dan SPEI multi-temporal | berlanjut | sessions/2026-11-09-0935-landsat-processor-v184-spi-spei-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v183: ET MODIS Bandara multi-temporal (tahap 3) | berlanjut | sessions/2026-11-09-1925-landsat-processor-v183-et-modis-multitemporal.md |
