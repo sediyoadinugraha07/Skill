@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v184: Indeks kekeringan SPI dan SPEI multi-temporal | berlanjut | sessions/2026-11-09-0935-landsat-processor-v184-spi-spei-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v183: ET MODIS Bandara multi-temporal (tahap 3) | berlanjut | sessions/2026-11-09-1925-landsat-processor-v183-et-modis-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v182: ET MODIS Bandara satu granul (tahap 2) | berlanjut | sessions/2026-11-09-1845-landsat-processor-v182-et-modis-bandara.md |
 | 2026-11-09 | claude-code | Landsat Processor v181: Metadata MODIS (tahap 1 ET MODIS) | berlanjut | sessions/2026-11-09-1801-landsat-processor-v181-metadata-modis.md |
