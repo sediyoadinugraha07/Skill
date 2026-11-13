@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v195: Tab 2: SCM dan MCM memakai tau kalibrasi, status metode, aturan W otomatis | berlanjut | sessions/2026-11-09-1620-landsat-processor-v195-atmo-scm-mcm-calibrated-tau.md |
 | 2026-11-09 | claude-code | Landsat Processor v194: Kalibrasi atmosfer tab 2: LST Level 1 terpisah, pengisian W, sistem koordinat hasil | berlanjut | sessions/2026-11-09-1245-landsat-processor-v194-atmo-l1-wfill-crs.md |
 | 2026-11-09 | claude-code | Landsat Processor v193: TEI multi-temporal membaca LST pipeline Level 1 dan ET Bandara | berlanjut | sessions/2026-11-09-1707-landsat-processor-v193-tei-l1-multitemporal.md |
 | 2026-11-09 | claude-code | Landsat Processor v192: Menu Sentinel > S2 L1C (TOA, MSK_CLASSI, DOS, banding L2A) | berlanjut | sessions/2026-11-09-0611-landsat-processor-v192-sentinel-l1c.md |
