@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v199: rho11 tercatat di Ringkasan_Level1.xlsx | berlanjut | sessions/2026-11-09-1115-landsat-processor-v199-rho11-excel.md |
 | 2026-11-09 | claude-code | Landsat Processor v198: uji band 11 dan MCM terhadap SST, rho11 tetap di tab 2 | berlanjut | sessions/2026-11-09-1425-landsat-processor-v198-uji-band11-sst.md |
 | 2026-11-09 | claude-code | Landsat Processor v197: tau band 11 MCM Qin/Mao dipaskan dari kalibrasi, tanpa Rozenstein | berlanjut | sessions/2026-11-09-1810-landsat-processor-v197-tau11-fit-from-calibration.md |
 | 2026-11-09 | claude-code | Landsat Processor v196: Jalur Level 1 tidak mati karena DOS, status jujur, opsi elevasi DEM | berlanjut | sessions/2026-11-09-1710-landsat-processor-v196-l1-dos-fallback-status-dem-option.md |
