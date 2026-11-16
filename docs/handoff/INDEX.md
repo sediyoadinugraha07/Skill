@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v201: tab 3 diperbaiki: W rata-rata di AOI, kontrol sendiri, Level 2 opsional | berlanjut | sessions/2026-11-09-1740-landsat-processor-v201-tab3-perbaikan.md |
 | 2026-11-09 | claude-code | Landsat Processor v200: tab 3 terapan LST dengan W uap air MODIS, batas piksel regresi W fleksibel | berlanjut | sessions/2026-11-09-1700-landsat-processor-v200-tab3-w-uap-air-modis.md |
 | 2026-11-09 | claude-code | Landsat Processor v199: rho11 tercatat di Ringkasan_Level1.xlsx | berlanjut | sessions/2026-11-09-1115-landsat-processor-v199-rho11-excel.md |
 | 2026-11-09 | claude-code | Landsat Processor v198: uji band 11 dan MCM terhadap SST, rho11 tetap di tab 2 | berlanjut | sessions/2026-11-09-1425-landsat-processor-v198-uji-band11-sst.md |
