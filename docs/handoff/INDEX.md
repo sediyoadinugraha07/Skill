@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v203: perbaikan galat memori reproyeksi: pengaman resolusi dan penulisan per blok | berlanjut | sessions/2026-11-09-1900-landsat-processor-v203-perbaikan-resolusi-reproyeksi.md |
 | 2026-11-09 | claude-code | Landsat Processor v202: ERA5 sebagai sumber W tab 3 (Nugraha, ERA5 terkalibrasi, kombinasi) | berlanjut | sessions/2026-11-09-1815-landsat-processor-v202-era5-sumber-w.md |
 | 2026-11-09 | claude-code | Landsat Processor v201: tab 3 diperbaiki: W rata-rata di AOI, kontrol sendiri, Level 2 opsional | berlanjut | sessions/2026-11-09-1740-landsat-processor-v201-tab3-perbaikan.md |
 | 2026-11-09 | claude-code | Landsat Processor v200: tab 3 terapan LST dengan W uap air MODIS, batas piksel regresi W fleksibel | berlanjut | sessions/2026-11-09-1700-landsat-processor-v200-tab3-w-uap-air-modis.md |
