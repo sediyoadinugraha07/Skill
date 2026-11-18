@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v206: paket standar jurnal tab 4 dan tab 5 (per sensor L8, L9, gabungan; data asli lengkap) | berlanjut | sessions/2026-11-09-0930-landsat-processor-v206-paket-standar-jurnal-tab4-tab5.md |
 | 2026-11-09 | claude-code | Landsat Processor v205: paket bukti artikel: tabel transmitansi, regresi L, statistik dan peta LST dan LSE | berlanjut | sessions/2026-11-09-1805-landsat-processor-v205-paket-bukti.md |
 | 2026-11-09 | claude-code | Landsat Processor v204: rho11 cadangan bila tau10 mendekati 1 (W tanpa skala), MCM tetap jalan dengan peringatan | berlanjut | sessions/2026-11-09-1705-landsat-processor-v204-rho11-cadangan.md |
 | 2026-11-09 | claude-code | Landsat Processor v203: perbaikan galat memori reproyeksi: pengaman resolusi dan penulisan per blok | berlanjut | sessions/2026-11-09-1900-landsat-processor-v203-perbaikan-resolusi-reproyeksi.md |
