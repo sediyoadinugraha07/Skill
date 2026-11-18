@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-09 | claude-code | Landsat Processor v208: verifikasi tanda A0 MCM terhadap Qin 2001 dan Rozenstein 2014 (komentar kode, tanpa perubahan hitungan) | berlanjut | sessions/2026-11-09-1050-landsat-processor-v208-verifikasi-tanda-a0-qin.md |
 | 2026-11-09 | claude-code | Landsat Processor v207: paket standar jurnal TEI (data asli, statistik, validasi lapangan) | berlanjut | sessions/2026-11-09-1015-landsat-processor-v207-paket-standar-jurnal-tei.md |
 | 2026-11-09 | claude-code | Landsat Processor v206: paket standar jurnal tab 4 dan tab 5 (per sensor L8, L9, gabungan; data asli lengkap) | berlanjut | sessions/2026-11-09-0930-landsat-processor-v206-paket-standar-jurnal-tab4-tab5.md |
 | 2026-11-09 | claude-code | Landsat Processor v205: paket bukti artikel: tabel transmitansi, regresi L, statistik dan peta LST dan LSE | berlanjut | sessions/2026-11-09-1805-landsat-processor-v205-paket-bukti.md |
