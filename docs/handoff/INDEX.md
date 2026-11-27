@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-27 | claude-code | Landsat Processor v212: PYTHONPATH global dibuang dari sys.path; jendela galat memuat lokasi numpy | berlanjut | sessions/2026-11-27-1450-landsat-processor-v212-pythonpath.md |
 | 2026-11-27 | claude-code | Landsat Processor v211: python_path.txt menentukan Python yang dipakai main.py | berlanjut | sessions/2026-11-27-1425-landsat-processor-v211-python-path.md |
 | 2026-11-27 | claude-code | Landsat Processor v210: main.py memilih Python yang punya pustaka (perbaikan ModuleNotFoundError PySide6 saat dobel-klik) | berlanjut | sessions/2026-11-27-1140-landsat-processor-v210-pilih-python.md |
 | 2026-11-09 | claude-code | Landsat Processor v209: lapse dari citra, perbaikan ET nol di pegunungan dan LST tertinggi TEI | berlanjut | sessions/2026-11-09-1400-landsat-processor-v209-lapse-citra.md |
