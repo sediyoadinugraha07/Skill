@@ -4,6 +4,7 @@ Entri terbaru di atas. Format: `tanggal | sumber | topik | status | berkas`
 
 | Tanggal | Sumber | Topik | Status | Berkas |
 |---|---|---|---|---|
+| 2026-11-27 | claude-code | Landsat Processor v210: main.py memilih Python yang punya pustaka (perbaikan ModuleNotFoundError PySide6 saat dobel-klik) | berlanjut | sessions/2026-11-27-1140-landsat-processor-v210-pilih-python.md |
 | 2026-11-09 | claude-code | Landsat Processor v209: lapse dari citra, perbaikan ET nol di pegunungan dan LST tertinggi TEI | berlanjut | sessions/2026-11-09-1400-landsat-processor-v209-lapse-citra.md |
 | 2026-11-09 | claude-code | Landsat Processor v208: verifikasi tanda A0 MCM terhadap Qin 2001 dan Rozenstein 2014 (komentar kode, tanpa perubahan hitungan) | berlanjut | sessions/2026-11-09-1050-landsat-processor-v208-verifikasi-tanda-a0-qin.md |
 | 2026-11-09 | claude-code | Landsat Processor v207: paket standar jurnal TEI (data asli, statistik, validasi lapangan) | berlanjut | sessions/2026-11-09-1015-landsat-processor-v207-paket-standar-jurnal-tei.md |
